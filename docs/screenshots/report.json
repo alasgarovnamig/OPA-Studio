@@ -1,11 +1,11 @@
 {
- "version": "v0.39.0",
+ "version": "v0.40.0",
  "studio": {
   "commit": "release",
   "date": "2026-10-11T12:44:51Z",
-  "startedAt": "2026-10-11T12:44:52.849866549Z",
-  "targetOpaVersion": "v0.39.0",
-  "version": "v0.39.0"
+  "startedAt": "2026-10-11T12:44:52.837701799Z",
+  "targetOpaVersion": "v0.40.0",
+  "version": "v0.40.0"
  },
  "screens": [
   {
@@ -97,6 +97,11 @@
    "file": "18-api-console.webp",
    "title": "API Console",
    "description": "Any HTTP request against the OPA REST API with presets for every documented operation."
+  },
+  {
+   "file": "19-builtins.webp",
+   "title": "Built-in functions",
+   "description": "All built-in functions, future keywords and features reported by `opa capabilities`."
   },
   {
    "file": "20-compatibility.webp",
