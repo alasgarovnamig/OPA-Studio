@@ -1,11 +1,11 @@
 {
- "version": "v0.20.0",
+ "version": "v0.20.1",
  "studio": {
   "commit": "release",
   "date": "2026-10-11T12:40:39Z",
-  "startedAt": "2026-10-11T12:40:40.241202126Z",
-  "targetOpaVersion": "v0.20.0",
-  "version": "v0.20.0"
+  "startedAt": "2026-10-11T12:40:40.190983668Z",
+  "targetOpaVersion": "v0.20.1",
+  "version": "v0.20.1"
  },
  "screens": [
   {
