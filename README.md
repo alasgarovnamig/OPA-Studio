@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v0.56.0</code></h1>
+<h1 align="center">OPA Studio <code>v0.57.0</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.56.0">OPA v0.56.0</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.57.0">OPA v0.57.0</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.56.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2023--08--31-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20with%20future.keywords-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.57.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2023--09--28-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20with%20future.keywords-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v0.56.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.56.0) of OPA Studio and it targets **OPA v0.56.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v0.57.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.57.0) of OPA Studio and it targets **OPA v0.57.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.55.0">← v0.55.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.57.0">v0.57.0 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.56.0">← v0.56.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.57.1">v0.57.1 →</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.56.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.57.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v0.56.0 can do](#what-opa-v0560-can-do)
-- [What changed in OPA v0.56.0](#what-changed-in-opa-v0560)
+- [What OPA v0.57.0 can do](#what-opa-v0570-can-do)
+- [What changed in OPA v0.57.0](#what-changed-in-opa-v0570)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -31,26 +31,26 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Quick start
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.56.0
+docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.57.0
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v0.56.0 server, creates an example workspace and connects to it.
-Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v0.56.0 ships).
+Open <http://localhost:9080>. Studio starts a managed OPA v0.57.0 server, creates an example workspace and connects to it.
+Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v0.57.0 ships).
 
-Connect to your own OPA v0.56.0 server instead (or in addition):
+Connect to your own OPA v0.57.0 server instead (or in addition):
 
 ```bash
 docker run --rm -p 9080:9080 \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  ghcr.io/alasgarovnamig/opa-studio:v0.56.0
+  ghcr.io/alasgarovnamig/opa-studio:v0.57.0
 ```
 
-Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.56.0) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
+Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.57.0) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
 
-## What OPA v0.56.0 can do
+## What OPA v0.57.0 can do
 
-Measured by running the official OPA v0.56.0 binary (`016cb07ac95c`, go1.21.0). Studio enables exactly these features.
+Measured by running the official OPA v0.57.0 binary (`c2f42aa94ab4`, go1.21.1). Studio enables exactly these features.
 
 ### Rego dialect: Rego with `future.keywords`
 
@@ -106,7 +106,7 @@ reasons contains msg if {
 | `opa fmt` | Format Rego source files | 5 | Check & Format · Command Builder |
 | `opa inspect` | Inspect OPA bundle(s) | 3 | Bundles · Command Builder |
 | `opa parse` | Parse Rego source file | 3 | Parse & Deps · Command Builder |
-| `opa run` | Start OPA in interactive or server mode | 36 | Local OPA, REPL · Command Builder |
+| `opa run` | Start OPA in interactive or server mode | 37 | Local OPA, REPL · Command Builder |
 | `opa sign` | Generate an OPA bundle signature | 7 | Bundles · Command Builder |
 | `opa test` | Execute Rego test cases | 19 | Test · Command Builder |
 | `opa version` | Print the version of OPA | 2 | About · Command Builder |
@@ -302,6 +302,7 @@ reasons contains msg if {
 | `--shutdown-grace-period` | `int` | set the time (in seconds) that the server will wait to gracefully shut down (default 10) |
 | `--shutdown-wait-period` | `int` | set the time (in seconds) that the server will wait before initiating shutdown |
 | `--signing-alg` | `string` | name of the signing algorithm (default "RS256") |
+| `--skip-known-schema-check` | `bool` | disables type checking on known input schemas |
 | `--skip-verify` | `bool` | disables bundle signature verification |
 | `--tls-ca-cert-file` | `string` | set path of TLS CA cert file |
 | `--tls-cert-file` | `string` | set path of TLS certificate file |
@@ -356,7 +357,7 @@ reasons contains msg if {
 
 ### REST API
 
-| Capability | Endpoint | OPA v0.56.0 |
+| Capability | Endpoint | OPA v0.57.0 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -384,21 +385,21 @@ Every endpoint — including ones without a dedicated page — can be called fro
 
 ### Built-in functions
 
-`opa capabilities` reports **194 built-in functions** for this release; browse them on the **Built-ins** page.
+`opa capabilities` reports **195 built-in functions** for this release; browse them on the **Built-ins** page.
 
-## What changed in OPA v0.56.0
+## What changed in OPA v0.57.0
 
-Measured difference between OPA **v0.55.0** and **v0.56.0**:
+Measured difference between OPA **v0.56.0** and **v0.57.0**:
 
 | Change | Details |
 |---|---|
-| ➕ flags of `opa exec` | `--fail-non-empty` |
-| ➕ built-in functions | `numbers.range_step` |
+| ➕ flags of `opa run` | `--skip-known-schema-check` |
+| ➕ built-in functions | `uuid.parse` |
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
 
-**Support for General References in Rule Heads (Experimental)**
+**Support for General References in Rule Heads**
 
 
 **Converting a flat list of users to a mapping by "role" and then "id".**
@@ -410,43 +411,35 @@ Measured difference between OPA **v0.55.0** and **v0.56.0**:
 **Leaf entries can be multi-value.**
 
 
-**New Built-In Function: `numbers.range_step`**
-
-
-**New Ecosystem page on The Website**
-
-
 **Runtime, Tooling, SDK**
 
-- ast: Update strict error check message for unused args authored by @ashutosh-narkar
-- ast: Remove unnecessary nil check authored by @Juneezee
-- cmd: Make `opa test -z` fail with failing tests authored by @fdaguin
-- cmd: Fix `opa test` `--ignore` when used together with `--bundle` authored by @joaobrandt
-- cmd: Adding `--fail-non-empty` flag to `opa exec` authored by @Ronnie-personal
-- download: Add `opa_no_oci` flag to build without containerd authored by @slonka
-- download: Remove not required basedir for oci bundles & add test to verify signature verification authored by @gitu
-- fmt: Trim trailing whitespace in comments authored by @anderseknert
-- fmt: Remove dedup comment function in opa fmt authored by @anderseknert
-- runtime: Always read .tar.gz file provided in argument as a bundle authored by @yogisinha
-- server/authorizer: Inline readBody authored by @srenatus
-- test: Bind test server to localhost interface authored by @anderseknert
+- ast/runtime: Extend type checking for authz policies authored by @ashutosh-narkar
+- server: Add test case for bundle update - query API handler scenario authored by @ashutosh-narkar
 
 **Topdown and Rego**
 
+- ast: Accept short-form else bodies authored by @Ronnie-personal
+- plugins: Surface AWS authentication error details authored by @ashutosh-narkar
+- topdown: Builtin function to parse uuid with google/uuid library authored by @Od1nB
 
 **Miscellaneous**
 
+- ast: Add location to single entry rule head ref authored by @Ronnie-personal
+- ast: Add option to marshal location text authored by @charlieegan3
+- types: New algorithm for (Any).Union + new benchmarks authored by @philipaconrad
+- Updates to documentation and website authored by @charlieegan3
+- Dependency updates; notably:
 
-**Breaking changes**
+**Breaking Changes**
 
 
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.56.0
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.57.0
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v0.56.0` running against OPA `v0.56.0`.
+Every screenshot below was captured automatically from OPA Studio `v0.57.0` running against OPA `v0.57.0`.
 
 ### 1. Dashboard
 
@@ -662,7 +655,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.56.0 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.57.0 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -671,7 +664,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v0.56.0 for this release:
+Automated checks run against OPA v0.57.0 for this release:
 
 | Check | Result |
 |---|---|
@@ -688,11 +681,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v0.56.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
+git clone --branch v0.57.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v0.56.0 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v0.57.0 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.56.0
+make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.57.0
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -701,13 +694,13 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v0.53.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.53.1) | 2023-06-06 | Rego with `future.keywords` |
 | [v0.54.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.54.0) | 2023-06-29 | Rego with `future.keywords` |
 | [v0.55.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.55.0) | 2023-07-27 | Rego with `future.keywords` |
-| **v0.56.0** | 2023-08-31 | Rego with `future.keywords` |
-| [v0.57.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.57.0) | 2023-09-28 | Rego with `future.keywords` |
+| [v0.56.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.56.0) | 2023-08-31 | Rego with `future.keywords` |
+| **v0.57.0** | 2023-09-28 | Rego with `future.keywords` |
 | [v0.57.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.57.1) | 2023-10-18 | Rego with `future.keywords` |
 | [v0.58.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.58.0) | 2023-10-26 | Rego with `future.keywords` |
+| [v0.59.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.59.0) | 2023-11-30 | Rego with `import rego.v1` |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
