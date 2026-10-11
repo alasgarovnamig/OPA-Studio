@@ -7,7 +7,7 @@ var (
 	// with the exact OPA version it targets (e.g. v1.0.0 <-> OPA v1.0.0).
 	Version = "dev"
 	// OPAVersion is the OPA release this build targets and bundles.
-	OPAVersion = "v0.63.0"
+	OPAVersion = "v0.64.0"
 	// Commit is the git commit the binary was built from.
 	Commit = "unknown"
 	// Date is the build timestamp (RFC 3339).
