@@ -1,12 +1,12 @@
-# OPA Studio for OPA v0.1.0.
+# OPA Studio for OPA v0.2.0.
 #
 #   docker compose -f deploy/docker-compose.yml up
 #
-# OPA v0.1.0 has no `opa run --set` flag, so this release ships no agent example;
+# OPA v0.2.0 has no `opa run --set` flag, so this release ships no agent example;
 # connect existing OPA servers with OPA_STUDIO_CONNECTIONS.
 services:
   studio:
-    image: ghcr.io/alasgarovnamig/opa-studio:v0.1.0
+    image: ghcr.io/alasgarovnamig/opa-studio:v0.2.0
     ports:
       - "9080:9080"
     environment:
