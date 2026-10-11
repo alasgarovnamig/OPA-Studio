@@ -7,7 +7,7 @@
 # For OPA tags that were only published as Docker images (v0.13.1, v0.29.0,
 # v0.46.0) add --build-arg OPA_IMAGE=openpolicyagent/opa:<version without v>.
 
-ARG OPA_VERSION=v0.4.10
+ARG OPA_VERSION=v0.5.0
 ARG OPA_IMAGE=busybox:1.36.1
 
 FROM --platform=$BUILDPLATFORM node:20.18.1-bookworm-slim AS ui
