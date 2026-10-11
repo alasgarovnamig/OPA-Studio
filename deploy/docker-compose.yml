@@ -5,7 +5,7 @@
 services:
   studio:
     build: ..
-    image: opa-studio:v1.21.0
+    image: opa-studio:v1.21.1
     ports:
       - "9080:9080"
     environment:
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
 
   opa:
-    image: openpolicyagent/opa:1.21.0
+    image: openpolicyagent/opa:1.21.1
     command:
       - run
       - --server
