@@ -5,8 +5,8 @@
 services:
   studio:
     build: ..
-    image: opa-studio:v0.17.2
-    platform: linux/amd64 # OPA v0.17.2 ships no linux/arm64 binary
+    image: opa-studio:v0.17.3
+    platform: linux/amd64 # OPA v0.17.3 ships no linux/arm64 binary
     ports:
       - "9080:9080"
     environment:
@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
 
   opa:
-    image: openpolicyagent/opa:0.17.2
+    image: openpolicyagent/opa:0.17.3
     command:
       - run
       - --server
