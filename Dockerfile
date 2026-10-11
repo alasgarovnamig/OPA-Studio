@@ -10,7 +10,7 @@
 ARG OPA_VERSION=v1.21.1
 ARG OPA_IMAGE=busybox:1.36.1
 
-FROM --platform=$BUILDPLATFORM node:20.18.1-bookworm-slim AS ui
+FROM --platform=$BUILDPLATFORM node:26.10.0-bookworm-slim AS ui
 WORKDIR /src/web
 COPY web/package.json web/package-lock.json ./
 RUN npm ci --no-audit --no-fund
