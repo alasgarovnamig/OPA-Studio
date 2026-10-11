@@ -1,11 +1,11 @@
 {
- "version": "v0.27.1",
+ "version": "v0.28.0",
  "studio": {
   "commit": "release",
   "date": "2026-10-11T12:42:19Z",
-  "startedAt": "2026-10-11T12:42:20.227412964Z",
-  "targetOpaVersion": "v0.27.1",
-  "version": "v0.27.1"
+  "startedAt": "2026-10-11T12:42:20.268527964Z",
+  "targetOpaVersion": "v0.28.0",
+  "version": "v0.28.0"
  },
  "screens": [
   {
@@ -57,6 +57,11 @@
    "file": "10-health.webp",
    "title": "Health API",
    "description": "Health checks including bundle and plugin readiness and custom `system.health` policies."
+  },
+  {
+   "file": "11-config-status.webp",
+   "title": "Config & Status APIs",
+   "description": "The active runtime configuration and status of plugins and bundles."
   },
   {
    "file": "12-metrics.webp",
