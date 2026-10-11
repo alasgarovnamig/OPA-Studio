@@ -1,0 +1,165 @@
+name: Release
+
+# Builds and publishes the OPA Studio release for one OPA version:
+#   * multi-arch container image ghcr.io/<owner>/opa-studio:<tag> bundling the matching OPA binary
+#   * archives with opa-studio + opa for every OS/arch OPA ships binaries for
+#   * a GitHub release whose notes describe what changed in that OPA version
+#
+# Runs on tag pushes, manually (workflow_dispatch) and from backfill.yml (workflow_call).
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to (re)release, e.g. v1.0.0
+        required: true
+  workflow_call:
+    inputs:
+      tag:
+        type: string
+        required: true
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  TAG: ${{ inputs.tag || github.ref_name }}
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      platforms: ${{ steps.m.outputs.platforms }}
+      opa_image: ${{ steps.m.outputs.opa_image }}
+      binaries: ${{ steps.m.outputs.binaries }}
+      prerelease: ${{ steps.m.outputs.prerelease }}
+      latest: ${{ steps.m.outputs.latest }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - id: m
+        run: |
+          test "$(cat OPA_VERSION)" = "$TAG" || { echo "OPA_VERSION does not match $TAG"; exit 1; }
+          META=$(cd tools/release && python3 platforms.py "$TAG")
+          echo "$META"
+          for k in platforms opa_image prerelease latest; do
+            echo "$k=$(echo "$META" | python3 -c "import json,sys; v=json.load(sys.stdin)['$k']; print(str(v).lower() if isinstance(v,bool) else v)")" >> "$GITHUB_OUTPUT"
+          done
+          echo "binaries=$(echo "$META" | python3 -c 'import json,sys; print(json.dumps(json.load(sys.stdin)["binaries"]))')" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: meta
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go test ./...
+      - name: Integration tests against OPA ${{ env.TAG }}
+        run: |
+          mkdir -p bin
+          if [ -n "${{ needs.meta.outputs.opa_image }}" ]; then
+            docker create --platform linux/amd64 --name opa "${{ needs.meta.outputs.opa_image }}" && docker cp opa:/opa bin/opa
+          else
+            scripts/fetch-opa.sh "$TAG" linux amd64 bin/opa
+          fi
+          OPA_BIN=$PWD/bin/opa go test -v ./test/...
+
+  binaries:
+    needs: [meta, test]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: ${{ fromJSON(needs.meta.outputs.binaries) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build
+        env:
+          GOOS: ${{ matrix.target.os }}
+          GOARCH: ${{ matrix.target.arch }}
+        run: |
+          (cd web && npm ci --no-audit --no-fund && npm run build)
+          make build GOOS=$GOOS GOARCH=$GOARCH VERSION=$TAG
+          NAME=opa-studio_${TAG}_${GOOS}_${GOARCH}
+          mkdir -p "dist/$NAME"
+          EXT=""; [ "$GOOS" = windows ] && EXT=".exe"
+          cp bin/opa-studio "dist/$NAME/opa-studio$EXT"
+          if [ -n "${{ needs.meta.outputs.opa_image }}" ]; then
+            docker create --platform linux/amd64 --name opa "${{ needs.meta.outputs.opa_image }}" && docker cp opa:/opa "dist/$NAME/opa"
+          else
+            scripts/fetch-opa.sh "$TAG" "$GOOS" "$GOARCH" "dist/$NAME/opa$EXT"
+          fi
+          cp LICENSE README.md "dist/$NAME/"
+          cd dist
+          if [ "$GOOS" = windows ]; then zip -qr "$NAME.zip" "$NAME"; else tar -czf "$NAME.tar.gz" "$NAME"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bin-${{ matrix.target.os }}-${{ matrix.target.arch }}
+          path: dist/*.*z*
+
+  image:
+    needs: [meta, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        run: |
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          TAGS="-t ghcr.io/$OWNER/opa-studio:$TAG"
+          [ "${{ needs.meta.outputs.latest }}" = true ] && TAGS="$TAGS -t ghcr.io/$OWNER/opa-studio:latest"
+          docker buildx build --push --platform "${{ needs.meta.outputs.platforms }}" \
+            --build-arg OPA_VERSION="$TAG" --build-arg VERSION="$TAG" \
+            --build-arg COMMIT="$(git rev-parse HEAD)" --build-arg DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            ${{ needs.meta.outputs.opa_image && format('--build-arg OPA_IMAGE={0}', needs.meta.outputs.opa_image) || '' }} \
+            $TAGS .
+
+  release:
+    needs: [meta, binaries, image]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          (cd dist && sha256sum * > SHA256SUMS)
+          (cd tools/release && python3 notes.py "$TAG") > notes.md
+          FLAGS=""
+          [ "${{ needs.meta.outputs.prerelease }}" = true ] && FLAGS="--prerelease"
+          [ "${{ needs.meta.outputs.latest }}" = true ] && FLAGS="$FLAGS --latest" || FLAGS="$FLAGS --latest=false"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file notes.md --title "OPA Studio $TAG (OPA $TAG)"
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* --verify-tag --title "OPA Studio $TAG (OPA $TAG)" --notes-file notes.md $FLAGS
+          fi

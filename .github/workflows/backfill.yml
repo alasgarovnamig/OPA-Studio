@@ -1,0 +1,48 @@
+name: Backfill releases
+
+# Publishes images, archives and GitHub releases for many tags at once, e.g. after
+# all tags were pushed together (pushes of more than three tags do not trigger
+# tag workflows). Run it from the Actions tab.
+
+on:
+  workflow_dispatch:
+    inputs:
+      versions:
+        description: Comma separated tags, or "all"
+        required: true
+        default: all
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      tags: ${{ steps.l.outputs.tags }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          wanted = "${{ inputs.versions }}".strip()
+          tags = [e["tag"] for e in json.load(open("versions/opa-versions.json"))["versions"]]
+          if wanted != "all":
+              req = [t.strip() for t in wanted.split(",") if t.strip()]
+              tags = [t for t in tags if t in req]
+          print("tags=" + json.dumps(tags))
+          PY
+
+  release:
+    needs: list
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        tag: ${{ fromJSON(needs.list.outputs.tags) }}
+    uses: ./.github/workflows/release.yml
+    with:
+      tag: ${{ matrix.tag }}
+    secrets: inherit

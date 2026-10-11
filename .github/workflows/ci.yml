@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go vet ./...
+      - run: go test -race ./...
+      - name: Fetch the targeted OPA release
+        run: |
+          OPA_VERSION=$(cat OPA_VERSION)
+          META=$(cd tools/release && python3 platforms.py "$OPA_VERSION")
+          IMG=$(echo "$META" | python3 -c 'import json,sys; print(json.load(sys.stdin)["opa_image"])')
+          mkdir -p bin
+          if [ -n "$IMG" ]; then
+            docker create --platform linux/amd64 --name opa "$IMG" && docker cp opa:/opa bin/opa
+          else
+            scripts/fetch-opa.sh "$OPA_VERSION" linux amd64 bin/opa
+          fi
+      - name: Integration tests
+        run: OPA_BIN=$PWD/bin/opa go test -v ./test/...
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm audit --audit-level=high
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build image
+        run: |
+          OPA_VERSION=$(cat OPA_VERSION)
+          META=$(cd tools/release && python3 platforms.py "$OPA_VERSION")
+          IMG=$(echo "$META" | python3 -c 'import json,sys; print(json.load(sys.stdin)["opa_image"] or "busybox:1.36.1")')
+          docker buildx build --load --build-arg OPA_VERSION="$OPA_VERSION" --build-arg OPA_IMAGE="$IMG" -t opa-studio:ci .
+      - name: Smoke test
+        run: |
+          docker run -d --name studio -p 9080:9080 opa-studio:ci
+          for i in $(seq 1 30); do curl -fs localhost:9080/healthz && break; sleep 1; done
+          curl -fs localhost:9080/api/info | python3 -c 'import json,sys; d=json.load(sys.stdin); assert d["opa"]["available"], d; print(d["studio"], d["opa"])'
+          curl -fs -X POST localhost:9080/api/connections/local/test
