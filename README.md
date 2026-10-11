@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v1.8.0</code></h1>
+<h1 align="center">OPA Studio <code>v1.9.0</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v1.8.0">OPA v1.8.0</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v1.9.0">OPA v1.9.0</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-1.8.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2025--08--28-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-1.9.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2025--09--26-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v1.8.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.8.0) of OPA Studio and it targets **OPA v1.8.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v1.9.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.9.0) of OPA Studio and it targets **OPA v1.9.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.7.1">← v1.7.1</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.9.0">v1.9.0 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.8.0">← v1.8.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.10.0">v1.10.0 →</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v1.8.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v1.9.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v1.8.0 can do](#what-opa-v180-can-do)
-- [What changed in OPA v1.8.0](#what-changed-in-opa-v180)
+- [What OPA v1.9.0 can do](#what-opa-v190-can-do)
+- [What changed in OPA v1.9.0](#what-changed-in-opa-v190)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -31,26 +31,26 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Quick start
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v1.8.0
+docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v1.9.0
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v1.8.0 server, creates an example workspace and connects to it.
-Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v1.8.0 ships).
+Open <http://localhost:9080>. Studio starts a managed OPA v1.9.0 server, creates an example workspace and connects to it.
+Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v1.9.0 ships).
 
-Connect to your own OPA v1.8.0 server instead (or in addition):
+Connect to your own OPA v1.9.0 server instead (or in addition):
 
 ```bash
 docker run --rm -p 9080:9080 \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  ghcr.io/alasgarovnamig/opa-studio:v1.8.0
+  ghcr.io/alasgarovnamig/opa-studio:v1.9.0
 ```
 
-Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v1.8.0) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
+Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v1.9.0) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
 
-## What OPA v1.8.0 can do
+## What OPA v1.9.0 can do
 
-Measured by running the official OPA v1.8.0 binary (`78328267fb3f`, go1.24.6). Studio enables exactly these features.
+Measured by running the official OPA v1.9.0 binary (`c49e670294e4`, go1.25.1). Studio enables exactly these features.
 
 ### Rego dialect: Rego v1
 
@@ -381,7 +381,7 @@ reasons contains msg if {
 
 ### REST API
 
-| Capability | Endpoint | OPA v1.8.0 |
+| Capability | Endpoint | OPA v1.9.0 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -397,7 +397,7 @@ reasons contains msg if {
 | Query API — GET | `GET /v1/query?q=` | ✅ |
 | Query API — POST with input | `POST /v1/query` | ✅ |
 | Compile API — partial evaluation | `POST /v1/compile` | ✅ |
-| Compile API — data filtering (UCAST/SQL) | `POST /v1/compile/{path}` | — |
+| Compile API — data filtering (UCAST/SQL) | `POST /v1/compile/{path}` | ✅ |
 | Health API | `GET /health` | ✅ |
 | Health — bundles & plugins | `GET /health?bundles&plugins` | ✅ |
 | Health — custom live/ready policies | `GET /health/live, /health/ready` | ✅ |
@@ -411,52 +411,78 @@ Every endpoint — including ones without a dedicated page — can be called fro
 
 `opa capabilities` reports **201 built-in functions** for this release; browse them on the **Built-ins** page.
 
-## What changed in OPA v1.8.0
+## What changed in OPA v1.9.0
 
-Measured difference between OPA **v1.7.1** and **v1.8.0**:
+Measured difference between OPA **v1.8.0** and **v1.9.0**:
 
 | Change | Details |
 |---|---|
-| ➕ flags of `opa exec` | `--fail-non-empty`, `--stdin-input` |
-| ➕ built-in functions | `io.jwt.verify_eddsa` |
+| ➕ REST API | Compile API — data filtering (UCAST/SQL) (`POST /v1/compile/{path}`) |
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
-- Support for EdDSA signatures in `io.jwt` built-ins, including a new `io.jwt.verify_eddsa` built-in.
+- Compile API extensions ported from EOPA
+- Improved rule indexing
 
-**EdDSA Support in built-ins ([#7824](https://github.com/open-policy-agent/opa/pull/7824))**
+**Compile Rego Queries Into SQL Filters ([#7887](https://github.com/open-policy-agent/opa/pull/7887))**
 
-- io.jwt.decode_verify
-- io.jwt.encode_sign
-- io.jwt.encode_sign_raw
 
-**Runtime**
+**Example**
 
-- cmd: Add back default `cmd.RootCommand` definition. authored by @philipaconrad Fixing a breaking change to the go API introduced in OPA v1.7.0.
-- cmd: Fix `opa exec` parameters (#7850, #7840) authored by @srenatus Fixing regressions introduced in OPA v1.7.0, where the `--fail-non-empty` and `--stdin-input` flags were dropped.
-- config: accept env vars set to `""`, discern from unset authored by @srenatus reported by @ManuelNowackConfinale
-- handlers: Add thread-safe initialization for gzipPool authored by @charlieegan3
-- plugins: Address race in config access authored by @charlieegan3
-- plugin/bundle: Correct bundle delay behavior authored by @charlieegan3
-- runtime: Update server init check authored by @charlieegan3
 
-**Topdown**
+**METADATA**
 
-- perf: Performance greatly improved for `Object.Insert` on existing key authored by @anderseknert
+
+**scope: document**
+
+
+**compile:**
+
+
+**unknowns: [input.fruits]**
+
+
+**Example Request**
+
+
+**Example Response**
+
+
+**Improved Rule Indexing For "Naked" Refs ([#7897](https://github.com/open-policy-agent/opa/pull/7897))**
+
+
+**Example**
+
+
+**Runtime, Tooling**
+
+- cmd: Print eval errors to stderr authored by @sspaink reported by @janorn
+- plugin/decision: Encoder immediately returns when event same size as limit authored by @sspaink
+- plugin/decision: Refactor size buffer into its own type authored by @sspaink
+- plugins/bundle: Return callback error for manually triggered bundle downloads through the SDK authored by @sspaink reported by @victoraugustolls
+- runtime: Fix possible panic in `opa run` when loading bundles in watch-mode (`--watch`) authored by @sspaink reported by @johanfylling
+
+**Compiler, Topdown and Rego**
+
+- perf: Don't invoke future parser for Rego v1 authored by @anderseknert
+- topdown: Add counter metric for http.send network requests authored by @anivar
+- topdown: Update `numbers.range_step` built-in error message authored by @charlieegan3
 
 **Docs, Website**
 
+- docs: Add `every` and `not` examples authored by @charlieegan3
+- docs: Add examples for `io.jwt` and `time` built-ins authored by @charlieegan3
 
 **Miscellaneous**
 
 
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v1.8.0
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v1.9.0
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v1.8.0` running against OPA `v1.8.0`.
+Every screenshot below was captured automatically from OPA Studio `v1.9.0` running against OPA `v1.9.0`.
 
 ### 1. Dashboard
 
@@ -672,7 +698,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v1.8.0 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v1.9.0 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -681,7 +707,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v1.8.0 for this release:
+Automated checks run against OPA v1.9.0 for this release:
 
 | Check | Result |
 |---|---|
@@ -698,11 +724,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v1.8.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
+git clone --branch v1.9.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v1.8.0 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v1.9.0 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v1.8.0
+make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v1.9.0
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -711,13 +737,13 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v1.6.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.6.0) | 2025-06-30 | Rego v1 |
 | [v1.7.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.7.0) | 2025-07-31 | Rego v1 |
 | [v1.7.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.7.1) | 2025-07-31 | Rego v1 |
-| **v1.8.0** | 2025-08-28 | Rego v1 |
-| [v1.9.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.9.0) | 2025-09-26 | Rego v1 |
+| [v1.8.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.8.0) | 2025-08-28 | Rego v1 |
+| **v1.9.0** | 2025-09-26 | Rego v1 |
 | [v1.10.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.10.0) | 2025-10-31 | Rego v1 |
 | [v1.10.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.10.1) | 2025-11-05 | Rego v1 |
+| [v1.11.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.11.0) | 2025-11-26 | Rego v1 |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
