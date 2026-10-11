@@ -1,0 +1,74 @@
+{
+ "version": "v0.1.0",
+ "studio": {
+  "commit": "release",
+  "date": "2026-10-11T12:26:17Z",
+  "startedAt": "2026-10-11T12:26:18.113003463Z",
+  "targetOpaVersion": "v0.1.0",
+  "version": "v0.1.0"
+ },
+ "screens": [
+  {
+   "file": "01-dashboard.webp",
+   "title": "Dashboard",
+   "description": "Connection health, server version, policy/data counts, runtime configuration and recent decisions at a glance."
+  },
+  {
+   "file": "02-workspace.webp",
+   "title": "Workspace editor",
+   "description": "Policies, data, inputs and tests of a workspace with Rego syntax highlighting, formatting, checks, deploy/pull, bundle import and export."
+  },
+  {
+   "file": "06-policies.webp",
+   "title": "Policy API",
+   "description": "Lists, reads, creates, updates and deletes the Rego modules stored on the server (`/v1/policies`)."
+  },
+  {
+   "file": "07-data.webp",
+   "title": "Data API",
+   "description": "Browse the document tree, query decisions with input, explanations, metrics and provenance, and write documents (PUT / PATCH / DELETE)."
+  },
+  {
+   "file": "08-query.webp",
+   "title": "Query API",
+   "description": "Ad-hoc Rego queries through `/v1/query` (GET and POST with input) and the default decision endpoint."
+  },
+  {
+   "file": "13-bundles.webp",
+   "title": "Bundles",
+   "description": "Build (`opa build`), inspect, sign and verify bundles; the native builder covers releases without `opa build`."
+  },
+  {
+   "file": "14-control-plane.webp",
+   "title": "Control plane: decision logs",
+   "description": "Studio serves bundles and discovery and receives decision logs and status reports from OPA agents."
+  },
+  {
+   "file": "15-local-opa.webp",
+   "title": "Local OPA",
+   "description": "Start, stop and configure the managed OPA server; live process logs."
+  },
+  {
+   "file": "16-repl.webp",
+   "title": "REPL (opa run)",
+   "description": "The interactive Rego shell in the browser, with the workspace loaded."
+  },
+  {
+   "file": "17-command-builder.webp",
+   "title": "Command Builder",
+   "description": "Every command, subcommand and flag of this OPA release as a form \u2014 nothing the CLI can do is out of reach."
+  },
+  {
+   "file": "18-api-console.webp",
+   "title": "API Console",
+   "description": "Any HTTP request against the OPA REST API with presets for every documented operation."
+  },
+  {
+   "file": "20-compatibility.webp",
+   "title": "Compatibility matrix",
+   "description": "Measured capabilities of every OPA release and the changes introduced by this one."
+  }
+ ],
+ "consoleErrors": [],
+ "apiFailures": []
+}
