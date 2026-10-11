@@ -35,7 +35,7 @@ spec:
         seccompProfile: { type: RuntimeDefault }
       containers:
         - name: opa-studio
-          image: ghcr.io/alasgarovnamig/opa-studio:v0.36.1
+          image: ghcr.io/alasgarovnamig/opa-studio:v0.37.0
           ports:
             - { name: http, containerPort: 9080 }
           env:
