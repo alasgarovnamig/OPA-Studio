@@ -1,11 +1,11 @@
 {
- "version": "v0.8.2",
+ "version": "v0.9.0",
  "studio": {
   "commit": "release",
-  "date": "2026-10-11T12:33:37Z",
-  "startedAt": "2026-10-11T12:33:38.323090875Z",
-  "targetOpaVersion": "v0.8.2",
-  "version": "v0.8.2"
+  "date": "2026-10-11T12:35:42Z",
+  "startedAt": "2026-10-11T12:35:42.964878169Z",
+  "targetOpaVersion": "v0.9.0",
+  "version": "v0.9.0"
  },
  "screens": [
   {
@@ -47,6 +47,11 @@
    "file": "08-query.webp",
    "title": "Query API",
    "description": "Ad-hoc Rego queries through `/v1/query` (GET and POST with input) and the default decision endpoint."
+  },
+  {
+   "file": "09-compile.webp",
+   "title": "Compile API",
+   "description": "Partial evaluation with unknowns (`/v1/compile`); newer releases add data filtering to UCAST and SQL."
   },
   {
    "file": "12-metrics.webp",
