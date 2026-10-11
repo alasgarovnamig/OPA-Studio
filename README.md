@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v0.31.0</code></h1>
+<h1 align="center">OPA Studio <code>v0.32.0</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.31.0">OPA v0.31.0</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.32.0">OPA v0.32.0</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.31.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2021--07--28-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Classic%20Rego-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.32.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2021--08--31-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Classic%20Rego-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v0.31.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.31.0) of OPA Studio and it targets **OPA v0.31.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v0.32.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.32.0) of OPA Studio and it targets **OPA v0.32.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.30.2">← v0.30.2</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.32.0">v0.32.0 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.31.0">← v0.31.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.32.1">v0.32.1 →</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.31.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.32.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v0.31.0 can do](#what-opa-v0310-can-do)
-- [What changed in OPA v0.31.0](#what-changed-in-opa-v0310)
+- [What OPA v0.32.0 can do](#what-opa-v0320-can-do)
+- [What changed in OPA v0.32.0](#what-changed-in-opa-v0320)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -31,26 +31,26 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Quick start
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.31.0
+docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.32.0
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v0.31.0 server, creates an example workspace and connects to it.
-Container platforms for this release: `linux/amd64` (determined by the binaries OPA v0.31.0 ships).
+Open <http://localhost:9080>. Studio starts a managed OPA v0.32.0 server, creates an example workspace and connects to it.
+Container platforms for this release: `linux/amd64` (determined by the binaries OPA v0.32.0 ships).
 
-Connect to your own OPA v0.31.0 server instead (or in addition):
+Connect to your own OPA v0.32.0 server instead (or in addition):
 
 ```bash
 docker run --rm -p 9080:9080 \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  ghcr.io/alasgarovnamig/opa-studio:v0.31.0
+  ghcr.io/alasgarovnamig/opa-studio:v0.32.0
 ```
 
-Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.31.0) for: `linux/amd64`, `darwin/amd64`, `windows/amd64`.
+Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.32.0) for: `linux/amd64`, `darwin/amd64`, `windows/amd64`.
 
-## What OPA v0.31.0 can do
+## What OPA v0.32.0 can do
 
-Measured by running the official OPA v0.31.0 binary (`e88ad16`, go1.16.5). Studio enables exactly these features.
+Measured by running the official OPA v0.32.0 binary (`7a4f6e3`, go1.17). Studio enables exactly these features.
 
 ### Rego dialect: Classic Rego
 
@@ -100,7 +100,7 @@ reasons[msg] {
 | `opa build` | Build an OPA bundle | 18 | Bundles · Command Builder |
 | `opa check` | Check Rego source files | 7 | Check & Format · Command Builder |
 | `opa deps` | Analyze Rego query dependencies | 5 | Parse & Deps · Command Builder |
-| `opa eval` | Evaluate a Rego query | 29 | Evaluate · Command Builder |
+| `opa eval` | Evaluate a Rego query | 30 | Evaluate · Command Builder |
 | `opa fmt` | Format Rego source files | 5 | Check & Format · Command Builder |
 | `opa parse` | Parse Rego source file | 2 | Parse & Deps · Command Builder |
 | `opa run` | Start OPA in interactive or server mode | 33 | Local OPA, REPL · Command Builder |
@@ -179,6 +179,7 @@ reasons[msg] {
 | Flag | Type | Description |
 |---|---|---|
 | `--bundle` `-b` | `string` | set bundle file(s) or directory path(s). This flag can be repeated. |
+| `--capabilities` | `string` | set capabilities.json file path |
 | `--count` | `int` | number of times to repeat each benchmark (default 1) |
 | `--coverage` | `bool` | report coverage |
 | `--data` `-d` | `string` | set policy or data file(s). This flag can be repeated. |
@@ -299,7 +300,7 @@ reasons[msg] {
 
 ### REST API
 
-| Capability | Endpoint | OPA v0.31.0 |
+| Capability | Endpoint | OPA v0.32.0 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -325,72 +326,63 @@ reasons[msg] {
 
 Every endpoint — including ones without a dedicated page — can be called from the **API Console**.
 
-## What changed in OPA v0.31.0
+## What changed in OPA v0.32.0
 
-Measured difference between OPA **v0.30.2** and **v0.31.0**:
+Measured difference between OPA **v0.31.0** and **v0.32.0**:
 
 | Change | Details |
 |---|---|
-| ➕ flags of `opa eval` | `--count` |
+| ➕ flags of `opa eval` | `--capabilities` |
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
 
-**Spotlights**
+**💾 Disk-based Storage (Experimental)**
 
 
-**Partial Sets and Objects Performance**
+**Built-in Functions**
 
+- The `http.send` function now supports UNIX domain sockets authored by @kirk-patton
+- The `units.parse_bytes` function now supports E* and P* units
+- The `io.jwt.encode_sign` function uses the built-in context randomization source (which is helpful for replay purposes)
 
-**some logic here**
+**Server**
 
-
-**more expressions**
-
-
-**some logic here**
-
-
-**WebAssembly Performance**
-
-
-**Unsafe declared variables now cause a compile-time error**
-
-
-**Topdown and Rego**
-
-- New built-in function: `crypto.x509.parse_and_verify_certificates`, authored by @jalseth
-- New built-in function: `rand.intn` generates a random number between `0` and `n`, authored by @base698
-- `http.send` enhancement: New `caching_mode` parameter to configure if deserialized or serialized response bodies should be cached
-- Custom built-in function enhancement: let custom builtins halt evaluation
-- Partial evaluation: Fix stack overflow on certain expressions
+- Plugins can now be triggered manually within OPA. This feature allows users extending and customizing OPA to control exactly when operations like bundle downloads and decision log uploads occur. Th...
+- Plugins can now wait for server initialization. When runtime initialization is finished, plugins can be notified. This allows plugins to synchronize their behaviour with server startup. #3701 autho...
+- The Health API now supports an `exclude-plugin` parameter to control which plugins are checked. #3713 authored by @gshively11.
 
 **Tooling**
 
-- Query Profiling: `opa eval --profile` now supports a `--count=#` flag to gather metrics and profiling data over multiple runs, and displays aggregate statistics for the results.
-- Docker images: Publish static image
+- The compiler no longer fetches remote schemas by default when used as as library. Capabilities have been updated to include an `allow_net` field to control whether network operations can be perform...
+- The `WebAssembly runtime not supported` error message has been improved #3739.
 
-**Fixes**
+**Rego**
 
-- Built-in `http.send`: ignore `tls_use_system_certs` setting on Windows. Having this set to _true_ (the default as of v0.29.0) would _always_ return an error on Windows.
-- The console decision logger is no longer tied to the general log level
-- Update query compiler to reject empty queries
-- Partial Evaluation fix: Don't generate comprehension with unsafe variables
-- Parser: modules containing _only_ tabs and spaces no longer lead to a runtime panic.
+- Added support for `anyOf` and `allOf` keywords in JSON schema support in the type checker authored by @jchen10500 and @juliafriedman8.
+- Added support for custom JSON result marshalling in the `rego` package.
+- Added a new convenience function (`Allowed() bool`) to the `rego.ResultSet` API.
+- Improved string-representation construction performance for arrays, sets, and objects.
 
-**Server and Runtime**
+**WebAssembly**
 
 
 **Documentation**
 
 
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.31.0
+**Infrastructure**
+
+
+**Backwards Compatibility**
+
+
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.32.0
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v0.31.0` running against OPA `v0.31.0`.
+Every screenshot below was captured automatically from OPA Studio `v0.32.0` running against OPA `v0.32.0`.
 
 ### 1. Dashboard
 
@@ -565,7 +557,7 @@ Measured capabilities of every OPA release and the changes introduced by this on
 
 - The measured capability matrix of all OPA releases; select a release to see its commands, endpoints and changes.
 
-> Pages not shown: Exec, Built-ins — OPA v0.31.0 does not have the corresponding CLI command, so Studio marks them *n/a*. Everything that exists in this release is covered.
+> Pages not shown: Exec, Built-ins — OPA v0.32.0 does not have the corresponding CLI command, so Studio marks them *n/a*. Everything that exists in this release is covered.
 
 ## Connect OPA agents to Studio
 
@@ -600,7 +592,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.31.0 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.32.0 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -609,7 +601,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v0.31.0 for this release:
+Automated checks run against OPA v0.32.0 for this release:
 
 | Check | Result |
 |---|---|
@@ -626,11 +618,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v0.31.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
+git clone --branch v0.32.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v0.31.0 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v0.32.0 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.31.0
+make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.32.0
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -639,13 +631,13 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v0.30.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.30.0) | 2021-07-01 | Classic Rego |
 | [v0.30.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.30.1) | 2021-07-02 | Classic Rego |
 | [v0.30.2](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.30.2) | 2021-07-13 | Classic Rego |
-| **v0.31.0** | 2021-07-28 | Classic Rego |
-| [v0.32.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.32.0) | 2021-08-31 | Classic Rego |
+| [v0.31.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.31.0) | 2021-07-28 | Classic Rego |
+| **v0.32.0** | 2021-08-31 | Classic Rego |
 | [v0.32.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.32.1) | 2021-09-20 | Classic Rego |
 | [v0.33.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.33.0) | 2021-09-30 | Classic Rego |
+| [v0.33.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.33.1) | 2021-10-04 | Classic Rego |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
