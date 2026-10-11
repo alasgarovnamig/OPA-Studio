@@ -55,6 +55,19 @@ without code changes. Only genuinely new features (a new endpoint or command) ne
 * Fixes to Studio itself are released by re-tagging affected versions through the release workflow
   (`workflow_dispatch`).
 
+## Publishing images
+
+The release workflow always pushes `ghcr.io/<owner>/opa-studio:<tag>`. To publish to Docker Hub as well,
+add two repository secrets (*Settings → Secrets and variables → Actions*):
+
+| Secret | Value |
+|---|---|
+| `DOCKERHUB_USERNAME` | Docker Hub user or organisation, e.g. `alasgarovnamig` |
+| `DOCKERHUB_TOKEN` | Docker Hub access token with *Read & Write* scope |
+
+Images are then also pushed as `docker.io/<DOCKERHUB_USERNAME>/opa-studio:<tag>` (and `:latest` for the newest
+OPA version). Run **Actions → Backfill releases** with `all` to publish every tag.
+
 ## Tests
 
 * `internal/...` — unit tests (manifest parsing, sandbox rules, workspaces, bundles, control plane, auth, proxy).
