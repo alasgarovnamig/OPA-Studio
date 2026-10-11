@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v1.21.0</code></h1>
+<h1 align="center">OPA Studio <code>v1.21.1</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v1.21.0">OPA v1.21.0</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v1.21.1">OPA v1.21.1</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-1.21.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2026--09--24-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-1.21.1-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2026--09--29-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v1.21.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.0) of OPA Studio and it targets **OPA v1.21.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v1.21.1`](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.1) of OPA Studio and it targets **OPA v1.21.1** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.20.2">← v1.20.2</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.1">v1.21.1 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.0">← v1.21.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v1.21.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v1.21.1 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v1.21.0 can do](#what-opa-v1210-can-do)
-- [What changed in OPA v1.21.0](#what-changed-in-opa-v1210)
+- [What OPA v1.21.1 can do](#what-opa-v1211-can-do)
+- [What changed in OPA v1.21.1](#what-changed-in-opa-v1211)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -31,26 +31,26 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Quick start
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v1.21.0
+docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v1.21.1
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v1.21.0 server, creates an example workspace and connects to it.
-Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v1.21.0 ships).
+Open <http://localhost:9080>. Studio starts a managed OPA v1.21.1 server, creates an example workspace and connects to it.
+Container platforms for this release: `linux/amd64`, `linux/arm64` (determined by the binaries OPA v1.21.1 ships).
 
-Connect to your own OPA v1.21.0 server instead (or in addition):
+Connect to your own OPA v1.21.1 server instead (or in addition):
 
 ```bash
 docker run --rm -p 9080:9080 \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  ghcr.io/alasgarovnamig/opa-studio:v1.21.0
+  ghcr.io/alasgarovnamig/opa-studio:v1.21.1
 ```
 
-Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v1.21.0) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
+Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v1.21.1) for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
 
-## What OPA v1.21.0 can do
+## What OPA v1.21.1 can do
 
-Measured by running the official OPA v1.21.0 binary (`dc6269f2c648`, go1.27.1). Studio enables exactly these features.
+Measured by running the official OPA v1.21.1 binary (`2a109e541033`, go1.27.1). Studio enables exactly these features.
 
 ### Rego dialect: Rego v1
 
@@ -387,7 +387,7 @@ reasons contains msg if {
 
 ### REST API
 
-| Capability | Endpoint | OPA v1.21.0 |
+| Capability | Endpoint | OPA v1.21.1 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -417,67 +417,25 @@ Every endpoint — including ones without a dedicated page — can be called fro
 
 `opa capabilities` reports **206 built-in functions** for this release; browse them on the **Built-ins** page.
 
-## What changed in OPA v1.21.0
+## What changed in OPA v1.21.1
 
-Measured difference between OPA **v1.20.2** and **v1.21.0**:
+Measured difference between OPA **v1.21.0** and **v1.21.1**:
 
 _No change of the CLI surface, REST API, Rego dialect or built-in catalogue was measured — this is a bug-fix / internal release. OPA Studio is rebuilt and re-verified against it all the same._
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
-- Improved rule indexing
-- Improved rule recursion check
-- YAML is parsed against the 1.2 core schema (breaking change)
 
-**Rules with general refs no longer collide in the recursion check ([#6813](https://github.com/open-policy-agent/opa/issues/6813))**
+**Fix `some … in`/`every` in comprehensions nested in object and set literals ([#9280](https://github.com/open-policy-agent/opa/issues/9280))**
 
 
-**Data and Query APIs can return rule labels in the response ([#9211](https://github.com/open-policy-agent/opa/pull/9211))**
-
-
-**Behavior change: response gzip compression now bounds its buffer to `min_length` ([#9205](https://github.com/open-policy-agent/opa/pull/9205))**
-
-
-**YAML is now parsed against the 1.2 core schema ([#5754](https://github.com/open-policy-agent/opa/issues/5754), [#6598](https://github.com/open-policy-agent/opa/issues/6598))**
-
-
-**Empty composite literals are now typed as empty ([#7275](https://github.com/open-policy-agent/opa/issues/7275))**
-
-
-**Rule indexing improvements**
-
-- `startswith`, `endswith`, `strings.any_prefix_match` and `strings.any_suffix_match` are indexed when the base strings are known at compile time.
-- A reference that reads a key out of the object at its ground prefix in base data (`data.groups.admins.members[input.subject]`) is indexed by asking that object for the key, where such a ruleset use...
-- References rooted at a local variable (`x := input; x.foo == "a"`) are indexed the same as `input.foo == "a"`, and a chain of assignments no longer drops the constraint at the end of it.
-- A rule's path through the trie stops at the last level it constrains, and a reference reached by several values no longer leaves the rest of the rule unindexed.
-- Candidates come back in declaration order, which the indexer documented but did not do. A `complete rules must not produce multiple outputs` error now points at the first of the conflicting definit...
-
-**Changes**
-
-- ast: Count a ref once when an index entry replaces its var entry authored by @srenatus, reported by @vlsi
-- ast: Index a lookup into a collection in base data authored by @srenatus
-- ast: Index refs rooted at a local variable authored by @srenatus
-- ast: Let concrete index values supersede leftover "any" entries authored by @srenatus
-
-**Runtime, SDK, Tooling**
-
-
-**Compiler, Topdown and Rego**
-
-
-**Docs, Website, Ecosystem**
-
-
-**Miscellaneous**
-
-
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v1.21.0
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v1.21.1
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v1.21.0` running against OPA `v1.21.0`.
+Every screenshot below was captured automatically from OPA Studio `v1.21.1` running against OPA `v1.21.1`.
 
 ### 1. Dashboard
 
@@ -693,7 +651,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v1.21.0 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v1.21.1 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -702,7 +660,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v1.21.0 for this release:
+Automated checks run against OPA v1.21.1 for this release:
 
 | Check | Result |
 |---|---|
@@ -719,11 +677,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v1.21.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
+git clone --branch v1.21.1 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v1.21.0 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v1.21.1 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v1.21.0
+make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v1.21.1
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -732,11 +690,10 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v1.20.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.20.0) | 2026-08-27 | Rego v1 |
 | [v1.20.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.20.1) | 2026-08-28 | Rego v1 |
 | [v1.20.2](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.20.2) | 2026-09-03 | Rego v1 |
-| **v1.21.0** | 2026-09-24 | Rego v1 |
-| [v1.21.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.1) | 2026-09-29 | Rego v1 |
+| [v1.21.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.21.0) | 2026-09-24 | Rego v1 |
+| **v1.21.1** | 2026-09-29 | Rego v1 |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
