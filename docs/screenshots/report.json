@@ -1,11 +1,11 @@
 {
- "version": "v0.4.10",
+ "version": "v0.5.0",
  "studio": {
   "commit": "release",
   "date": "2026-10-11T12:29:10Z",
-  "startedAt": "2026-10-11T12:29:11.186332168Z",
-  "targetOpaVersion": "v0.4.10",
-  "version": "v0.4.10"
+  "startedAt": "2026-10-11T12:29:11.206941043Z",
+  "targetOpaVersion": "v0.5.0",
+  "version": "v0.5.0"
  },
  "screens": [
   {
@@ -17,6 +17,11 @@
    "file": "02-workspace.webp",
    "title": "Workspace editor",
    "description": "Policies, data, inputs and tests of a workspace with Rego syntax highlighting, formatting, checks, deploy/pull, bundle import and export."
+  },
+  {
+   "file": "05-check-format.webp",
+   "title": "Check & Format",
+   "description": "`opa check` (including strict mode) and `opa fmt` with diff preview and write-back."
   },
   {
    "file": "06-policies.webp",
