@@ -1,0 +1,74 @@
+# OPA Studio on Kubernetes.
+#   kubectl create namespace opa-studio
+#   kubectl -n opa-studio create secret generic opa-studio \
+#     --from-literal=basic-password='...' --from-literal=control-plane-token='...'
+#   kubectl -n opa-studio apply -f deploy/kubernetes/opa-studio.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: opa-studio-data
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opa-studio
+  labels: { app.kubernetes.io/name: opa-studio }
+spec:
+  replicas: 1 # state (workspaces, control plane) lives on the volume
+  strategy: { type: Recreate }
+  selector:
+    matchLabels: { app.kubernetes.io/name: opa-studio }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: opa-studio }
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: opa-studio
+          image: ghcr.io/alasgarovnamig/opa-studio:v1.21.1
+          ports:
+            - { name: http, containerPort: 9080 }
+          env:
+            - { name: OPA_STUDIO_AUTH_MODE, value: basic }
+            - { name: OPA_STUDIO_BASIC_USER, value: admin }
+            - name: OPA_STUDIO_BASIC_PASSWORD
+              valueFrom: { secretKeyRef: { name: opa-studio, key: basic-password } }
+            - name: OPA_STUDIO_CONTROL_PLANE_TOKEN
+              valueFrom: { secretKeyRef: { name: opa-studio, key: control-plane-token } }
+            - { name: OPA_STUDIO_PUBLIC_URL, value: "http://opa-studio.opa-studio.svc.cluster.local:9080" }
+          readinessProbe:
+            httpGet: { path: /readyz, port: http }
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            initialDelaySeconds: 10
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { memory: 1Gi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          volumeMounts:
+            - { name: data, mountPath: /var/lib/opa-studio }
+      volumes:
+        - name: data
+          persistentVolumeClaim: { claimName: opa-studio-data }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opa-studio
+spec:
+  selector: { app.kubernetes.io/name: opa-studio }
+  ports:
+    - { name: http, port: 9080, targetPort: http }

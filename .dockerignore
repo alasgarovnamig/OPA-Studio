@@ -1,0 +1,10 @@
+.git
+.github
+**/node_modules
+web/dist/*
+!web/dist/.gitkeep
+data
+bin
+dist
+docs/screenshots
+*.tar.gz
