@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v0.69.0</code></h1>
+<h1 align="center">OPA Studio <code>v0.70.0</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.69.0">OPA v0.69.0</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.70.0">OPA v0.70.0</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.69.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2024--09--30-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20with%20import%20rego.v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.70.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2024--10--31-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Rego%20with%20import%20rego.v1-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v0.69.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.69.0) of OPA Studio and it targets **OPA v0.69.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v0.70.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.70.0) of OPA Studio and it targets **OPA v0.70.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.68.0">← v0.68.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.70.0">v0.70.0 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.69.0">← v0.69.0</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v1.0.0">v1.0.0 →</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.69.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.70.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v0.69.0 can do](#what-opa-v0690-can-do)
-- [What changed in OPA v0.69.0](#what-changed-in-opa-v0690)
+- [What OPA v0.70.0 can do](#what-opa-v0700-can-do)
+- [What changed in OPA v0.70.0](#what-changed-in-opa-v0700)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -33,23 +33,23 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 Build the image from this tag and run it — Docker is the only requirement:
 
 ```bash
-git clone --branch v0.69.0 --single-branch https://github.com/alasgarovnamig/OPA-Studio.git opa-studio-v0.69.0
-cd opa-studio-v0.69.0
-docker build -t opa-studio:v0.69.0 .
-docker run --rm -p 9080:9080 -v opa-studio-data:/var/lib/opa-studio opa-studio:v0.69.0
+git clone --branch v0.70.0 --single-branch https://github.com/alasgarovnamig/OPA-Studio.git opa-studio-v0.70.0
+cd opa-studio-v0.70.0
+docker build -t opa-studio:v0.70.0 .
+docker run --rm -p 9080:9080 -v opa-studio-data:/var/lib/opa-studio opa-studio:v0.70.0
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v0.69.0 server, creates an example workspace and connects to it.
+Open <http://localhost:9080>. Studio starts a managed OPA v0.70.0 server, creates an example workspace and connects to it.
 
 > The image builds natively on `linux/amd64` and `linux/arm64` (including Apple Silicon).
 
-Connect to your own OPA v0.69.0 servers as well (and protect Studio with a password):
+Connect to your own OPA v0.70.0 servers as well (and protect Studio with a password):
 
 ```bash
 docker run --rm -p 9080:9080 -v opa-studio-data:/var/lib/opa-studio \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  opa-studio:v0.69.0
+  opa-studio:v0.70.0
 ```
 
 With Docker Compose (builds the same image and starts an OPA agent wired to Studio's control plane): `OPA_STUDIO_BASIC_PASSWORD=change-me docker compose -f deploy/docker-compose.yml up --build`.
@@ -59,18 +59,18 @@ With Docker Compose (builds the same image and starts an OPA agent wired to Stud
 When the repository's release workflow has published this tag, the image can be pulled instead of built:
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio-data:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.69.0
+docker run --rm -p 9080:9080 -v opa-studio-data:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.70.0
 ```
 
-The [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.69.0) then also carries archives with `opa-studio` and the matching `opa` binary for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
+The [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.70.0) then also carries archives with `opa-studio` and the matching `opa` binary for: `linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`.
 
 If the pull fails with `denied`, the image has not been published yet — build it as shown above.
 
 </details>
 
-## What OPA v0.69.0 can do
+## What OPA v0.70.0 can do
 
-Measured by running the official OPA v0.69.0 binary (`4a3fd1a715a8`, go1.23.1). Studio enables exactly these features.
+Measured by running the official OPA v0.70.0 binary (`2ea031ea04e6`, go1.23.1). Studio enables exactly these features.
 
 ### Rego dialect: Rego with `import rego.v1`
 
@@ -114,17 +114,17 @@ reasons contains msg if {
 
 | Command | Description | Flags | Studio page |
 |---|---|---|---|
-| `opa bench` | Benchmark a Rego query | 24 | Benchmark · Command Builder |
+| `opa bench` | Benchmark a Rego query | 25 | Benchmark · Command Builder |
 | `opa build` | Build an OPA bundle | 23 | Bundles · Command Builder |
 | `opa capabilities` | Print the capabilities of OPA | 4 | Built-ins · Command Builder |
 | `opa check` | Check Rego source files | 11 | Check & Format · Command Builder |
 | `opa deps` | Analyze Rego query dependencies | 6 | Parse & Deps · Command Builder |
-| `opa eval` | Evaluate a Rego query | 39 | Evaluate · Command Builder |
+| `opa eval` | Evaluate a Rego query | 40 | Evaluate · Command Builder |
 | `opa exec` | Execute against input files | 17 | Exec · Command Builder |
 | `opa fmt` | Format Rego source files | 9 | Check & Format · Command Builder |
 | `opa inspect` | Inspect OPA bundle(s) or Rego files. | 4 | Bundles · Command Builder |
 | `opa parse` | Parse Rego source file | 4 | Parse & Deps · Command Builder |
-| `opa run` | Start OPA in interactive or server mode | 40 | Local OPA, REPL · Command Builder |
+| `opa run` | Start OPA in interactive or server mode | 41 | Local OPA, REPL · Command Builder |
 | `opa sign` | Generate an OPA bundle signature | 7 | Bundles · Command Builder |
 | `opa test` | Execute Rego test cases | 22 | Test · Command Builder |
 | `opa version` | Print the version of OPA | 2 | About · Command Builder |
@@ -147,6 +147,7 @@ reasons contains msg if {
 | `--import` | `string` | set query import(s). This flag can be repeated. |
 | `--input` `-i` | `string` | set input file path |
 | `--metrics` | `bool` | report query performance metrics (default true) |
+| `--optimize-store-for-read-speed` | `bool` | optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details. |
 | `--package` | `string` | set query package |
 | `--partial` `-p` | `bool` | perform partial evaluation |
 | `--schema` `-s` | `string` | set schema file path or directory path |
@@ -242,6 +243,7 @@ reasons contains msg if {
 | `--instrument` | `bool` | enable query instrumentation metrics (implies --metrics) |
 | `--metrics` | `bool` | report query performance metrics |
 | `--optimize` `-O` | `int` | set optimization level |
+| `--optimize-store-for-read-speed` | `bool` | optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details. |
 | `--package` | `string` | set query package |
 | `--partial` `-p` | `bool` | perform partial evaluation |
 | `--pretty-limit` | `int` | set limit after which pretty output gets truncated (default 80) |
@@ -333,6 +335,7 @@ reasons contains msg if {
 | `--log-timestamp-format` | `string` | set log timestamp format (OPA_LOG_TIMESTAMP_FORMAT environment variable) |
 | `--max-errors` `-m` | `int` | set the number of errors to allow before compilation fails early (default 10) |
 | `--min-tls-version` | `{1.0,1.1,1.2,1.3}` | set minimum TLS version to be used by OPA's server (default 1.2) |
+| `--optimize-store-for-read-speed` | `bool` | optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details. |
 | `--pprof` | `bool` | enables pprof endpoints |
 | `--ready-timeout` | `int` | wait (in seconds) for configured plugins before starting server (value <= 0 disables ready check) |
 | `--scope` | `string` | scope to use for bundle signature verification |
@@ -403,7 +406,7 @@ reasons contains msg if {
 
 ### REST API
 
-| Capability | Endpoint | OPA v0.69.0 |
+| Capability | Endpoint | OPA v0.70.0 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -433,58 +436,53 @@ Every endpoint — including ones without a dedicated page — can be called fro
 
 `opa capabilities` reports **199 built-in functions** for this release; browse them on the **Built-ins** page.
 
-## What changed in OPA v0.69.0
+## What changed in OPA v0.70.0
 
-Measured difference between OPA **v0.68.0** and **v0.69.0**:
+Measured difference between OPA **v0.69.0** and **v0.70.0**:
 
 | Change | Details |
 |---|---|
-| ➕ flags of `opa bench` | `--v0-compatible` |
-| ➕ flags of `opa build` | `--v0-compatible` |
-| ➕ flags of `opa check` | `--v0-compatible` |
-| ➕ flags of `opa eval` | `--v0-compatible` |
-| ➕ flags of `opa exec` | `--v0-compatible` |
-| ➕ flags of `opa fmt` | `--v0-compatible` |
-| ➕ flags of `opa run` | `--v0-compatible` |
-| ➕ flags of `opa test` | `--v0-compatible` |
+| ➕ flags of `opa bench` | `--optimize-store-for-read-speed` |
+| ➕ flags of `opa eval` | `--optimize-store-for-read-speed` |
+| ➕ flags of `opa run` | `--optimize-store-for-read-speed` |
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
 
-**Inter-Query Value Cache ([#6908](https://github.com/open-policy-agent/opa/issues/6908))**
+**Optimized read mode for OPA's in-memory store ([#7125](https://github.com/open-policy-agent/opa/pull/7125))**
 
 
 **Topdown and Rego**
 
-- Future-proofing tests in the `ast`, `topdown`, `rego` etc. packages to be `1.0` compatible (authored by @johanfylling)
-- ast: Attach annotation to static part of rule ref authored by @anderseknert
-- ast: Make `Module.String()` include `if`/`contains` for v1 modules authored by @johanfylling reported by @nikpivkin
-- topdown/http: Stop `http.send` latency timer when an error is encountered authored by @lukyer
-- ast/compile: Refactor local variable replacement and replace declared variables in `with`'s target authored by @srenatus reported by @bluebrown
-- ast: Update type checker to cache schema types authored by @nikpivkin
-- test: Fix indentation in a YAML test case authored by @matajoh
-- format: Bracketing keyword ref elements in formatter output authored by @johanfylling
+- topdown: Use new Inter-Query Value Cache for `json.match_schema` built-in function authored by @anderseknert reported by @lcarva
+- ast: Fix location text attribute for multi-value rules with generated body authored by @anderseknert
+- ast: Fix regression in `opa check` where a file that referenced non-provided schemas failed validation authored by @tjons
+- test/cases/testdata: Fix bug in test by replacing unification by explicit equality check authored by @matajoh
+- ast: Replace use of yaml.v2 library with yaml.v3. The earlier version would parse `yes`/`no` values as boolean. The usage of yaml.v2 in the parser was unintentional and now has been updated to yaml...
 
 **Runtime, Tooling, SDK**
 
-- Future-proofing tests in the `sdk`, `downlaod`, `server` , `cmd` etc. packages to be `1.0` compatible (authored by @johanfylling)
-- cmd: Add `--v0-compatible` flag to make OPA behave as `v0.x` post `v1.0` release authored by @johanfylling
-- util: Strip UTF-8 BOM from input JSON when found authored by @anderseknert reported by @adhilto
-- plugins/rest: Support reading AWS token from the filesystem for the AWS container credential provider authored by @cmaddalozzo
+- cmd: Make `opa check` respect `--ignore` when `--bundle` flag is set authored by @anderseknert
+- server/writer: Properly handle result encoding errors which earlier on failure would emit logs such as `superfluous call to WriteHeader()` while still returning `200` HTTP status code. Now, errors...
+- cmd: Support `file://` format for TLS key material file flags in `opa run` authored by @alexrohozneanu
+- plugins/rest/azure: Support managed identity for App Service / Container Apps reported and authored by @apc-kamezaki
+- debug: Fix step-over behaviour when exiting partial rules authored by @johanfylling
+- util+plugins: Fix potential memory leaks with explicit timer cancellation authored by @philipaconrad
 
 **Docs, Website, Ecosystem**
 
+- docs: Fix OCI example with updated flag used by the ORAS CLI authored by @b3n3d17
 
 **Miscellaneous**
 
 
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.69.0
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.70.0
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v0.69.0` running against OPA `v0.69.0`.
+Every screenshot below was captured automatically from OPA Studio `v0.70.0` running against OPA `v0.70.0`.
 
 ### 1. Dashboard
 
@@ -700,7 +698,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.69.0 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.70.0 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -709,7 +707,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v0.69.0 for this release:
+Automated checks run against OPA v0.70.0 for this release:
 
 | Check | Result |
 |---|---|
@@ -726,11 +724,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v0.69.0 --single-branch https://github.com/alasgarovnamig/OPA-Studio.git opa-studio-v0.69.0 && cd opa-studio-v0.69.0
+git clone --branch v0.70.0 --single-branch https://github.com/alasgarovnamig/OPA-Studio.git opa-studio-v0.70.0 && cd opa-studio-v0.70.0
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v0.69.0 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v0.70.0 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-docker build -t opa-studio:v0.69.0 .   # container image
+docker build -t opa-studio:v0.70.0 .   # container image
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -739,13 +737,13 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v0.67.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.67.0) | 2024-07-25 | Rego with `import rego.v1` |
 | [v0.67.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.67.1) | 2024-08-05 | Rego with `import rego.v1` |
 | [v0.68.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.68.0) | 2024-08-29 | Rego with `import rego.v1` |
-| **v0.69.0** | 2024-09-30 | Rego with `import rego.v1` |
-| [v0.70.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.70.0) | 2024-10-31 | Rego with `import rego.v1` |
+| [v0.69.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.69.0) | 2024-09-30 | Rego with `import rego.v1` |
+| **v0.70.0** | 2024-10-31 | Rego with `import rego.v1` |
 | [v1.0.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.0.0) | 2024-12-20 | Rego v1 |
 | [v1.0.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.0.1) | 2025-01-21 | Rego v1 |
+| [v1.1.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v1.1.0) | 2025-01-27 | Rego v1 |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
