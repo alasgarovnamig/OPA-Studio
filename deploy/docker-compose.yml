@@ -1,14 +1,14 @@
-# OPA Studio for OPA v0.8.2.
+# OPA Studio for OPA v0.9.0.
 #
 #   OPA_STUDIO_BASIC_PASSWORD=change-me docker compose -f deploy/docker-compose.yml up --build
 #
-# OPA v0.8.2 has no `opa run --set` flag, so this release ships no agent example;
+# OPA v0.9.0 has no `opa run --set` flag, so this release ships no agent example;
 # connect existing OPA servers with OPA_STUDIO_CONNECTIONS.
 services:
   studio:
     build: ..
-    image: opa-studio:v0.8.2
-    platform: linux/amd64 # OPA v0.8.2 ships no linux/arm64 binary
+    image: opa-studio:v0.9.0
+    platform: linux/amd64 # OPA v0.9.0 ships no linux/arm64 binary
     ports:
       - "9080:9080"
     environment:
