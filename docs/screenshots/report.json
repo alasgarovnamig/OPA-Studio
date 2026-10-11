@@ -1,11 +1,11 @@
 {
- "version": "v0.10.2",
+ "version": "v0.10.3",
  "studio": {
   "commit": "release",
-  "date": "2026-10-11T12:35:42Z",
-  "startedAt": "2026-10-11T12:35:43.042497294Z",
-  "targetOpaVersion": "v0.10.2",
-  "version": "v0.10.2"
+  "date": "2026-10-11T12:36:29Z",
+  "startedAt": "2026-10-11T12:36:30.269609219Z",
+  "targetOpaVersion": "v0.10.3",
+  "version": "v0.10.3"
  },
  "screens": [
   {
@@ -52,6 +52,11 @@
    "file": "09-compile.webp",
    "title": "Compile API",
    "description": "Partial evaluation with unknowns (`/v1/compile`); newer releases add data filtering to UCAST and SQL."
+  },
+  {
+   "file": "10-health.webp",
+   "title": "Health API",
+   "description": "Health checks including bundle and plugin readiness and custom `system.health` policies."
   },
   {
    "file": "12-metrics.webp",
