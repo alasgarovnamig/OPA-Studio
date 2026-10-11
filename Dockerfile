@@ -17,7 +17,7 @@ RUN npm ci --no-audit --no-fund
 COPY web/ ./
 RUN npm run build
 
-FROM --platform=$BUILDPLATFORM golang:1.23-bookworm AS build
+FROM --platform=$BUILDPLATFORM golang:1.25-bookworm AS build
 ARG TARGETOS
 ARG TARGETARCH
 ARG OPA_VERSION
