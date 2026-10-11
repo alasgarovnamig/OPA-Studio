@@ -1,11 +1,11 @@
 {
- "version": "v0.7.1",
+ "version": "v0.8.0",
  "studio": {
   "commit": "release",
   "date": "2026-10-11T12:32:57Z",
-  "startedAt": "2026-10-11T12:32:57.600931176Z",
-  "targetOpaVersion": "v0.7.1",
-  "version": "v0.7.1"
+  "startedAt": "2026-10-11T12:32:57.619950301Z",
+  "targetOpaVersion": "v0.8.0",
+  "version": "v0.8.0"
  },
  "screens": [
   {
@@ -17,6 +17,11 @@
    "file": "02-workspace.webp",
    "title": "Workspace editor",
    "description": "Policies, data, inputs and tests of a workspace with Rego syntax highlighting, formatting, checks, deploy/pull, bundle import and export."
+  },
+  {
+   "file": "03-evaluate.webp",
+   "title": "Evaluate (opa eval)",
+   "description": "Evaluates a query against the workspace with the input document; every `opa eval` flag of this release is available."
   },
   {
    "file": "04-test.webp",
