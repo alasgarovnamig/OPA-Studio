@@ -1,0 +1,733 @@
+{
+ "capabilities": null,
+ "cli": {
+  "commands": {
+   "check": {
+    "description": "Check Rego source files",
+    "flags": {
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for check",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     }
+    },
+    "long": "Check Rego source files for parse and compilation errors.",
+    "subcommands": {},
+    "usage": "opa check <path> [path [...]] [flags]"
+   },
+   "eval": {
+    "description": "Evaluate a Rego query",
+    "flags": {
+     "data": {
+      "default": null,
+      "description": "set data file(s) or directory path(s)",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "explain": {
+      "default": null,
+      "description": "enable query explainations",
+      "global": false,
+      "short": null,
+      "type": "{full}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for eval",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "import": {
+      "default": null,
+      "description": "set query import(s)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "input": {
+      "default": null,
+      "description": "set input file path",
+      "global": false,
+      "short": "i",
+      "type": "string"
+     },
+     "metrics": {
+      "default": null,
+      "description": "report query performance metrics",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "package": {
+      "default": null,
+      "description": "set query package",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "stdin": {
+      "default": null,
+      "description": "read query from stdin",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Evaluate a Rego query and print the result.",
+    "subcommands": {},
+    "usage": "opa eval <query> [flags]"
+   },
+   "fmt": {
+    "description": "Format Rego source files",
+    "flags": {
+     "diff": {
+      "default": null,
+      "description": "only display a diff of the changes",
+      "global": false,
+      "short": "d",
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for fmt",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "list": {
+      "default": null,
+      "description": "list all files who would change when formatted",
+      "global": false,
+      "short": "l",
+      "type": "bool"
+     },
+     "write": {
+      "default": null,
+      "description": "overwrite the original source file",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Format Rego source files.",
+    "subcommands": {},
+    "usage": "opa fmt [flags]"
+   },
+   "help": {
+    "description": "Help about any command",
+    "flags": {},
+    "subcommands": {},
+    "usage": null
+   },
+   "parse": {
+    "description": "Parse Rego source file",
+    "flags": {
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for parse",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     }
+    },
+    "long": "Parse Rego source file and print AST.",
+    "subcommands": {},
+    "usage": "opa parse <path> [flags]"
+   },
+   "run": {
+    "description": "Start OPA in interative or server mode",
+    "flags": {
+     "addr": {
+      "default": "\":8181\"",
+      "description": "set listening address of the server (default \":8181\")",
+      "global": false,
+      "short": "a",
+      "type": "string"
+     },
+     "authentication": {
+      "default": "off",
+      "description": "set authentication scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{token,off}"
+     },
+     "authorization": {
+      "default": "off",
+      "description": "set authorization scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{basic,off}"
+     },
+     "config-file": {
+      "default": null,
+      "description": "set path of configuration file",
+      "global": false,
+      "short": "c",
+      "type": "string"
+     },
+     "format": {
+      "default": "\"pretty\"",
+      "description": "set shell output format, i.e, pretty, json (default \"pretty\")",
+      "global": false,
+      "short": "f",
+      "type": "string"
+     },
+     "help": {
+      "default": null,
+      "description": "help for run",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "history": {
+      "default": "\"/root/.opa_history\"",
+      "description": "set path of history file (default \"/root/.opa_history\")",
+      "global": false,
+      "short": "H",
+      "type": "string"
+     },
+     "insecure-addr": {
+      "default": null,
+      "description": "set insecure listening address of the server",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "log-format": {
+      "default": "text",
+      "description": "set log format (default text)",
+      "global": false,
+      "short": null,
+      "type": "{text,json}"
+     },
+     "log-level": {
+      "default": "info",
+      "description": "set log level (default info)",
+      "global": false,
+      "short": "l",
+      "type": "{debug,info,error}"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "server": {
+      "default": null,
+      "description": "start the runtime in server mode",
+      "global": false,
+      "short": "s",
+      "type": "bool"
+     },
+     "server-diagnostics-buffer-size": {
+      "default": "10",
+      "description": "set the size of the server's diagnostics buffer (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "tls-cert-file": {
+      "default": null,
+      "description": "set path of TLS certificate file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "tls-private-key-file": {
+      "default": null,
+      "description": "set path of TLS private key file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "watch": {
+      "default": null,
+      "description": "watch command line files for changes",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Start an instance of the Open Policy Agent (OPA).",
+    "subcommands": {},
+    "usage": "opa run [flags] [flags] [files]"
+   },
+   "test": {
+    "description": "Execute Rego test cases",
+    "flags": {
+     "coverage": {
+      "default": null,
+      "description": "report coverage",
+      "global": false,
+      "short": "c",
+      "type": "bool"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for test",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "timeout": {
+      "default": "5s",
+      "description": "set test timeout (default 5s)",
+      "global": false,
+      "short": "t",
+      "type": "duration"
+     },
+     "verbose": {
+      "default": null,
+      "description": "set verbose reporting mode",
+      "global": false,
+      "short": "v",
+      "type": "bool"
+     }
+    },
+    "long": "Execute Rego test cases.",
+    "subcommands": {},
+    "usage": "opa test <path> [path [...]] [flags]"
+   },
+   "version": {
+    "description": "Print the version of OPA",
+    "flags": {
+     "help": {
+      "default": null,
+      "description": "help for version",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     }
+    },
+    "long": "Show version and build information for OPA.",
+    "subcommands": {},
+    "usage": "opa version [flags]"
+   }
+  },
+  "root_flags": {
+   "help": {
+    "default": null,
+    "description": "help for opa",
+    "global": false,
+    "short": "h",
+    "type": "bool"
+   }
+  }
+ },
+ "cli_features": {
+  "check": {
+   "ok": true,
+   "rc": 0
+  },
+  "eval": {
+   "ok": false,
+   "rc": 1,
+   "result_keys": null
+  },
+  "fmt": {
+   "ok": true,
+   "rc": 0
+  },
+  "parse": {
+   "ok": true,
+   "rc": 0
+  },
+  "test": {
+   "ok": true,
+   "rc": 0,
+   "sample": "data.studio.example_test.test_alice_allowed: PASS (4.67\u00b5s)\n--------------------------------------------------------------------------------\nPASS: 1/1\n"
+  }
+ },
+ "dialects": {
+  "cli": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": false,
+   "legacy": true,
+   "legacy-assign": true,
+   "rego.v1": false,
+   "v1": false
+  },
+  "server": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": false,
+   "legacy": true,
+   "legacy-assign": true,
+   "rego.v1": false,
+   "v1": false
+  }
+ },
+ "opa": {
+  "binary": {
+   "asset": "opa_linux_amd64",
+   "platform": "linux/amd64",
+   "sha256": null,
+   "source": "github-release",
+   "url": "https://github.com/open-policy-agent/opa/releases/download/v0.8.1/opa_linux_amd64"
+  },
+  "github_release": true,
+  "prerelease": false,
+  "published_at": "2018-04-30T20:13:50Z",
+  "version": "v0.8.1"
+ },
+ "preferred_dialect": "legacy-assign",
+ "schema": 1,
+ "server": {
+  "endpoints": {
+   "compile": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile",
+    "status": 404
+   },
+   "compile_path": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "compile_path_sql": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "config": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/config",
+    "status": 404
+   },
+   "data_delete": {
+    "keys": null,
+    "method": "DELETE",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_explain_debug": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=debug",
+    "status": 200
+   },
+   "data_explain_fails": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=fails",
+    "status": 200
+   },
+   "data_explain_full": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=full",
+    "status": 200
+   },
+   "data_explain_notes": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=notes",
+    "status": 200
+   },
+   "data_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data",
+    "status": 200
+   },
+   "data_get_input": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/data/studio/example",
+    "status": 200
+   },
+   "data_get_input_query_param": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?input=%7B%22user%22%3A%22alice%22%7D",
+    "status": 200
+   },
+   "data_instrument": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true&instrument=true",
+    "status": 200
+   },
+   "data_metrics": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true",
+    "status": 200
+   },
+   "data_patch": {
+    "keys": null,
+    "method": "PATCH",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_pretty": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?pretty=true",
+    "status": 200
+   },
+   "data_provenance": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?provenance=true",
+    "status": 200
+   },
+   "data_put": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_put_if_none_match": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test2",
+    "status": 204
+   },
+   "data_strict_builtin_errors": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?strict-builtin-errors=true",
+    "status": 200
+   },
+   "data_watch": {
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/data/studio?watch",
+    "status": 0
+   },
+   "data_webhook_v0": {
+    "content_type": "application/json",
+    "keys": null,
+    "method": "POST",
+    "path": "/v0/data/studio/example/allow",
+    "status": 200
+   },
+   "default_decision": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "message"
+    ],
+    "method": "POST",
+    "path": "/",
+    "status": 404
+   },
+   "health": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health",
+    "status": 404
+   },
+   "health_bundles": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health?bundles",
+    "status": 404
+   },
+   "health_live": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/live",
+    "status": 404
+   },
+   "health_plugins": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health?plugins",
+    "status": 404
+   },
+   "health_ready": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/ready",
+    "status": 404
+   },
+   "index": {
+    "content_type": "text/html; charset=utf-8",
+    "method": "GET",
+    "path": "/",
+    "status": 200
+   },
+   "metrics": {
+    "content_type": "text/plain; version=0.0.4",
+    "method": "GET",
+    "path": "/metrics",
+    "status": 200
+   },
+   "policies_delete": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "DELETE",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_list": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies",
+    "status": 200
+   },
+   "policies_put": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "PUT",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "pprof": {
+    "content_type": "text/plain; charset=utf-8",
+    "method": "GET",
+    "path": "/debug/pprof/",
+    "status": 404
+   },
+   "query_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/query?q=x%20%3D%201",
+    "status": 200
+   },
+   "query_post": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 405
+   },
+   "query_post_input": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 405
+   },
+   "status": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/status",
+    "status": 404
+   }
+  },
+  "preferred_dialect": "legacy-assign",
+  "quirks": {
+   "write_lock_after_policy_error": false
+  },
+  "started": true
+ },
+ "version_output": {
+  "Build Commit": "91ad1a7",
+  "Build Hostname": "e2f2beaf0814",
+  "Build Timestamp": "2018-04-30T20:07:33Z",
+  "Version": "0.8.1"
+ }
+}

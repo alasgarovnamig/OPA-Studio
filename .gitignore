@@ -1,0 +1,17 @@
+# build output
+/bin/
+/dist/
+/data/
+/.cache/
+web/node_modules/
+web/dist/*
+!web/dist/.gitkeep
+tools/screenshots/node_modules/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+
+# editors / OS
+.idea/
+.vscode/
+.DS_Store

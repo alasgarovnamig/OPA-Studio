@@ -1,0 +1,1485 @@
+{
+ "capabilities": null,
+ "cli": {
+  "commands": {
+   "bench": {
+    "description": "Benchmark a Rego query",
+    "flags": {
+     "benchmem": {
+      "default": "true",
+      "description": "report memory allocations with benchmark results (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "count": {
+      "default": "1",
+      "description": "number of times to repeat each benchmark (default 1)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "fail": {
+      "default": "true",
+      "description": "exits with non-zero exit code on undefined/empty result and errors (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{json,pretty,gobench}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for bench",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "import": {
+      "default": null,
+      "description": "set query import(s). This flag can be repeated.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "input": {
+      "default": null,
+      "description": "set input file path",
+      "global": false,
+      "short": "i",
+      "type": "string"
+     },
+     "metrics": {
+      "default": "true",
+      "description": "report query performance metrics (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "package": {
+      "default": null,
+      "description": "set query package",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "partial": {
+      "default": null,
+      "description": "perform partial evaluation",
+      "global": false,
+      "short": "p",
+      "type": "bool"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "stdin": {
+      "default": null,
+      "description": "read query from stdin",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin-input": {
+      "default": null,
+      "description": "read input document from stdin",
+      "global": false,
+      "short": "I",
+      "type": "bool"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "unknowns": {
+      "default": "[input]",
+      "description": "set paths to treat as unknown during partial evaluation (default [input])",
+      "global": false,
+      "short": "u",
+      "type": "stringArray"
+     }
+    },
+    "long": "Benchmark a Rego query and print the results.",
+    "subcommands": {},
+    "usage": "opa bench <query> [flags]"
+   },
+   "build": {
+    "description": "Build an OPA bundle",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "claims-file": {
+      "default": null,
+      "description": "set path of JSON file containing optional claims (see: https://openpolicyagent.org/docs/latest/management/#signature-format)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "debug": {
+      "default": null,
+      "description": "enable debug output",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "entrypoint": {
+      "default": null,
+      "description": "set slash separated entrypoint path",
+      "global": false,
+      "short": "e",
+      "type": "string"
+     },
+     "exclude-files-verify": {
+      "default": null,
+      "description": "set file names to exclude during bundle verification",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "help": {
+      "default": null,
+      "description": "help for build",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "optimize": {
+      "default": null,
+      "description": "set optimization level",
+      "global": false,
+      "short": "O",
+      "type": "int"
+     },
+     "output": {
+      "default": "\"bundle.tar.gz\"",
+      "description": "set the output filename (default \"bundle.tar.gz\")",
+      "global": false,
+      "short": "o",
+      "type": "string"
+     },
+     "revision": {
+      "default": null,
+      "description": "set output bundle revision",
+      "global": false,
+      "short": "r",
+      "type": "string"
+     },
+     "scope": {
+      "default": null,
+      "description": "scope to use for bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the private key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-plugin": {
+      "default": null,
+      "description": "name of the plugin to use for signing/verification (see https://openpolicyagent.org/docs/latest/management/#signature-plugin",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the output bundle target type (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "verification-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the public key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "verification-key-id": {
+      "default": "\"default\"",
+      "description": "name assigned to the verification key used for bundle verification (default \"default\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     }
+    },
+    "long": "Build an OPA bundle.",
+    "subcommands": {},
+    "usage": "opa build <path> [<path> [...]] [flags]"
+   },
+   "check": {
+    "description": "Check Rego source files",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for check",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     }
+    },
+    "long": "Check Rego source files for parse and compilation errors.",
+    "subcommands": {},
+    "usage": "opa check <path> [path [...]] [flags]"
+   },
+   "deps": {
+    "description": "Analyze Rego query dependencies",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for deps",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     }
+    },
+    "long": "Analyze Rego query dependencies",
+    "subcommands": {},
+    "usage": "opa deps <query> [flags]"
+   },
+   "eval": {
+    "description": "Evaluate a Rego query",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "coverage": {
+      "default": null,
+      "description": "report coverage",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "disable-indexing": {
+      "default": null,
+      "description": "disable indexing optimizations",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "disable-inlining": {
+      "default": null,
+      "description": "set paths of documents to exclude from inlining",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "explain": {
+      "default": "off",
+      "description": "enable query explanations (default off)",
+      "global": false,
+      "short": null,
+      "type": "{off,full,notes,fails}"
+     },
+     "fail": {
+      "default": null,
+      "description": "exits with non-zero exit code on undefined/empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail-defined": {
+      "default": null,
+      "description": "exits with non-zero exit code on defined/non-empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "json",
+      "description": "set output format (default json)",
+      "global": false,
+      "short": "f",
+      "type": "{json,values,bindings,pretty,source,raw}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for eval",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "import": {
+      "default": null,
+      "description": "set query import(s). This flag can be repeated.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "input": {
+      "default": null,
+      "description": "set input file path",
+      "global": false,
+      "short": "i",
+      "type": "string"
+     },
+     "instrument": {
+      "default": null,
+      "description": "enable query instrumentation metrics (implies --metrics)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "metrics": {
+      "default": null,
+      "description": "report query performance metrics",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "package": {
+      "default": null,
+      "description": "set query package",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "partial": {
+      "default": null,
+      "description": "perform partial evaluation",
+      "global": false,
+      "short": "p",
+      "type": "bool"
+     },
+     "pretty-limit": {
+      "default": "80",
+      "description": "set limit after which pretty output gets truncated (default 80)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "profile": {
+      "default": null,
+      "description": "perform expression profiling",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "profile-limit": {
+      "default": "10",
+      "description": "set number of profiling results to show (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "profile-sort": {
+      "default": null,
+      "description": "set sort order of expression profiler results",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "shallow-inlining": {
+      "default": null,
+      "description": "disable inlining of rules that depend on unknowns",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin": {
+      "default": null,
+      "description": "read query from stdin",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin-input": {
+      "default": null,
+      "description": "read input document from stdin",
+      "global": false,
+      "short": "I",
+      "type": "bool"
+     },
+     "strict-builtin-errors": {
+      "default": null,
+      "description": "treat built-in function errors as fatal",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "unknowns": {
+      "default": "[input]",
+      "description": "set paths to treat as unknown during partial evaluation (default [input])",
+      "global": false,
+      "short": "u",
+      "type": "stringArray"
+     }
+    },
+    "long": "Evaluate a Rego query and print the result.",
+    "subcommands": {},
+    "usage": "opa eval <query> [flags]"
+   },
+   "fmt": {
+    "description": "Format Rego source files",
+    "flags": {
+     "diff": {
+      "default": null,
+      "description": "only display a diff of the changes",
+      "global": false,
+      "short": "d",
+      "type": "bool"
+     },
+     "fail": {
+      "default": null,
+      "description": "non zero exit code on reformat",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for fmt",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "list": {
+      "default": null,
+      "description": "list all files who would change when formatted",
+      "global": false,
+      "short": "l",
+      "type": "bool"
+     },
+     "write": {
+      "default": null,
+      "description": "overwrite the original source file",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Format Rego source files.",
+    "subcommands": {},
+    "usage": "opa fmt [path [...]] [flags]"
+   },
+   "help": {
+    "description": "Help about any command",
+    "flags": {},
+    "subcommands": {},
+    "usage": null
+   },
+   "parse": {
+    "description": "Parse Rego source file",
+    "flags": {
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for parse",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     }
+    },
+    "long": "Parse Rego source file and print AST.",
+    "subcommands": {},
+    "usage": "opa parse <path> [flags]"
+   },
+   "run": {
+    "description": "Start OPA in interactive or server mode",
+    "flags": {
+     "addr": {
+      "default": "[:8181]",
+      "description": "set listening address of the server (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket) (default [:8181])",
+      "global": false,
+      "short": "a",
+      "type": "strings"
+     },
+     "authentication": {
+      "default": "off",
+      "description": "set authentication scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{token,tls,off}"
+     },
+     "authorization": {
+      "default": "off",
+      "description": "set authorization scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{basic,off}"
+     },
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "config-file": {
+      "default": null,
+      "description": "set path of configuration file",
+      "global": false,
+      "short": "c",
+      "type": "string"
+     },
+     "diagnostic-addr": {
+      "default": null,
+      "description": "set read-only diagnostic listening address of the server for /health and /metric APIs (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "exclude-files-verify": {
+      "default": null,
+      "description": "set file names to exclude during bundle verification",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "format": {
+      "default": "\"pretty\"",
+      "description": "set shell output format, i.e, pretty, json (default \"pretty\")",
+      "global": false,
+      "short": "f",
+      "type": "string"
+     },
+     "h2c": {
+      "default": null,
+      "description": "enable H2C for HTTP listeners",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for run",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "history": {
+      "default": "\"/root/.opa_history\"",
+      "description": "set path of history file (default \"/root/.opa_history\")",
+      "global": false,
+      "short": "H",
+      "type": "string"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "log-format": {
+      "default": "json",
+      "description": "set log format (default json)",
+      "global": false,
+      "short": null,
+      "type": "{text,json,json-pretty}"
+     },
+     "log-level": {
+      "default": "info",
+      "description": "set log level (default info)",
+      "global": false,
+      "short": "l",
+      "type": "{debug,info,error}"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "pprof": {
+      "default": null,
+      "description": "enables pprof endpoints",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "ready-timeout": {
+      "default": null,
+      "description": "wait (in seconds) for configured plugins before starting server (value <= 0 disables ready check)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "scope": {
+      "default": null,
+      "description": "scope to use for bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "server": {
+      "default": null,
+      "description": "start the runtime in server mode",
+      "global": false,
+      "short": "s",
+      "type": "bool"
+     },
+     "set": {
+      "default": null,
+      "description": "override config values on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "set-file": {
+      "default": null,
+      "description": "override config values with files on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "shutdown-grace-period": {
+      "default": "10",
+      "description": "set the time (in seconds) that the server will wait to gracefully shut down (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "shutdown-wait-period": {
+      "default": null,
+      "description": "set the time (in seconds) that the server will wait before initiating shutdown",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "skip-verify": {
+      "default": null,
+      "description": "disables bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "skip-version-check": {
+      "default": null,
+      "description": "disables anonymous version reporting (see: https://openpolicyagent.org/docs/latest/privacy)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "tls-ca-cert-file": {
+      "default": null,
+      "description": "set path of TLS CA cert file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "tls-cert-file": {
+      "default": null,
+      "description": "set path of TLS certificate file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "tls-private-key-file": {
+      "default": null,
+      "description": "set path of TLS private key file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "verification-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the public key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "verification-key-id": {
+      "default": "\"default\"",
+      "description": "name assigned to the verification key used for bundle verification (default \"default\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "watch": {
+      "default": null,
+      "description": "watch command line files for changes",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Start an instance of the Open Policy Agent (OPA).",
+    "subcommands": {},
+    "usage": "opa run [flags] [files]"
+   },
+   "sign": {
+    "description": "Generate an OPA bundle signature",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "claims-file": {
+      "default": null,
+      "description": "set path of JSON file containing optional claims (see: https://openpolicyagent.org/docs/latest/management/#signature-format)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "help": {
+      "default": null,
+      "description": "help for sign",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "output-file-path": {
+      "default": "\".\"",
+      "description": "set the location for the .signatures.json file (default \".\")",
+      "global": false,
+      "short": "o",
+      "type": "string"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the private key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-plugin": {
+      "default": null,
+      "description": "name of the plugin to use for signing/verification (see https://openpolicyagent.org/docs/latest/management/#signature-plugin",
+      "global": false,
+      "short": null,
+      "type": "string"
+     }
+    },
+    "long": "Generate an OPA bundle signature.",
+    "subcommands": {},
+    "usage": "opa sign <path> [<path> [...]] [flags]"
+   },
+   "test": {
+    "description": "Execute Rego test cases",
+    "flags": {
+     "bench": {
+      "default": null,
+      "description": "benchmark the unit tests",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "benchmem": {
+      "default": "true",
+      "description": "report memory allocations with benchmark results (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "count": {
+      "default": "1",
+      "description": "number of times to repeat each test (default 1)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "coverage": {
+      "default": null,
+      "description": "report coverage (overrides debug tracing)",
+      "global": false,
+      "short": "c",
+      "type": "bool"
+     },
+     "explain": {
+      "default": "fails",
+      "description": "enable query explanations (default fails)",
+      "global": false,
+      "short": null,
+      "type": "{fails,full,notes}"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json,gobench}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for test",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "run": {
+      "default": null,
+      "description": "run only test cases matching the regular expression.",
+      "global": false,
+      "short": "r",
+      "type": "string"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "threshold": {
+      "default": null,
+      "description": "set coverage threshold and exit with non-zero status if coverage is less than threshold %",
+      "global": false,
+      "short": null,
+      "type": "float"
+     },
+     "timeout": {
+      "default": "5s, 30s when benchmarking",
+      "description": "set test timeout (default 5s, 30s when benchmarking)",
+      "global": false,
+      "short": null,
+      "type": "duration"
+     },
+     "verbose": {
+      "default": null,
+      "description": "set verbose reporting mode",
+      "global": false,
+      "short": "v",
+      "type": "bool"
+     }
+    },
+    "long": "Execute Rego test cases.",
+    "subcommands": {},
+    "usage": "opa test <path> [path [...]] [flags]"
+   },
+   "version": {
+    "description": "Print the version of OPA",
+    "flags": {
+     "check": {
+      "default": null,
+      "description": "check for latest OPA release",
+      "global": false,
+      "short": "c",
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for version",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     }
+    },
+    "long": "Show version and build information for OPA.",
+    "subcommands": {},
+    "usage": "opa version [flags]"
+   }
+  },
+  "root_flags": {
+   "help": {
+    "default": null,
+    "description": "help for opa",
+    "global": false,
+    "short": "h",
+    "type": "bool"
+   }
+  }
+ },
+ "cli_features": {
+  "bench": {
+   "ok": true,
+   "rc": 0
+  },
+  "build_bundle": {
+   "ok": true,
+   "rc": 0
+  },
+  "check": {
+   "ok": true,
+   "rc": 0
+  },
+  "deps": {
+   "ok": true,
+   "rc": 0
+  },
+  "eval": {
+   "ok": true,
+   "rc": 0,
+   "result_keys": [
+    "result"
+   ]
+  },
+  "fmt": {
+   "ok": true,
+   "rc": 0
+  },
+  "parse": {
+   "ok": true,
+   "rc": 0
+  },
+  "test": {
+   "ok": true,
+   "rc": 0,
+   "sample": "data.studio.example_test.test_alice_allowed: PASS (6.710125ms)\n--------------------------------------------------------------------------------\nPASS: 1/1\n"
+  }
+ },
+ "dialects": {
+  "cli": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": false,
+   "legacy": true,
+   "legacy-assign": true,
+   "rego.v1": false,
+   "v1": false
+  },
+  "server": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": false,
+   "legacy": true,
+   "legacy-assign": true,
+   "rego.v1": false,
+   "v1": false
+  }
+ },
+ "opa": {
+  "binary": {
+   "asset": "opa_linux_amd64",
+   "platform": "linux/amd64",
+   "sha256": null,
+   "source": "github-release",
+   "url": "https://github.com/open-policy-agent/opa/releases/download/v0.29.3/opa_linux_amd64"
+  },
+  "github_release": true,
+  "prerelease": false,
+  "published_at": "2021-05-28T18:50:37Z",
+  "version": "v0.29.3"
+ },
+ "preferred_dialect": "legacy-assign",
+ "schema": 1,
+ "server": {
+  "endpoints": {
+   "compile": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/compile",
+    "status": 200
+   },
+   "compile_path": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "compile_path_sql": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "config": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/config",
+    "status": 200
+   },
+   "data_delete": {
+    "keys": null,
+    "method": "DELETE",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_explain_debug": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=debug",
+    "status": 200
+   },
+   "data_explain_fails": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=fails",
+    "status": 200
+   },
+   "data_explain_full": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=full",
+    "status": 200
+   },
+   "data_explain_notes": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=notes",
+    "status": 200
+   },
+   "data_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data",
+    "status": 200
+   },
+   "data_get_input": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/data/studio/example",
+    "status": 200
+   },
+   "data_get_input_query_param": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?input=%7B%22user%22%3A%22alice%22%7D",
+    "status": 200
+   },
+   "data_instrument": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true&instrument=true",
+    "status": 200
+   },
+   "data_metrics": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true",
+    "status": 200
+   },
+   "data_patch": {
+    "keys": null,
+    "method": "PATCH",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_pretty": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?pretty=true",
+    "status": 200
+   },
+   "data_provenance": {
+    "content_type": "application/json",
+    "keys": [
+     "provenance",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?provenance=true",
+    "status": 200
+   },
+   "data_put": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_put_if_none_match": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test2",
+    "status": 204
+   },
+   "data_strict_builtin_errors": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?strict-builtin-errors=true",
+    "status": 200
+   },
+   "data_watch": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio?watch",
+    "status": 200
+   },
+   "data_webhook_v0": {
+    "content_type": "application/json",
+    "keys": null,
+    "method": "POST",
+    "path": "/v0/data/studio/example/allow",
+    "status": 200
+   },
+   "default_decision": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "message"
+    ],
+    "method": "POST",
+    "path": "/",
+    "status": 404
+   },
+   "health": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health",
+    "status": 200
+   },
+   "health_bundles": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health?bundles",
+    "status": 200
+   },
+   "health_live": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/live",
+    "status": 404
+   },
+   "health_plugins": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health?plugins",
+    "status": 200
+   },
+   "health_ready": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/ready",
+    "status": 404
+   },
+   "index": {
+    "content_type": "text/html; charset=utf-8",
+    "method": "GET",
+    "path": "/",
+    "status": 200
+   },
+   "metrics": {
+    "content_type": "text/plain; version=0.0.4; charset=utf-8",
+    "method": "GET",
+    "path": "/metrics",
+    "status": 200
+   },
+   "policies_delete": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "DELETE",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_list": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies",
+    "status": 200
+   },
+   "policies_put": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "PUT",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "pprof": {
+    "content_type": "text/plain; charset=utf-8",
+    "method": "GET",
+    "path": "/debug/pprof/",
+    "status": 404
+   },
+   "query_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/query?q=x%20%3D%201",
+    "status": 200
+   },
+   "query_post": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 200
+   },
+   "query_post_input": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 200
+   },
+   "status": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/status",
+    "status": 404
+   }
+  },
+  "preferred_dialect": "legacy-assign",
+  "quirks": {
+   "write_lock_after_policy_error": false
+  },
+  "started": true
+ },
+ "version_output": {
+  "Build Commit": "06a0b2e",
+  "Build Hostname": "c938987f4ef4",
+  "Build Timestamp": "2021-05-28T18:24:42Z",
+  "Go Version": "go1.16.3",
+  "Version": "0.29.3",
+  "WebAssembly": "available"
+ }
+}

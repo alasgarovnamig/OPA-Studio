@@ -1,0 +1,4890 @@
+{
+ "capabilities": {
+  "allow_net": null,
+  "builtins": [
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Returns the number without its sign.",
+    "infix": null,
+    "name": "abs",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "all",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "sets"
+    ],
+    "description": "Returns the intersection of two sets.",
+    "infix": "&",
+    "name": "and",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "any",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": null,
+    "description": "Concatenates two arrays.",
+    "infix": null,
+    "name": "array.concat",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "arr"
+    ],
+    "categories": null,
+    "description": "Non-recursively unpacks array items in arr into the flattened array. Other types are appended as-is.",
+    "infix": null,
+    "name": "array.flatten",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "arr"
+    ],
+    "categories": null,
+    "description": "Returns the reverse of a given array.",
+    "infix": null,
+    "name": "array.reverse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "arr",
+     "start",
+     "stop"
+    ],
+    "categories": null,
+    "description": "Returns a slice of a given array. If `start` is greater or equal than `stop`, `slice` is `[]`.",
+    "infix": null,
+    "name": "array.slice",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "any",
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": ":=",
+    "name": "assign",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Deserializes the base64 encoded input string.",
+    "infix": null,
+    "name": "base64.decode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input string into base64 encoding.",
+    "infix": null,
+    "name": "base64.encode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Verifies the input string is base64 encoded.",
+    "infix": null,
+    "name": "base64.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Deserializes the base64url encoded input string.",
+    "infix": null,
+    "name": "base64url.decode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input string into base64url encoding.",
+    "infix": null,
+    "name": "base64url.encode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input string into base64url encoding without padding.",
+    "infix": null,
+    "name": "base64url.encode_no_pad",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": null,
+    "description": "Returns the bitwise \"AND\" of two integers.",
+    "infix": null,
+    "name": "bits.and",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "s"
+    ],
+    "categories": null,
+    "description": "Returns a new integer with its bits shifted `s` bits to the left.",
+    "infix": null,
+    "name": "bits.lsh",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns the bitwise negation (flip) of an integer.",
+    "infix": null,
+    "name": "bits.negate",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": null,
+    "description": "Returns the bitwise \"OR\" of two integers.",
+    "infix": null,
+    "name": "bits.or",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "s"
+    ],
+    "categories": null,
+    "description": "Returns a new integer with its bits shifted `s` bits to the right.",
+    "infix": null,
+    "name": "bits.rsh",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": null,
+    "description": "Returns the bitwise \"XOR\" (exclusive-or) of two integers.",
+    "infix": null,
+    "name": "bits.xor",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_array",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_boolean",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_null",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "null"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_object",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_set",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "cast_string",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Rounds the number _up_ to the nearest integer.",
+    "infix": null,
+    "name": "ceil",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "delimiter",
+     "collection"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Joins a set or array of strings with a delimiter.",
+    "infix": null,
+    "name": "concat",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "haystack",
+     "needle"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `true` if the search string is included in the base string",
+    "infix": null,
+    "name": "contains",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Count takes a collection or string and returns the number of elements (or characters) in it.",
+    "infix": null,
+    "name": "count",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "mac1",
+     "mac2"
+    ],
+    "categories": null,
+    "description": "Returns a boolean representing the result of comparing two MACs for equality without leaking timing information.",
+    "infix": null,
+    "name": "crypto.hmac.equal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "key"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the MD5 HMAC of the input message using the input key.",
+    "infix": null,
+    "name": "crypto.hmac.md5",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "key"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the SHA1 HMAC of the input message using the input key.",
+    "infix": null,
+    "name": "crypto.hmac.sha1",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "key"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the SHA256 HMAC of the input message using the input key.",
+    "infix": null,
+    "name": "crypto.hmac.sha256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "key"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the SHA512 HMAC of the input message using the input key.",
+    "infix": null,
+    "name": "crypto.hmac.sha512",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the input string hashed with the MD5 function",
+    "infix": null,
+    "name": "crypto.md5",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "keys"
+    ],
+    "categories": null,
+    "description": "Returns zero or more private keys from the given encoded string containing DER certificate data.\n\nIf the input is empty, the function will return null. The input string should be a list of one or more concatenated PEM blocks. The whole input of concatenated PEM blocks can optionally be Base64 encoded.",
+    "infix": null,
+    "name": "crypto.parse_private_keys",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the input string hashed with the SHA1 function",
+    "infix": null,
+    "name": "crypto.sha1",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns a string representing the input string hashed with the SHA256 function",
+    "infix": null,
+    "name": "crypto.sha256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "certs"
+    ],
+    "categories": null,
+    "description": "Returns one or more certificates from the given string containing PEM\nor base64 encoded DER certificates after verifying the supplied certificates form a complete\ncertificate chain back to a trusted root.\n\nThe first certificate is treated as the root and the last is treated as the leaf,\nwith all others being treated as intermediates.",
+    "infix": null,
+    "name": "crypto.x509.parse_and_verify_certificates",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "certs",
+     "options"
+    ],
+    "categories": null,
+    "description": "Returns one or more certificates from the given string containing PEM\nor base64 encoded DER certificates after verifying the supplied certificates form a complete\ncertificate chain back to a trusted root. A config option passed as the second argument can\nbe used to configure the validation options used.\n\nThe first certificate is treated as the root and the last is treated as the leaf,\nwith all others being treated as intermediates.",
+    "infix": null,
+    "name": "crypto.x509.parse_and_verify_certificates_with_options",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "csr"
+    ],
+    "categories": null,
+    "description": "Returns a PKCS #10 certificate signing request from the given PEM-encoded PKCS#10 certificate signing request.",
+    "infix": null,
+    "name": "crypto.x509.parse_certificate_request",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "certs"
+    ],
+    "categories": null,
+    "description": "Returns zero or more certificates from the given encoded string containing\nDER certificate data.\n\nIf the input is empty, the function will return null. The input string should be a list of one or more\nconcatenated PEM blocks. The whole input of concatenated PEM blocks can optionally be Base64 encoded.",
+    "infix": null,
+    "name": "crypto.x509.parse_certificates",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "cert",
+     "pem"
+    ],
+    "categories": null,
+    "description": "Returns a valid key pair",
+    "infix": null,
+    "name": "crypto.x509.parse_keypair",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "pem"
+    ],
+    "categories": null,
+    "description": "Returns a JWK for signing a JWT from the given PEM-encoded RSA private key.",
+    "infix": null,
+    "name": "crypto.x509.parse_rsa_private_key",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Divides the first number by the second number.",
+    "infix": "/",
+    "name": "div",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "search",
+     "base"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns true if the search string ends with the base string.",
+    "infix": null,
+    "name": "endswith",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "any",
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": "=",
+    "name": "eq",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": "==",
+    "name": "equal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Rounds the number _down_ to the nearest integer.",
+    "infix": null,
+    "name": "floor",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "number",
+     "base"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the string representation of the number in the given base after rounding it down to an integer value.",
+    "infix": null,
+    "name": "format_int",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "pattern",
+     "delimiters",
+     "match"
+    ],
+    "categories": null,
+    "description": "Parses and matches strings against the glob notation. Not to be confused with `regex.globs_match`.",
+    "infix": null,
+    "name": "glob.match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "pattern"
+    ],
+    "categories": null,
+    "description": "Returns a string which represents a version of the pattern where all asterisks have been escaped.",
+    "infix": null,
+    "name": "glob.quote_meta",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "graph",
+     "initial"
+    ],
+    "categories": null,
+    "description": "Computes the set of reachable nodes in the graph from a set of starting nodes.",
+    "infix": null,
+    "name": "graph.reachable",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "graph",
+     "initial"
+    ],
+    "categories": null,
+    "description": "Computes the set of reachable paths in the graph from a set of starting nodes.",
+    "infix": null,
+    "name": "graph.reachable_paths",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "query",
+     "schema"
+    ],
+    "categories": null,
+    "description": "Checks that a GraphQL query is valid against a given schema. The query and/or schema can be either GraphQL strings or AST objects from the other GraphQL builtin functions.",
+    "infix": null,
+    "name": "graphql.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "query",
+     "schema"
+    ],
+    "categories": null,
+    "description": "Returns AST objects for a given GraphQL query and schema after validating the query against the schema. Returns undefined if errors were encountered during parsing or validation. The query and/or schema can be either GraphQL strings or AST objects from the other GraphQL builtin functions.",
+    "infix": null,
+    "name": "graphql.parse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "query",
+     "schema"
+    ],
+    "categories": null,
+    "description": "Returns a boolean indicating success or failure alongside the parsed ASTs for a given GraphQL query and schema after validating the query against the schema. The query and/or schema can be either GraphQL strings or AST objects from the other GraphQL builtin functions.",
+    "infix": null,
+    "name": "graphql.parse_and_verify",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "query"
+    ],
+    "categories": null,
+    "description": "Returns an AST object for a GraphQL query.",
+    "infix": null,
+    "name": "graphql.parse_query",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "schema"
+    ],
+    "categories": null,
+    "description": "Returns an AST object for a GraphQL schema.",
+    "infix": null,
+    "name": "graphql.parse_schema",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "schema"
+    ],
+    "categories": null,
+    "description": "Checks that the input is a valid GraphQL schema. The schema can be either a GraphQL string or an AST object from the other GraphQL builtin functions.",
+    "infix": null,
+    "name": "graphql.schema_is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": ">",
+    "name": "gt",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": ">=",
+    "name": "gte",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Deserializes the hex-encoded input string.",
+    "infix": null,
+    "name": "hex.decode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input string using hex-encoding.",
+    "infix": null,
+    "name": "hex.encode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "request"
+    ],
+    "categories": null,
+    "description": "Returns a HTTP response to the given HTTP request.",
+    "infix": null,
+    "name": "http.send",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "haystack",
+     "needle"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the index of a substring contained inside a string.",
+    "infix": null,
+    "name": "indexof",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "haystack",
+     "needle"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns a list of all the indexes of a substring contained inside a string.",
+    "infix": null,
+    "name": "indexof_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "any",
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": "in",
+    "name": "internal.member_2",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "any",
+     "any",
+     "any"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": "in",
+    "name": "internal.member_3",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "array"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "internal.print",
+    "nondeterministic": false,
+    "relation": false,
+    "result": null
+   },
+   {
+    "args": [
+     "array"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "internal.template_string",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "array"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "internal.test_case",
+    "nondeterministic": false,
+    "relation": false,
+    "result": null
+   },
+   {
+    "args": [
+     "xs"
+    ],
+    "categories": [
+     "sets"
+    ],
+    "description": "Returns the intersection of the given input sets.",
+    "infix": null,
+    "name": "intersection",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "jwt"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Decodes a JSON Web Token and outputs it as an object.",
+    "infix": null,
+    "name": "io.jwt.decode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "jwt",
+     "constraints"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies a JWT signature under parameterized constraints and decodes the claims if it is valid.\nSupports the following algorithms: HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512, PS256, PS384, PS512, and EdDSA.",
+    "infix": null,
+    "name": "io.jwt.decode_verify",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "headers",
+     "payload",
+     "key"
+    ],
+    "categories": [
+     "tokensign"
+    ],
+    "description": "Encodes and optionally signs a JSON Web Token. Inputs are taken as objects, not encoded strings (see `io.jwt.encode_sign_raw`).",
+    "infix": null,
+    "name": "io.jwt.encode_sign",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "headers",
+     "payload",
+     "key"
+    ],
+    "categories": [
+     "tokensign"
+    ],
+    "description": "Encodes and optionally signs a JSON Web Token.",
+    "infix": null,
+    "name": "io.jwt.encode_sign_raw",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if an EdDSA JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_eddsa",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a ES256 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_es256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a ES384 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_es384",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a ES512 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_es512",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "secret"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a HS256 (secret) JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_hs256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "secret"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a HS384 (secret) JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_hs384",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "secret"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a HS512 (secret) JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_hs512",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a PS256 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_ps256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a PS384 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_ps384",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a PS512 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_ps512",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a RS256 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_rs256",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a RS384 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_rs384",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "jwt",
+     "certificate"
+    ],
+    "categories": [
+     "tokens"
+    ],
+    "description": "Verifies if a RS512 JWT signature is valid.",
+    "infix": null,
+    "name": "io.jwt.verify_rs512",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is an array.",
+    "infix": null,
+    "name": "is_array",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is a boolean.",
+    "infix": null,
+    "name": "is_boolean",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is null.",
+    "infix": null,
+    "name": "is_null",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is a number.",
+    "infix": null,
+    "name": "is_number",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns true if the input value is an object",
+    "infix": null,
+    "name": "is_object",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is a set.",
+    "infix": null,
+    "name": "is_set",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns `true` if the input value is a string.",
+    "infix": null,
+    "name": "is_string",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "object",
+     "paths"
+    ],
+    "categories": [
+     "object"
+    ],
+    "description": "Filters the object. For example: `json.filter({\"a\": {\"b\": \"x\", \"c\": \"y\"}}, [\"a/b\"])` will result in `{\"a\": {\"b\": \"x\"}}`). Paths are not filtered in-order and are deduplicated before being evaluated.",
+    "infix": null,
+    "name": "json.filter",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Verifies the input string is a valid JSON document.",
+    "infix": null,
+    "name": "json.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input term to JSON.",
+    "infix": null,
+    "name": "json.marshal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "opts"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input term JSON, with additional formatting options via the `opts` parameter. `opts` accepts keys `pretty` (enable multi-line/formatted JSON), `prefix` (string to prefix lines with, default empty string) and `indent` (string to indent with, default `\\t`).",
+    "infix": null,
+    "name": "json.marshal_with_options",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "document",
+     "schema"
+    ],
+    "categories": [
+     "object"
+    ],
+    "description": "Checks that the document matches the JSON schema. The `pattern` keyword is enforced using Go's RE2 regex dialect; schemas relying on ECMA-262 features that RE2 does not support (e.g. negative lookahead) will be rejected.",
+    "infix": null,
+    "name": "json.match_schema",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "target",
+     "patches"
+    ],
+    "categories": [
+     "object"
+    ],
+    "description": "Patches an object according to RFC6902. For example: `json.patch({\"a\": {\"foo\": 1}}, [{\"op\": \"add\", \"path\": \"/a/bar\", \"value\": 2}])` results in `{\"a\": {\"foo\": 1, \"bar\": 2}`. The patches are applied atomically: if any of them fails, the result will be undefined. Additionally works on sets, where a value contained in the set is considered to be its path.",
+    "infix": null,
+    "name": "json.patch",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "object",
+     "paths"
+    ],
+    "categories": [
+     "object"
+    ],
+    "description": "Removes paths from an object. For example: `json.remove({\"a\": {\"b\": \"x\", \"c\": \"y\"}}, [\"a/b\"])` will result in `{\"a\": {\"c\": \"y\"}}`. Paths are not removed in-order and are deduplicated before being evaluated.",
+    "infix": null,
+    "name": "json.remove",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Deserializes the input string.",
+    "infix": null,
+    "name": "json.unmarshal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "schema"
+    ],
+    "categories": [
+     "object"
+    ],
+    "description": "Checks that the input is a valid JSON schema object. The schema can be either a JSON string or an JSON object. The `pattern` keyword, if present, is compiled using Go's RE2 regex dialect; schemas relying on ECMA-262 features that RE2 does not support (e.g. negative lookahead) will be rejected.",
+    "infix": null,
+    "name": "json.verify_schema",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the input string but with all characters in lower-case.",
+    "infix": null,
+    "name": "lower",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": "<",
+    "name": "lt",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": "<=",
+    "name": "lte",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Returns the maximum value in a collection.",
+    "infix": null,
+    "name": "max",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Returns the minimum value in a collection.",
+    "infix": null,
+    "name": "min",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "sets",
+     "numbers"
+    ],
+    "description": "Minus subtracts the second number from the first number or computes the difference between two sets.",
+    "infix": "-",
+    "name": "minus",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Multiplies two numbers.",
+    "infix": "*",
+    "name": "mul",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "comparison"
+    ],
+    "description": null,
+    "infix": "!=",
+    "name": "neq",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "cidr",
+     "cidr_or_ip"
+    ],
+    "categories": null,
+    "description": "Checks if a CIDR or IP is contained within another CIDR. `output` is `true` if `cidr_or_ip` (e.g. `127.0.0.64/26` or `127.0.0.1`) is contained within `cidr` (e.g. `127.0.0.1/24`) and `false` otherwise. Supports both IPv4 and IPv6 notations.",
+    "infix": null,
+    "name": "net.cidr_contains",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "cidrs",
+     "cidrs_or_ips"
+    ],
+    "categories": null,
+    "description": "Checks if collections of cidrs or ips are contained within another collection of cidrs and returns matches. This function is similar to `net.cidr_contains` except it allows callers to pass collections of CIDRs or IPs as arguments and returns the matches (as opposed to a boolean result indicating a match between two CIDRs/IPs).",
+    "infix": null,
+    "name": "net.cidr_contains_matches",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "cidr"
+    ],
+    "categories": null,
+    "description": "Expands CIDR to set of hosts  (e.g., `net.cidr_expand(\"192.168.0.0/30\")` generates 4 hosts: `{\"192.168.0.0\", \"192.168.0.1\", \"192.168.0.2\", \"192.168.0.3\"}`).",
+    "infix": null,
+    "name": "net.cidr_expand",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "cidr1",
+     "cidr2"
+    ],
+    "categories": null,
+    "description": "Checks if a CIDR intersects with another CIDR (e.g. `192.168.0.0/16` overlaps with `192.168.1.0/24`). Supports both IPv4 and IPv6 notations.",
+    "infix": null,
+    "name": "net.cidr_intersects",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "cidr"
+    ],
+    "categories": null,
+    "description": "Parses an IPv4/IPv6 CIDR and returns a boolean indicating if the provided CIDR is valid.",
+    "infix": null,
+    "name": "net.cidr_is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "addrs"
+    ],
+    "categories": null,
+    "description": "Merges IP addresses and subnets into the smallest possible list of CIDRs (e.g., `net.cidr_merge([\"192.0.128.0/24\", \"192.0.129.0/24\"])` generates `{\"192.0.128.0/23\"}`.This function merges adjacent subnets where possible, those contained within others and also removes any duplicates.\nSupports both IPv4 and IPv6 notations. IPv6 inputs need a prefix length (e.g. \"/128\").",
+    "infix": null,
+    "name": "net.cidr_merge",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "string",
+     "string"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "net.cidr_overlap",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "name"
+    ],
+    "categories": null,
+    "description": "Returns the set of IP addresses (both v4 and v6) that the passed-in `name` resolves to using the standard name resolution mechanisms available.",
+    "infix": null,
+    "name": "net.lookup_ip_addr",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "a",
+     "b"
+    ],
+    "categories": null,
+    "description": "Returns an array of numbers in the given (inclusive) range. If `a==b`, then `range == [a]`; if `a > b`, then `range` is in descending order.",
+    "infix": null,
+    "name": "numbers.range",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "a",
+     "b",
+     "step"
+    ],
+    "categories": null,
+    "description": "Returns an array of numbers in the given (inclusive) range incremented by a positive step.\n\tIf \"a==b\", then \"range == [a]\"; if \"a > b\", then \"range\" is in descending order.\n\tIf the provided \"step\" is less then 1, an error will be thrown.\n\tIf \"b\" is not in the range of the provided \"step\", \"b\" won't be included in the result.\n\t",
+    "infix": null,
+    "name": "numbers.range_step",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "object",
+     "keys"
+    ],
+    "categories": null,
+    "description": "Filters the object by keeping only specified keys. For example: `object.filter({\"a\": {\"b\": \"x\", \"c\": \"y\"}, \"d\": \"z\"}, [\"a\"])` will result in `{\"a\": {\"b\": \"x\", \"c\": \"y\"}}`).",
+    "infix": null,
+    "name": "object.filter",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "object",
+     "key",
+     "default"
+    ],
+    "categories": null,
+    "description": "Returns value of an object's key if present, otherwise a default. If the supplied `key` is an `array`, then `object.get` will search through a nested object or array using each key in turn. For example: `object.get({\"a\": [{ \"b\": true }]}, [\"a\", 0, \"b\"], false)` results in `true`.",
+    "infix": null,
+    "name": "object.get",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "object"
+    ],
+    "categories": null,
+    "description": "Returns a set of an object's keys. For example: `object.keys({\"a\": 1, \"b\": true, \"c\": \"d\")` results in `{\"a\", \"b\", \"c\"}`.",
+    "infix": null,
+    "name": "object.keys",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "object",
+     "keys"
+    ],
+    "categories": null,
+    "description": "Removes specified keys from an object.",
+    "infix": null,
+    "name": "object.remove",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "super",
+     "sub"
+    ],
+    "categories": null,
+    "description": "Determines if an object `sub` is a subset of another object `super`.Object `sub` is a subset of object `super` if and only if every key in `sub` is also in `super`, **and** for all keys which `sub` and `super` share, they have the same value. This function works with objects, sets, arrays and a set of array and set.If both arguments are objects, then the operation is recursive, e.g. `{\"c\": {\"x\": {10, 15, 20}}` is a subset of `{\"a\": \"b\", \"c\": {\"x\": {10, 15, 20, 25}, \"y\": \"z\"}`. If both arguments are sets, then this function checks if every element of `sub` is a member of `super`, but does not attempt to recurse. If both arguments are arrays, then this function checks if `sub` appears contiguously in order within `super`, and also does not attempt to recurse. If `super` is array and `sub` is set, then this function checks if `super` contains every element of `sub` with no consideration of ordering, and also does not attempt to recurse.",
+    "infix": null,
+    "name": "object.subset",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "a",
+     "b"
+    ],
+    "categories": null,
+    "description": "Creates a new object of the asymmetric union of two objects. For example: `object.union({\"a\": 1, \"b\": 2, \"c\": {\"d\": 3}}, {\"a\": 7, \"c\": {\"d\": 4, \"e\": 5}})` will result in `{\"a\": 7, \"b\": 2, \"c\": {\"d\": 4, \"e\": 5}}`.",
+    "infix": null,
+    "name": "object.union",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "objects"
+    ],
+    "categories": null,
+    "description": "Creates a new object that is the asymmetric union of all objects merged from left to right. For example: `object.union_n([{\"a\": 1}, {\"b\": 2}, {\"a\": 3}])` will result in `{\"b\": 2, \"a\": 3}`.",
+    "infix": null,
+    "name": "object.union_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": null,
+    "categories": null,
+    "description": "Returns an object that describes the runtime environment where OPA is deployed.",
+    "infix": null,
+    "name": "opa.runtime",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "sets"
+    ],
+    "description": "Returns the union of two sets.",
+    "infix": "|",
+    "name": "or",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Plus adds two numbers together.",
+    "infix": "+",
+    "name": "plus",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": null,
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "print",
+    "nondeterministic": false,
+    "relation": false,
+    "result": null
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Multiplies elements of an array or set of numbers",
+    "infix": null,
+    "name": "product",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "request",
+     "aws_config",
+     "time_ns"
+    ],
+    "categories": [
+     "providers.aws"
+    ],
+    "description": "Signs an HTTP request object for Amazon Web Services. Currently implements [AWS Signature Version 4 request signing](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) by the `Authorization` header method.",
+    "infix": null,
+    "name": "providers.aws.sign_req",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "str",
+     "n"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Returns a random integer between `0` and `n` (`n` exclusive). If `n` is `0`, then `y` is always `0`. For any given argument pair (`str`, `n`), the output will be consistent throughout a query evaluation.",
+    "infix": null,
+    "name": "rand.intn",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "string",
+     "string"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "re_match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "pattern",
+     "value",
+     "number"
+    ],
+    "categories": null,
+    "description": "Returns all successive matches of the expression.",
+    "infix": null,
+    "name": "regex.find_all_string_submatch_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "pattern",
+     "value",
+     "number"
+    ],
+    "categories": null,
+    "description": "Returns the specified number of matches when matching the input against the pattern.",
+    "infix": null,
+    "name": "regex.find_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "glob1",
+     "glob2"
+    ],
+    "categories": null,
+    "description": "Checks if the intersection of two glob-style regular expressions matches a non-empty set of non-empty strings.\nThe set of regex symbols is limited for this builtin: only `.`, `*`, `+`, `[`, `-`, `]` and `\\` are treated as special symbols.",
+    "infix": null,
+    "name": "regex.globs_match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "pattern"
+    ],
+    "categories": null,
+    "description": "Checks if a string is a valid regular expression: the detailed syntax for patterns is defined by https://github.com/google/re2/wiki/Syntax.",
+    "infix": null,
+    "name": "regex.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "pattern",
+     "value"
+    ],
+    "categories": null,
+    "description": "Matches a string against a regular expression.",
+    "infix": null,
+    "name": "regex.match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "s",
+     "pattern",
+     "value"
+    ],
+    "categories": null,
+    "description": "Find and replaces the text using the regular expression pattern.",
+    "infix": null,
+    "name": "regex.replace",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "pattern",
+     "value"
+    ],
+    "categories": null,
+    "description": "Splits the input string by the occurrences of the given pattern.",
+    "infix": null,
+    "name": "regex.split",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "template",
+     "value",
+     "delimiter_start",
+     "delimiter_end"
+    ],
+    "categories": null,
+    "description": "Matches a string against a pattern, where there pattern may be glob-like",
+    "infix": null,
+    "name": "regex.template_match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": null,
+    "categories": null,
+    "description": "Returns the chain of metadata for the active rule.\nOrdered starting at the active rule, going outward to the most distant node in its package ancestry.\nA chain entry is a JSON document with two members: \"path\", an array representing the path of the node; and \"annotations\", a JSON document containing the annotations declared for the node.\nThe first entry in the chain always points to the active rule, even if it has no declared annotations (in which case the \"annotations\" member is not present).",
+    "infix": null,
+    "name": "rego.metadata.chain",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": null,
+    "categories": null,
+    "description": "Returns annotations declared for the active rule and using the _rule_ scope.",
+    "infix": null,
+    "name": "rego.metadata.rule",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   },
+   {
+    "args": [
+     "filename",
+     "rego"
+    ],
+    "categories": null,
+    "description": "Parses the input Rego string and returns an object representation of the AST.",
+    "infix": null,
+    "name": "rego.parse_module",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x",
+     "y"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Returns the remainder for of `x` divided by `y`, for `y != 0`.",
+    "infix": "%",
+    "name": "rem",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x",
+     "old",
+     "new"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Replace replaces all instances of a sub-string.",
+    "infix": null,
+    "name": "replace",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "numbers"
+    ],
+    "description": "Rounds the number to the nearest integer.",
+    "infix": null,
+    "name": "round",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "a",
+     "b"
+    ],
+    "categories": null,
+    "description": "Compares valid SemVer formatted version strings.",
+    "infix": null,
+    "name": "semver.compare",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "vsn"
+    ],
+    "categories": null,
+    "description": "Validates that the input is a valid SemVer string.",
+    "infix": null,
+    "name": "semver.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "set",
+     "set"
+    ],
+    "categories": null,
+    "description": null,
+    "infix": null,
+    "name": "set_diff",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Returns a sorted array.",
+    "infix": null,
+    "name": "sort",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x",
+     "delimiter"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Split returns an array containing elements of the input string split on a delimiter.",
+    "infix": null,
+    "name": "split",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "format",
+     "values"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the given string, formatted.",
+    "infix": null,
+    "name": "sprintf",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "search",
+     "base"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns true if the search string begins with the base string.",
+    "infix": null,
+    "name": "startswith",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "search",
+     "base"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns true if any of the search strings begins with any of the base strings.",
+    "infix": null,
+    "name": "strings.any_prefix_match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "search",
+     "base"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns true if any of the search strings ends with any of the base strings.",
+    "infix": null,
+    "name": "strings.any_suffix_match",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "search",
+     "substring"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the number of non-overlapping instances of a substring in a string.",
+    "infix": null,
+    "name": "strings.count",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "value",
+     "vars"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Renders a templated string with given template variables injected. For a given templated string and key/value mapping, values will be injected into the template where they are referenced by key.\n\tFor examples of templating syntax, see https://pkg.go.dev/text/template",
+    "infix": null,
+    "name": "strings.render_template",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "patterns",
+     "value"
+    ],
+    "categories": null,
+    "description": "Replaces a string from a list of old, new string pairs.\nReplacements are performed in the order they appear in the target string, without overlapping matches.\nThe old string comparisons are done in argument order.",
+    "infix": null,
+    "name": "strings.replace_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Reverses a given string.",
+    "infix": null,
+    "name": "strings.reverse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x",
+     "delimiter",
+     "n"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns an array of at most `n` parts of `x` split on `delimiter`. If `n` is positive, returns the first `n` parts. If `n` is negative, returns the last `abs(n)` parts. If `n` is zero, returns an empty array. If `abs(n)` exceeds the number of parts, all parts are returned.",
+    "infix": null,
+    "name": "strings.split_n",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "value",
+     "offset",
+     "length"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the  portion of a string for a given `offset` and a `length`.  If `length < 0`, `output` is the remainder of the string.",
+    "infix": null,
+    "name": "substring",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "collection"
+    ],
+    "categories": [
+     "aggregates"
+    ],
+    "description": "Sums elements of an array or set of numbers.",
+    "infix": null,
+    "name": "sum",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "ns",
+     "years",
+     "months",
+     "days"
+    ],
+    "categories": null,
+    "description": "Returns the nanoseconds since epoch after adding years, months and days to nanoseconds. Month & day values outside their usual ranges after the operation and will be normalized - for example, October 32 would become November 1. `undefined` if the result would be outside the valid time range that can fit within an `int64`.",
+    "infix": null,
+    "name": "time.add_date",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns the `[hour, minute, second]` of the day for the nanoseconds since epoch.",
+    "infix": null,
+    "name": "time.clock",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns the `[year, month, day]` for the nanoseconds since epoch.",
+    "infix": null,
+    "name": "time.date",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "ns1",
+     "ns2"
+    ],
+    "categories": null,
+    "description": "Returns the difference between two unix timestamps in nanoseconds (with optional timezone strings).",
+    "infix": null,
+    "name": "time.diff",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns the formatted timestamp for the nanoseconds since epoch.",
+    "infix": null,
+    "name": "time.format",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": null,
+    "categories": null,
+    "description": "Returns the current time since epoch in nanoseconds.",
+    "infix": null,
+    "name": "time.now_ns",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "duration"
+    ],
+    "categories": null,
+    "description": "Returns the duration in nanoseconds represented by a string.",
+    "infix": null,
+    "name": "time.parse_duration_ns",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "layout",
+     "value"
+    ],
+    "categories": null,
+    "description": "Returns the time in nanoseconds parsed from the string in the given format. `undefined` if the result would be outside the valid time range that can fit within an `int64`.",
+    "infix": null,
+    "name": "time.parse_ns",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "value"
+    ],
+    "categories": null,
+    "description": "Returns the time in nanoseconds parsed from the string in RFC3339 format. `undefined` if the result would be outside the valid time range that can fit within an `int64`.",
+    "infix": null,
+    "name": "time.parse_rfc3339_ns",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Returns the day of the week (Monday, Tuesday, ...) for the nanoseconds since epoch.",
+    "infix": null,
+    "name": "time.weekday",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "conversions"
+    ],
+    "description": "Converts a string, bool, or number value to a number: Strings are converted to numbers using `strconv.Atoi`, Boolean `false` is converted to 0 and `true` is converted to 1.",
+    "infix": null,
+    "name": "to_number",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "note"
+    ],
+    "categories": [
+     "tracing"
+    ],
+    "description": "Emits `note` as a `Note` event in the query explanation. Query explanations show the exact expressions evaluated by OPA during policy execution. For example, `trace(\"Hello There!\")` includes `Note \"Hello There!\"` in the query explanation. To include variables in the message, use `sprintf`. For example, `person := \"Bob\"; trace(sprintf(\"Hello There! %v\", [person]))` will emit `Note \"Hello There! Bob\"` inside of the explanation.",
+    "infix": null,
+    "name": "trace",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "value",
+     "cutset"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `value` with all leading or trailing instances of the `cutset` characters removed.",
+    "infix": null,
+    "name": "trim",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "value",
+     "cutset"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `value` with all leading instances of the `cutset` characters removed.",
+    "infix": null,
+    "name": "trim_left",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "value",
+     "prefix"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `value` without the prefix. If `value` doesn't start with `prefix`, it is returned unchanged.",
+    "infix": null,
+    "name": "trim_prefix",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "value",
+     "cutset"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `value` with all trailing instances of the `cutset` characters removed.",
+    "infix": null,
+    "name": "trim_right",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "value"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Return the given string with all leading and trailing white space removed.",
+    "infix": null,
+    "name": "trim_space",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "value",
+     "suffix"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns `value` without the suffix. If `value` doesn't end with `suffix`, it is returned unchanged.",
+    "infix": null,
+    "name": "trim_suffix",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "types"
+    ],
+    "description": "Returns the type of its input value.",
+    "infix": null,
+    "name": "type_name",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "xs"
+    ],
+    "categories": [
+     "sets"
+    ],
+    "description": "Returns the union of the given input sets.",
+    "infix": null,
+    "name": "union",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "set"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Converts strings like \"10G\", \"5K\", \"4M\", \"1500m\", and the like into a number.\nThis number can be a non-integer, such as 1.5, 0.22, etc. Scientific notation is supported,\nallowing values such as \"1e-3K\" (1) or \"2.5e6M\" (2.5 million M).\n\nSupports standard metric decimal and binary SI units (e.g., K, Ki, M, Mi, G, Gi, etc.) where\nm, K, M, G, T, P, and E are treated as decimal units and Ki, Mi, Gi, Ti, Pi, and Ei are treated as\nbinary units.\n\nNote that 'm' and 'M' are case-sensitive to allow distinguishing between \"milli\" and \"mega\" units\nrespectively. Other units are case-insensitive.",
+    "infix": null,
+    "name": "units.parse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": null,
+    "description": "Converts strings like \"10GB\", \"5K\", \"4mb\", or \"1e6KB\" into an integer number of bytes.\n\nSupports standard byte units (e.g., KB, KiB, etc.) where KB, MB, GB, and TB are treated as decimal\nunits, and KiB, MiB, GiB, and TiB are treated as binary units. Scientific notation is supported,\nenabling values like \"1.5e3MB\" (1500MB) or \"2e6GiB\" (2 million GiB).\n\nThe bytes symbol (b/B) in the unit is optional; omitting it will yield the same result (e.g., \"Mi\"\nand \"MiB\" are equivalent).",
+    "infix": null,
+    "name": "units.parse_bytes",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "number"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "strings"
+    ],
+    "description": "Returns the input string but with all characters in upper-case.",
+    "infix": null,
+    "name": "upper",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "uri"
+    ],
+    "categories": null,
+    "description": "Returns true if the input can be parsed as a URI.",
+    "infix": null,
+    "name": "uri.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "uri"
+    ],
+    "categories": null,
+    "description": "Parses a URI and returns an object containing its components according to RFC 3986. Empty components are omitted. In addition to the standard components, `raw_query` is returned for use with `urlquery` builtins, and `raw_path` is returned to allow detection of path-based exploits using percent-encoded characters.",
+    "infix": null,
+    "name": "uri.parse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Decodes a URL-encoded input string.",
+    "infix": null,
+    "name": "urlquery.decode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Decodes the given URL query string into an object.",
+    "infix": null,
+    "name": "urlquery.decode_object",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Encodes the input string into a URL-encoded string.",
+    "infix": null,
+    "name": "urlquery.encode",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "object"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Encodes the given object into a URL encoded query string.",
+    "infix": null,
+    "name": "urlquery.encode_object",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "uuid"
+    ],
+    "categories": null,
+    "description": "Parses the string value as an UUID and returns an object with the well-defined fields of the UUID if valid.",
+    "infix": null,
+    "name": "uuid.parse",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "object"
+   },
+   {
+    "args": [
+     "k"
+    ],
+    "categories": null,
+    "description": "Returns a new UUIDv4.",
+    "infix": null,
+    "name": "uuid.rfc4122",
+    "nondeterministic": true,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "graph"
+    ],
+    "description": "Generates `[path, value]` tuples for all nested documents of `x` (recursively).  Queries can use `walk` to traverse documents nested under `x`.",
+    "infix": null,
+    "name": "walk",
+    "nondeterministic": false,
+    "relation": true,
+    "result": "array"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Verifies the input string is a valid YAML document.",
+    "infix": null,
+    "name": "yaml.is_valid",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "boolean"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Serializes the input term to YAML.",
+    "infix": null,
+    "name": "yaml.marshal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "string"
+   },
+   {
+    "args": [
+     "x"
+    ],
+    "categories": [
+     "encoding"
+    ],
+    "description": "Deserializes the input string.",
+    "infix": null,
+    "name": "yaml.unmarshal",
+    "nondeterministic": false,
+    "relation": false,
+    "result": "any"
+   }
+  ],
+  "features": [
+   "keywords_in_refs",
+   "rego_v1",
+   "template_strings"
+  ],
+  "future_keywords": [
+   "not"
+  ],
+  "wasm_abi_versions": [
+   {
+    "minor_version": 1,
+    "version": 1
+   },
+   {
+    "minor_version": 2,
+    "version": 1
+   }
+  ]
+ },
+ "cli": {
+  "commands": {
+   "bench": {
+    "description": "Benchmark a Rego query",
+    "flags": {
+     "benchmem": {
+      "default": "true",
+      "description": "report memory allocations with benchmark results (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "config-file": {
+      "default": null,
+      "description": "set path of configuration file",
+      "global": false,
+      "short": "c",
+      "type": "string"
+     },
+     "count": {
+      "default": "1",
+      "description": "number of times to repeat each benchmark (default 1)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "e2e": {
+      "default": null,
+      "description": "run benchmarks against a running OPA server",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail": {
+      "default": "true",
+      "description": "exits with non-zero exit code on undefined/empty result and errors (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json,gobench}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for bench",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "import": {
+      "default": null,
+      "description": "set query import(s). This flag can be repeated.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "input": {
+      "default": null,
+      "description": "set input file path",
+      "global": false,
+      "short": "i",
+      "type": "string"
+     },
+     "metrics": {
+      "default": "true",
+      "description": "report query performance metrics (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "optimize-store-for-read-speed": {
+      "default": null,
+      "description": "optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details.",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "package": {
+      "default": null,
+      "description": "set query package",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "partial": {
+      "default": null,
+      "description": "perform partial evaluation",
+      "global": false,
+      "short": "p",
+      "type": "bool"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "shutdown-grace-period": {
+      "default": "10",
+      "description": "set the time (in seconds) that the server will wait to gracefully shut down. This flag is valid in 'e2e' mode only. (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "shutdown-wait-period": {
+      "default": null,
+      "description": "set the time (in seconds) that the server will wait before initiating shutdown. This flag is valid in 'e2e' mode only.",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "stdin": {
+      "default": null,
+      "description": "read query from stdin",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin-input": {
+      "default": null,
+      "description": "read input document from stdin",
+      "global": false,
+      "short": "I",
+      "type": "bool"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "unknowns": {
+      "default": "[input]",
+      "description": "set paths to treat as unknown during partial evaluation (default [input])",
+      "global": false,
+      "short": "u",
+      "type": "stringArray"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Benchmark a Rego query and print the results.",
+    "subcommands": {},
+    "usage": "opa bench <query> [flags]"
+   },
+   "build": {
+    "description": "Build an OPA bundle",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities version or capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "claims-file": {
+      "default": null,
+      "description": "set path of JSON file containing optional claims (see: https://www.openpolicyagent.org/docs/latest/management-bundles/#signature-format)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "debug": {
+      "default": null,
+      "description": "enable debug output",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "entrypoint": {
+      "default": null,
+      "description": "set slash separated entrypoint path",
+      "global": false,
+      "short": "e",
+      "type": "string"
+     },
+     "exclude-files-verify": {
+      "default": null,
+      "description": "set file names to exclude during bundle verification",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "follow-symlinks": {
+      "default": null,
+      "description": "follow symlinks in the input set of paths when building the bundle",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "json",
+      "description": "set the plan output format (only applies when --target=plan) (default json)",
+      "global": false,
+      "short": null,
+      "type": "{json,proto}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for build",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "optimize": {
+      "default": null,
+      "description": "set optimization level",
+      "global": false,
+      "short": "O",
+      "type": "int"
+     },
+     "output": {
+      "default": "\"bundle.tar.gz\"",
+      "description": "set the output filename (default \"bundle.tar.gz\")",
+      "global": false,
+      "short": "o",
+      "type": "string"
+     },
+     "partial-namespace": {
+      "default": "\"partial\"",
+      "description": "set the namespace to use for partially evaluated files in an optimized bundle (default \"partial\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "prune-unused": {
+      "default": null,
+      "description": "exclude dependents of entrypoints",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "revision": {
+      "default": null,
+      "description": "set output bundle revision",
+      "global": false,
+      "short": "r",
+      "type": "string"
+     },
+     "scope": {
+      "default": null,
+      "description": "scope to use for bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the private key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-plugin": {
+      "default": null,
+      "description": "name of the plugin to use for signing/verification (see https://www.openpolicyagent.org/docs/latest/management-bundles/#signature-plugin)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the output bundle target type (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm,plan}"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "verification-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the public key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "verification-key-id": {
+      "default": "\"default\"",
+      "description": "name assigned to the verification key used for bundle verification (default \"default\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "wasm-include-print": {
+      "default": null,
+      "description": "enable print statements inside of WebAssembly modules compiled by the compiler",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Build an OPA bundle.",
+    "subcommands": {},
+    "usage": "opa build <path> [<path> [...]] [flags]"
+   },
+   "capabilities": {
+    "description": "Print the capabilities of OPA",
+    "flags": {
+     "current": {
+      "default": null,
+      "description": "print current capabilities",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "file": {
+      "default": null,
+      "description": "print capabilities defined by a file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "help": {
+      "default": null,
+      "description": "help for capabilities",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "version": {
+      "default": null,
+      "description": "print capabilities of a specific version",
+      "global": false,
+      "short": null,
+      "type": "string"
+     }
+    },
+    "long": "Show capabilities for OPA.",
+    "subcommands": {},
+    "usage": "opa capabilities [flags]"
+   },
+   "check": {
+    "description": "Check Rego source files",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities version or capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for check",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "strict": {
+      "default": null,
+      "description": "enable compiler strict mode",
+      "global": false,
+      "short": "S",
+      "type": "bool"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "v0-v1": {
+      "default": null,
+      "description": "check for Rego v0 and v1 compatibility (policies must be compatible with both Rego versions)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Check Rego source files for parse and compilation errors.",
+    "subcommands": {},
+    "usage": "opa check <path> [path [...]] [flags]"
+   },
+   "completion": {
+    "description": "Generate the autocompletion script for the specified shell",
+    "flags": {},
+    "subcommands": {},
+    "usage": null
+   },
+   "deps": {
+    "description": "Analyze Rego query dependencies",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for deps",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     }
+    },
+    "long": "Print dependencies of provided query.",
+    "subcommands": {},
+    "usage": "opa deps <query> [flags]"
+   },
+   "eval": {
+    "description": "Evaluate a Rego query",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities version or capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "count": {
+      "default": "1",
+      "description": "number of times to repeat each benchmark (default 1)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "coverage": {
+      "default": null,
+      "description": "report coverage",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "data": {
+      "default": null,
+      "description": "set policy or data file(s). This flag can be repeated.",
+      "global": false,
+      "short": "d",
+      "type": "string"
+     },
+     "disable-early-exit": {
+      "default": null,
+      "description": "disable 'early exit' optimizations",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "disable-indexing": {
+      "default": null,
+      "description": "disable indexing optimizations",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "disable-inlining": {
+      "default": null,
+      "description": "set paths of documents to exclude from inlining",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "entrypoint": {
+      "default": null,
+      "description": "set slash separated entrypoint path",
+      "global": false,
+      "short": "e",
+      "type": "string"
+     },
+     "explain": {
+      "default": "off",
+      "description": "enable query explanations (default off)",
+      "global": false,
+      "short": null,
+      "type": "{off,full,notes,fails,debug}"
+     },
+     "fail": {
+      "default": null,
+      "description": "exits with non-zero exit code on undefined/empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail-defined": {
+      "default": null,
+      "description": "exits with non-zero exit code on defined/non-empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "json",
+      "description": "set output format (default json)",
+      "global": false,
+      "short": "f",
+      "type": "{json,values,bindings,pretty,source,raw,discard}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for eval",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "import": {
+      "default": null,
+      "description": "set query import(s). This flag can be repeated.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "input": {
+      "default": null,
+      "description": "set input file path",
+      "global": false,
+      "short": "i",
+      "type": "string"
+     },
+     "instrument": {
+      "default": null,
+      "description": "enable query instrumentation metrics (implies --metrics)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "metrics": {
+      "default": null,
+      "description": "report query performance metrics",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "nondeterminstic-builtins": {
+      "default": null,
+      "description": "evaluate nondeterministic builtins (if all arguments are known) during partial eval",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "optimize": {
+      "default": null,
+      "description": "set optimization level",
+      "global": false,
+      "short": "O",
+      "type": "int"
+     },
+     "optimize-store-for-read-speed": {
+      "default": null,
+      "description": "optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details.",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "package": {
+      "default": null,
+      "description": "set query package",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "partial": {
+      "default": null,
+      "description": "perform partial evaluation",
+      "global": false,
+      "short": "p",
+      "type": "bool"
+     },
+     "pretty-limit": {
+      "default": "80",
+      "description": "set limit after which pretty output gets truncated (default 80)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "profile": {
+      "default": null,
+      "description": "perform expression profiling",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "profile-limit": {
+      "default": "10",
+      "description": "set number of profiling results to show (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "profile-sort": {
+      "default": null,
+      "description": "set sort order of expression profiler results. Accepts: total_time_ns, num_eval, num_redo, num_gen_expr, file, line. This flag can be repeated.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "shallow-inlining": {
+      "default": null,
+      "description": "disable inlining of rules that depend on unknowns",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "show-builtin-errors": {
+      "default": null,
+      "description": "collect and return all encountered built-in errors, built in errors are not fatal",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin": {
+      "default": null,
+      "description": "read query from stdin",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "stdin-input": {
+      "default": null,
+      "description": "read input document from stdin",
+      "global": false,
+      "short": "I",
+      "type": "bool"
+     },
+     "strict": {
+      "default": null,
+      "description": "enable compiler strict mode",
+      "global": false,
+      "short": "S",
+      "type": "bool"
+     },
+     "strict-builtin-errors": {
+      "default": null,
+      "description": "treat the first built-in function error encountered as fatal",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "timeout": {
+      "default": "unlimited",
+      "description": "set eval timeout (default unlimited)",
+      "global": false,
+      "short": null,
+      "type": "duration"
+     },
+     "unknowns": {
+      "default": "[input]",
+      "description": "set paths to treat as unknown during partial evaluation (default [input])",
+      "global": false,
+      "short": "u",
+      "type": "stringArray"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "var-values": {
+      "default": null,
+      "description": "show local variable values in pretty trace output",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Evaluate a Rego query and print the result.",
+    "subcommands": {},
+    "usage": "opa eval <query> [flags]"
+   },
+   "exec": {
+    "description": "Execute against input files",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "set bundle file(s) or directory path(s). This flag can be repeated.",
+      "global": false,
+      "short": "b",
+      "type": "string"
+     },
+     "config-file": {
+      "default": null,
+      "description": "set path of configuration file",
+      "global": false,
+      "short": "c",
+      "type": "string"
+     },
+     "decision": {
+      "default": null,
+      "description": "set decision to evaluate",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "fail": {
+      "default": null,
+      "description": "exits with non-zero exit code on undefined/empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail-defined": {
+      "default": null,
+      "description": "exits with non-zero exit code on defined/non-empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail-non-empty": {
+      "default": null,
+      "description": "exits with non-zero exit code on non-empty result and errors",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "json",
+      "description": "set output format (default json)",
+      "global": false,
+      "short": "f",
+      "type": "{json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for exec",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "log-format": {
+      "default": "json",
+      "description": "set log format (default json)",
+      "global": false,
+      "short": null,
+      "type": "{text,json,json-pretty}"
+     },
+     "log-level": {
+      "default": "error",
+      "description": "set log level (default error)",
+      "global": false,
+      "short": "l",
+      "type": "{debug,info,error}"
+     },
+     "log-timestamp-format": {
+      "default": null,
+      "description": "set log timestamp format (OPA_LOG_TIMESTAMP_FORMAT environment variable)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "set": {
+      "default": null,
+      "description": "override config values on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "set-file": {
+      "default": null,
+      "description": "override config values with files on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "stdin-input": {
+      "default": null,
+      "description": "read input document from stdin rather than a static file",
+      "global": false,
+      "short": "I",
+      "type": "bool"
+     },
+     "timeout": {
+      "default": "unlimited",
+      "description": "set exec timeout with a Go-style duration, such as '5m 30s'. (default unlimited)",
+      "global": false,
+      "short": null,
+      "type": "duration"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Execute against input files.",
+    "subcommands": {},
+    "usage": "opa exec <path> [<path> [...]] [flags]"
+   },
+   "fmt": {
+    "description": "Format Rego source files",
+    "flags": {
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities version or capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "check-result": {
+      "default": "true",
+      "description": "assert that the formatted code is valid and can be successfully parsed (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "diff": {
+      "default": null,
+      "description": "only display a diff of the changes",
+      "global": false,
+      "short": "d",
+      "type": "bool"
+     },
+     "drop-v0-imports": {
+      "default": null,
+      "description": "drop v0 imports from the formatted code, such as 'rego.v1' and 'future.keywords'",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "fail": {
+      "default": null,
+      "description": "non zero exit code on reformat",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for fmt",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "list": {
+      "default": null,
+      "description": "list all files who would change when formatted",
+      "global": false,
+      "short": "l",
+      "type": "bool"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "v0-v1": {
+      "default": null,
+      "description": "format module(s) to be compatible with both Rego v0 and v1",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "write": {
+      "default": null,
+      "description": "overwrite the original source file",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Format Rego source files.",
+    "subcommands": {},
+    "usage": "opa fmt [path [...]] [flags]"
+   },
+   "help": {
+    "description": "Help about any command",
+    "flags": {},
+    "subcommands": {},
+    "usage": null
+   },
+   "inspect": {
+    "description": "Inspect OPA bundle(s)",
+    "flags": {
+     "annotations": {
+      "default": null,
+      "description": "list annotations",
+      "global": false,
+      "short": "a",
+      "type": "bool"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for inspect",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Inspect OPA bundle(s).",
+    "subcommands": {},
+    "usage": "opa inspect <path> [<path> [...]] [flags]"
+   },
+   "parse": {
+    "description": "Parse Rego source file",
+    "flags": {
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for parse",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "json-include": {
+      "default": null,
+      "description": "include or exclude optional elements. By default comments are included. Current options: locations, comments. E.g. --json-include locations,-comments will include locations and exclude comments.",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     }
+    },
+    "long": "Parse Rego source file and print AST.",
+    "subcommands": {},
+    "usage": "opa parse <path> [flags]"
+   },
+   "run": {
+    "description": "Start OPA in interactive or server mode",
+    "flags": {
+     "addr": {
+      "default": "[localhost:8181]",
+      "description": "set listening address of the server (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket) (default [localhost:8181])",
+      "global": false,
+      "short": "a",
+      "type": "strings"
+     },
+     "authentication": {
+      "default": "off",
+      "description": "set authentication scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{token,tls,off}"
+     },
+     "authorization": {
+      "default": "off",
+      "description": "set authorization scheme (default off)",
+      "global": false,
+      "short": null,
+      "type": "{basic,off}"
+     },
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "config-file": {
+      "default": null,
+      "description": "set path of configuration file",
+      "global": false,
+      "short": "c",
+      "type": "string"
+     },
+     "diagnostic-addr": {
+      "default": null,
+      "description": "set read-only diagnostic listening address of the server for /health and /metric APIs (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "exclude-files-verify": {
+      "default": null,
+      "description": "set file names to exclude during bundle verification",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "format": {
+      "default": "\"pretty\"",
+      "description": "set shell output format, i.e, pretty, json (default \"pretty\")",
+      "global": false,
+      "short": "f",
+      "type": "string"
+     },
+     "h2c": {
+      "default": null,
+      "description": "enable H2C for HTTP listeners",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for run",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "history": {
+      "default": "\"/root/.opa_history\"",
+      "description": "set path of history file (default \"/root/.opa_history\")",
+      "global": false,
+      "short": "H",
+      "type": "string"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "log-format": {
+      "default": "json",
+      "description": "set log format (default json)",
+      "global": false,
+      "short": null,
+      "type": "{text,json,json-pretty}"
+     },
+     "log-level": {
+      "default": "info",
+      "description": "set log level (default info)",
+      "global": false,
+      "short": "l",
+      "type": "{debug,info,error}"
+     },
+     "log-timestamp-format": {
+      "default": null,
+      "description": "set log timestamp format (OPA_LOG_TIMESTAMP_FORMAT environment variable)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "min-tls-version": {
+      "default": "1.2",
+      "description": "set minimum TLS version to be used by OPA's server (default 1.2)",
+      "global": false,
+      "short": null,
+      "type": "{1.0,1.1,1.2,1.3}"
+     },
+     "optimize-store-for-read-speed": {
+      "default": null,
+      "description": "optimize default in-memory store for read speed. Has possible negative impact on memory footprint and write speed. See https://www.openpolicyagent.org/docs/latest/policy-performance/#storage-optimization for more details.",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "pprof": {
+      "default": null,
+      "description": "enables pprof endpoints",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "ready-timeout": {
+      "default": null,
+      "description": "wait (in seconds) for configured plugins before starting server (value <= 0 disables ready check)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "scope": {
+      "default": null,
+      "description": "scope to use for bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "server": {
+      "default": null,
+      "description": "start the runtime in server mode",
+      "global": false,
+      "short": "s",
+      "type": "bool"
+     },
+     "set": {
+      "default": null,
+      "description": "override config values on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "set-file": {
+      "default": null,
+      "description": "override config values with files on the command line (use commas to specify multiple values)",
+      "global": false,
+      "short": null,
+      "type": "stringArray"
+     },
+     "shutdown-grace-period": {
+      "default": "10",
+      "description": "set the time (in seconds) that the server will wait to gracefully shut down (default 10)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "shutdown-wait-period": {
+      "default": null,
+      "description": "set the time (in seconds) that the server will wait before initiating shutdown",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "skip-known-schema-check": {
+      "default": null,
+      "description": "disables type checking on known input schemas",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "skip-verify": {
+      "default": null,
+      "description": "disables bundle signature verification",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "skip-version-check": {
+      "default": null,
+      "description": "disables version check against GitHub releases (see: https://www.openpolicyagent.org/docs/privacy)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "tls-ca-cert-file": {
+      "default": null,
+      "description": "set path of TLS CA cert file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "tls-cert-file": {
+      "default": null,
+      "description": "set path of TLS certificate file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "tls-cert-refresh-period": {
+      "default": null,
+      "description": "set certificate refresh period",
+      "global": false,
+      "short": null,
+      "type": "duration"
+     },
+     "tls-cipher-suites": {
+      "default": null,
+      "description": "set list of enabled TLS 1.0\u20131.2 cipher suites (IANA)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "tls-private-key-file": {
+      "default": null,
+      "description": "set path of TLS private key file",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "unix-socket-perm": {
+      "default": "\"755\"",
+      "description": "specify the permissions for the Unix domain socket if used to listen for incoming connections (default \"755\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "verification-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the public key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "verification-key-id": {
+      "default": "\"default\"",
+      "description": "name assigned to the verification key used for bundle verification (default \"default\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "watch": {
+      "default": null,
+      "description": "watch command line files for changes",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Start an instance of OPA.",
+    "subcommands": {},
+    "usage": "opa run [flags] [files]"
+   },
+   "sign": {
+    "description": "Generate an OPA bundle signature",
+    "flags": {
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "claims-file": {
+      "default": null,
+      "description": "set path of JSON file containing optional claims (see: https://www.openpolicyagent.org/docs/latest/management-bundles/#signature-format)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "help": {
+      "default": null,
+      "description": "help for sign",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "output-file-path": {
+      "default": "\".\"",
+      "description": "set the location for the .signatures.json file (default \".\")",
+      "global": false,
+      "short": "o",
+      "type": "string"
+     },
+     "signing-alg": {
+      "default": "\"RS256\"",
+      "description": "name of the signing algorithm (default \"RS256\")",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-key": {
+      "default": null,
+      "description": "set the secret (HMAC) or path of the PEM file containing the private key (RSA and ECDSA)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "signing-plugin": {
+      "default": null,
+      "description": "name of the plugin to use for signing/verification (see https://www.openpolicyagent.org/docs/latest/management-bundles/#signature-plugin)",
+      "global": false,
+      "short": null,
+      "type": "string"
+     }
+    },
+    "long": "Generate an OPA bundle signature.",
+    "subcommands": {},
+    "usage": "opa sign <path> [<path> [...]] [flags]"
+   },
+   "test": {
+    "description": "Execute Rego test cases",
+    "flags": {
+     "bench": {
+      "default": null,
+      "description": "benchmark the unit tests",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "benchmem": {
+      "default": "true",
+      "description": "report memory allocations with benchmark results (default true)",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "bundle": {
+      "default": null,
+      "description": "load paths as bundle files or root directories",
+      "global": false,
+      "short": "b",
+      "type": "bool"
+     },
+     "capabilities": {
+      "default": null,
+      "description": "set capabilities version or capabilities.json file path",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "count": {
+      "default": "1",
+      "description": "number of times to repeat each test (default 1)",
+      "global": false,
+      "short": null,
+      "type": "int"
+     },
+     "coverage": {
+      "default": null,
+      "description": "report coverage (overrides debug tracing)",
+      "global": false,
+      "short": "c",
+      "type": "bool"
+     },
+     "exit-zero-on-skipped": {
+      "default": null,
+      "description": "skipped tests return status 0",
+      "global": false,
+      "short": "z",
+      "type": "bool"
+     },
+     "explain": {
+      "default": "fails",
+      "description": "enable query explanations (default fails)",
+      "global": false,
+      "short": null,
+      "type": "{fails,full,notes,debug}"
+     },
+     "fail-on-empty": {
+      "default": null,
+      "description": "Whether to fail the test when no test was run",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "format": {
+      "default": "pretty",
+      "description": "set output format (default pretty)",
+      "global": false,
+      "short": "f",
+      "type": "{pretty,json,gobench}"
+     },
+     "help": {
+      "default": null,
+      "description": "help for test",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     },
+     "ignore": {
+      "default": null,
+      "description": "set file and directory names to ignore during loading (e.g., '.*' excludes hidden files)",
+      "global": false,
+      "short": null,
+      "type": "strings"
+     },
+     "max-errors": {
+      "default": "10",
+      "description": "set the number of errors to allow before compilation fails early (default 10)",
+      "global": false,
+      "short": "m",
+      "type": "int"
+     },
+     "parallel": {
+      "default": "16",
+      "description": "the number of tests that can run in parallel, defaulting to the number of CPUs (explicitly set with 0). Benchmarks are always run sequentially. (default 16)",
+      "global": false,
+      "short": "p",
+      "type": "int"
+     },
+     "run": {
+      "default": null,
+      "description": "run only test cases matching the regular expression",
+      "global": false,
+      "short": "r",
+      "type": "string"
+     },
+     "schema": {
+      "default": null,
+      "description": "set schema file path or directory path",
+      "global": false,
+      "short": "s",
+      "type": "string"
+     },
+     "sort": {
+      "default": "none",
+      "description": "sort the JSON formatted test output (default none)",
+      "global": false,
+      "short": null,
+      "type": "{none,duration}"
+     },
+     "target": {
+      "default": "rego",
+      "description": "set the runtime to exercise (default rego)",
+      "global": false,
+      "short": "t",
+      "type": "{rego,wasm}"
+     },
+     "threshold": {
+      "default": null,
+      "description": "set coverage threshold and exit with non-zero status if coverage is less than threshold %",
+      "global": false,
+      "short": null,
+      "type": "float"
+     },
+     "timeout": {
+      "default": "5s, 30s when benchmarking",
+      "description": "set test timeout (default 5s, 30s when benchmarking)",
+      "global": false,
+      "short": null,
+      "type": "duration"
+     },
+     "v0-compatible": {
+      "default": null,
+      "description": "opt-in to OPA features and behaviors prior to the OPA v1.0 release",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "var-values": {
+      "default": null,
+      "description": "show local variable values in test output",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "verbose": {
+      "default": null,
+      "description": "set verbose reporting mode",
+      "global": false,
+      "short": "v",
+      "type": "bool"
+     },
+     "watch": {
+      "default": null,
+      "description": "watch command line files for changes",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Execute Rego test cases.",
+    "subcommands": {},
+    "usage": "opa test <path> [path [...]] [flags]"
+   },
+   "version": {
+    "description": "Print the version of OPA",
+    "flags": {
+     "check": {
+      "default": null,
+      "description": "check for latest OPA release",
+      "global": false,
+      "short": "c",
+      "type": "bool"
+     },
+     "help": {
+      "default": null,
+      "description": "help for version",
+      "global": false,
+      "short": "h",
+      "type": "bool"
+     }
+    },
+    "long": "Show version and build information for OPA.",
+    "subcommands": {},
+    "usage": "opa version [flags]"
+   }
+  },
+  "root_flags": {
+   "help": {
+    "default": null,
+    "description": "help for opa",
+    "global": false,
+    "short": "h",
+    "type": "bool"
+   }
+  }
+ },
+ "cli_features": {
+  "bench": {
+   "ok": true,
+   "rc": 0
+  },
+  "build_bundle": {
+   "ok": true,
+   "rc": 0
+  },
+  "check": {
+   "ok": true,
+   "rc": 0
+  },
+  "deps": {
+   "ok": true,
+   "rc": 0
+  },
+  "eval": {
+   "ok": true,
+   "rc": 0,
+   "result_keys": [
+    "result"
+   ]
+  },
+  "fmt": {
+   "ok": true,
+   "rc": 0
+  },
+  "inspect": {
+   "ok": true,
+   "rc": 0
+  },
+  "parse": {
+   "ok": true,
+   "rc": 0
+  },
+  "test": {
+   "ok": true,
+   "rc": 0,
+   "sample": "policy_test.rego:3:\ndata.studio.example_test.test_alice_allowed: PASS (579.166\u00b5s)\n--------------------------------------------------------------------------------\nPASS: 1/1\n"
+  }
+ },
+ "dialects": {
+  "cli": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": true,
+   "legacy": false,
+   "legacy-assign": false,
+   "rego.v1": true,
+   "v1": true
+  },
+  "server": {
+   "datalog": false,
+   "datalog-noinput": false,
+   "future-keywords": true,
+   "legacy": false,
+   "legacy-assign": false,
+   "rego.v1": true,
+   "v1": true
+  }
+ },
+ "opa": {
+  "binary": {
+   "asset": "opa_linux_arm64_static",
+   "platform": "linux/arm64",
+   "sha256": "06680087ed236c8c6aaa021660d83178db829a2ad30bdb3482481fada6791b2a",
+   "source": "github-release",
+   "url": "https://github.com/open-policy-agent/opa/releases/download/v1.19.0/opa_linux_arm64_static"
+  },
+  "github_release": true,
+  "prerelease": false,
+  "published_at": "2026-07-30T20:05:58Z",
+  "version": "v1.19.0"
+ },
+ "preferred_dialect": "v1",
+ "schema": 1,
+ "server": {
+  "endpoints": {
+   "compile": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/compile",
+    "status": 200
+   },
+   "compile_path": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "errors",
+     "message"
+    ],
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 400
+   },
+   "compile_path_sql": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "errors",
+     "message"
+    ],
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 400
+   },
+   "config": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/config",
+    "status": 200
+   },
+   "data_delete": {
+    "keys": null,
+    "method": "DELETE",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_explain_debug": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=debug",
+    "status": 200
+   },
+   "data_explain_fails": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=fails",
+    "status": 200
+   },
+   "data_explain_full": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=full",
+    "status": 200
+   },
+   "data_explain_notes": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=notes",
+    "status": 200
+   },
+   "data_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data",
+    "status": 200
+   },
+   "data_get_input": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/data/studio/example",
+    "status": 200
+   },
+   "data_get_input_query_param": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?input=%7B%22user%22%3A%22alice%22%7D",
+    "status": 200
+   },
+   "data_instrument": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true&instrument=true",
+    "status": 200
+   },
+   "data_metrics": {
+    "content_type": "application/json",
+    "keys": [
+     "metrics",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true",
+    "status": 200
+   },
+   "data_patch": {
+    "keys": null,
+    "method": "PATCH",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_pretty": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?pretty=true",
+    "status": 200
+   },
+   "data_provenance": {
+    "content_type": "application/json",
+    "keys": [
+     "provenance",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?provenance=true",
+    "status": 200
+   },
+   "data_put": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_put_if_none_match": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test2",
+    "status": 204
+   },
+   "data_strict_builtin_errors": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?strict-builtin-errors=true",
+    "status": 200
+   },
+   "data_watch": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio?watch",
+    "status": 200
+   },
+   "data_webhook_v0": {
+    "content_type": "application/json",
+    "keys": null,
+    "method": "POST",
+    "path": "/v0/data/studio/example/allow",
+    "status": 200
+   },
+   "default_decision": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "message"
+    ],
+    "method": "POST",
+    "path": "/",
+    "status": 404
+   },
+   "health": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health",
+    "status": 200
+   },
+   "health_bundles": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health?bundles",
+    "status": 200
+   },
+   "health_live": {
+    "content_type": "application/json",
+    "keys": [
+     "error"
+    ],
+    "method": "GET",
+    "path": "/health/live",
+    "status": 500
+   },
+   "health_plugins": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "GET",
+    "path": "/health?plugins",
+    "status": 200
+   },
+   "health_ready": {
+    "content_type": "application/json",
+    "keys": [
+     "error"
+    ],
+    "method": "GET",
+    "path": "/health/ready",
+    "status": 500
+   },
+   "index": {
+    "content_type": "text/html; charset=utf-8",
+    "method": "GET",
+    "path": "/",
+    "status": 200
+   },
+   "metrics": {
+    "content_type": "text/plain; version=0.0.4; charset=utf-8; escaping=underscores",
+    "method": "GET",
+    "path": "/metrics",
+    "status": 200
+   },
+   "policies_delete": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "DELETE",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_list": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies",
+    "status": 200
+   },
+   "policies_put": {
+    "content_type": "application/json",
+    "keys": [],
+    "method": "PUT",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "pprof": {
+    "content_type": "text/plain; charset=utf-8",
+    "method": "GET",
+    "path": "/debug/pprof/",
+    "status": 404
+   },
+   "query_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/query?q=x%20%3D%201",
+    "status": 200
+   },
+   "query_post": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 200
+   },
+   "query_post_input": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 200
+   },
+   "status": {
+    "content_type": "application/json",
+    "keys": [
+     "code",
+     "message"
+    ],
+    "method": "GET",
+    "path": "/v1/status",
+    "status": 500
+   }
+  },
+  "preferred_dialect": "v1",
+  "quirks": {
+   "write_lock_after_policy_error": false
+  },
+  "started": true
+ },
+ "version_output": {
+  "Build Commit": "1e32c796e8979b1bda2f768138500b1deb95ff24-dirty",
+  "Build Hostname": "",
+  "Build Timestamp": "2026-07-30T19:38:54Z",
+  "Go Version": "go1.26.5",
+  "Platform": "linux/arm64",
+  "Rego Version": "v1",
+  "Version": "1.19.0",
+  "WebAssembly": "available"
+ }
+}

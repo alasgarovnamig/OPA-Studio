@@ -1,0 +1,473 @@
+{
+ "capabilities": null,
+ "cli": {
+  "commands": {
+   "run": {
+    "description": "Start OPA in interative or server mode",
+    "flags": {
+     "addr": {
+      "default": "\":8181\"",
+      "description": "set listening address of the server (default \":8181\")",
+      "global": false,
+      "short": "a",
+      "type": "string"
+     },
+     "alsologtostderr": {
+      "default": null,
+      "description": "log to standard error as well as files",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "eval": {
+      "default": null,
+      "description": "evaluate, print, exit",
+      "global": false,
+      "short": "e",
+      "type": "string"
+     },
+     "format": {
+      "default": "\"pretty\"",
+      "description": "set shell output format, i.e, pretty, json (default \"pretty\")",
+      "global": false,
+      "short": "f",
+      "type": "string"
+     },
+     "history": {
+      "default": "\"/root/.opa_history\"",
+      "description": "set path of history file (default \"/root/.opa_history\")",
+      "global": false,
+      "short": "H",
+      "type": "string"
+     },
+     "log_backtrace_at": {
+      "default": ":0",
+      "description": "when logging hits line file:N, emit a stack trace (default :0)",
+      "global": false,
+      "short": null,
+      "type": "traceLocation"
+     },
+     "log_dir": {
+      "default": null,
+      "description": "If non-empty, write log files in this directory",
+      "global": false,
+      "short": null,
+      "type": "string"
+     },
+     "logtostderr": {
+      "default": null,
+      "description": "log to standard error instead of files",
+      "global": false,
+      "short": null,
+      "type": "bool"
+     },
+     "policy-dir": {
+      "default": null,
+      "description": "set directory to store policy definitions",
+      "global": false,
+      "short": "p",
+      "type": "string"
+     },
+     "server": {
+      "default": null,
+      "description": "start the runtime in server mode",
+      "global": false,
+      "short": "s",
+      "type": "bool"
+     },
+     "stderrthreshold": {
+      "default": "2",
+      "description": "logs at or above this threshold go to stderr (default 2)",
+      "global": false,
+      "short": null,
+      "type": "severity"
+     },
+     "v": {
+      "default": null,
+      "description": "log level for V logs",
+      "global": false,
+      "short": null,
+      "type": "Level"
+     },
+     "vmodule": {
+      "default": null,
+      "description": "comma-separated list of pattern=N settings for file-filtered logging",
+      "global": false,
+      "short": null,
+      "type": "moduleSpec"
+     },
+     "watch": {
+      "default": null,
+      "description": "watch command line files for changes",
+      "global": false,
+      "short": "w",
+      "type": "bool"
+     }
+    },
+    "long": "Start an instance of the Open Policy Agent (OPA).",
+    "subcommands": {},
+    "usage": "opa run [flags] [files]"
+   },
+   "version": {
+    "description": "Print the version of OPA",
+    "flags": {},
+    "long": "Show version and build information for OPA.",
+    "subcommands": {},
+    "usage": "opa version [flags]"
+   }
+  },
+  "root_flags": {}
+ },
+ "cli_features": {},
+ "dialects": {
+  "cli": {
+   "datalog": null,
+   "datalog-noinput": null,
+   "future-keywords": null,
+   "legacy": null,
+   "legacy-assign": null,
+   "rego.v1": null,
+   "v1": null
+  },
+  "server": {
+   "datalog": false,
+   "datalog-noinput": true,
+   "future-keywords": false,
+   "legacy": false,
+   "legacy-assign": false,
+   "rego.v1": false,
+   "v1": false
+  }
+ },
+ "opa": {
+  "binary": {
+   "asset": "opa_linux_amd64",
+   "platform": "linux/amd64",
+   "sha256": null,
+   "source": "github-release",
+   "url": "https://github.com/open-policy-agent/opa/releases/download/v0.4.0/opa_linux_amd64"
+  },
+  "github_release": true,
+  "prerelease": false,
+  "published_at": "2017-01-25T18:37:05Z",
+  "version": "v0.4.0"
+ },
+ "preferred_dialect": "datalog-noinput",
+ "schema": 1,
+ "server": {
+  "endpoints": {
+   "compile": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile",
+    "status": 404
+   },
+   "compile_path": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "compile_path_sql": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/compile/studio/example/allow",
+    "status": 404
+   },
+   "config": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/config",
+    "status": 404
+   },
+   "data_delete": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "DELETE",
+    "path": "/v1/data/studio/test",
+    "status": 404
+   },
+   "data_explain_debug": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=debug",
+    "status": 200
+   },
+   "data_explain_fails": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=fails",
+    "status": 200
+   },
+   "data_explain_full": {
+    "content_type": "application/json",
+    "keys": [
+     "explanation",
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=full",
+    "status": 200
+   },
+   "data_explain_notes": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?explain=notes",
+    "status": 200
+   },
+   "data_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data",
+    "status": 200
+   },
+   "data_get_input": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "POST",
+    "path": "/v1/data/studio/example",
+    "status": 200
+   },
+   "data_get_input_query_param": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?input=%7B%22user%22%3A%22alice%22%7D",
+    "status": 200
+   },
+   "data_instrument": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true&instrument=true",
+    "status": 200
+   },
+   "data_metrics": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?metrics=true",
+    "status": 200
+   },
+   "data_patch": {
+    "keys": null,
+    "method": "PATCH",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_pretty": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?pretty=true",
+    "status": 200
+   },
+   "data_provenance": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?provenance=true",
+    "status": 200
+   },
+   "data_put": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test",
+    "status": 204
+   },
+   "data_put_if_none_match": {
+    "keys": null,
+    "method": "PUT",
+    "path": "/v1/data/studio/test2",
+    "status": 204
+   },
+   "data_strict_builtin_errors": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio/example?strict-builtin-errors=true",
+    "status": 200
+   },
+   "data_watch": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/data/studio?watch",
+    "status": 200
+   },
+   "data_webhook_v0": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v0/data/studio/example/allow",
+    "status": 404
+   },
+   "default_decision": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/",
+    "status": 404
+   },
+   "health": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health",
+    "status": 404
+   },
+   "health_bundles": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health?bundles",
+    "status": 404
+   },
+   "health_live": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/live",
+    "status": 404
+   },
+   "health_plugins": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health?plugins",
+    "status": 404
+   },
+   "health_ready": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/health/ready",
+    "status": 404
+   },
+   "index": {
+    "content_type": "text/html; charset=utf-8",
+    "method": "GET",
+    "path": "/",
+    "status": 200
+   },
+   "metrics": {
+    "content_type": "text/plain; charset=utf-8",
+    "method": "GET",
+    "path": "/metrics",
+    "status": 404
+   },
+   "policies_delete": {
+    "keys": null,
+    "method": "DELETE",
+    "path": "/v1/policies/studio",
+    "status": 204
+   },
+   "policies_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "policies_list": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/policies",
+    "status": 200
+   },
+   "policies_put": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "PUT",
+    "path": "/v1/policies/studio",
+    "status": 200
+   },
+   "pprof": {
+    "content_type": "text/plain; charset=utf-8",
+    "method": "GET",
+    "path": "/debug/pprof/",
+    "status": 404
+   },
+   "query_get": {
+    "content_type": "application/json",
+    "keys": [
+     "result"
+    ],
+    "method": "GET",
+    "path": "/v1/query?q=x%20%3D%201",
+    "status": 200
+   },
+   "query_post": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 404
+   },
+   "query_post_input": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "POST",
+    "path": "/v1/query",
+    "status": 404
+   },
+   "status": {
+    "content_type": "text/plain; charset=utf-8",
+    "keys": null,
+    "method": "GET",
+    "path": "/v1/status",
+    "status": 404
+   }
+  },
+  "preferred_dialect": "datalog-noinput",
+  "quirks": {
+   "write_lock_after_policy_error": false
+  },
+  "started": true
+ },
+ "version_output": {
+  "Build Commit": "4ea2b27",
+  "Build Hostname": "c07db9dcae1a",
+  "Build Timestamp": "2017-01-25T18:34:51Z",
+  "Version": "0.4.0"
+ }
+}
