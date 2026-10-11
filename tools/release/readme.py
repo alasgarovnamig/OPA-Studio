@@ -259,27 +259,59 @@ def render(version, shots_rel, report, validation):
     w("")
 
     # ---- quick start ---------------------------------------------------------------
+    local = "opa-studio:%s" % version
+    no_arm = "linux/arm64" not in plats
+    plat = "--platform linux/amd64 " if no_arm else ""
     w("## Quick start")
     w("")
+    w("Build the image from this tag and run it — Docker is the only requirement:")
+    w("")
     w("```bash")
-    w("docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio %s:%s" % (IMAGE, version))
+    w("git clone --branch %s --single-branch %s.git opa-studio-%s" % (version, REPO_URL, version))
+    w("cd opa-studio-%s" % version)
+    w("docker build %s-t %s ." % (plat, local))
+    w("docker run --rm %s-p 9080:9080 -v opa-studio-data:/var/lib/opa-studio %s" % (plat, local))
     w("```")
     w("")
     w("Open <http://localhost:9080>. Studio starts a managed OPA %s server, creates an example workspace and connects to it." % version)
-    w("Container platforms for this release: %s (determined by the binaries OPA %s ships)." % (", ".join("`%s`" % p for p in plats), version))
     w("")
-    w("Connect to your own OPA %s server instead (or in addition):" % version)
+    if no_arm:
+        w("> **Apple Silicon / ARM hosts:** OPA %s ships no `linux/arm64` binary, so the image is built for `linux/amd64` "
+          "(`--platform linux/amd64` above) and runs under emulation. On x86-64 machines the flag is harmless." % version)
+    else:
+        w("> The image builds natively on `linux/amd64` and `linux/arm64` (including Apple Silicon).")
+    if opa_image:
+        w(">")
+        w("> OPA %s exists only as the Docker image `%s`; the Dockerfile of this tag already takes the OPA binary from it." % (version, opa_image))
+    w("")
+    w("Connect to your own OPA %s servers as well (and protect Studio with a password):" % version)
     w("")
     w("```bash")
-    w("docker run --rm -p 9080:9080 \\")
+    w("docker run --rm %s-p 9080:9080 -v opa-studio-data:/var/lib/opa-studio \\" % plat)
     w("  -e OPA_STUDIO_CONNECTIONS='[{\"id\":\"prod\",\"name\":\"Production\",\"url\":\"http://opa.internal:8181\",\"token\":\"…\"}]' \\")
     w("  -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \\")
-    w("  %s:%s" % (IMAGE, version))
+    w("  %s" % local)
+    w("```")
+    w("")
+    w("With Docker Compose (builds the same image%s): `OPA_STUDIO_BASIC_PASSWORD=change-me docker compose -f deploy/docker-compose.yml up --build`." % (
+        " and starts an OPA agent wired to Studio's control plane" if "set" in m["cli"]["commands"].get("run", {}).get("flags", {}) else ""))
+    w("")
+    w("<details><summary>Prebuilt images and binaries</summary>")
+    w("")
+    w("When the repository's release workflow has published this tag, the image can be pulled instead of built:")
+    w("")
+    w("```bash")
+    w("docker run --rm %s-p 9080:9080 -v opa-studio-data:/var/lib/opa-studio %s:%s" % (plat, IMAGE, version))
     w("```")
     w("")
     if bins:
-        w("Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](%s/releases/tag/%s) for: %s." % (REPO_URL, version, ", ".join("`%s/%s`" % b for b in bins)))
+        w("The [GitHub release](%s/releases/tag/%s) then also carries archives with `opa-studio` and the matching `opa` binary for: %s." % (
+            REPO_URL, version, ", ".join("`%s/%s`" % b for b in bins)))
         w("")
+    w("If the pull fails with `denied`, the image has not been published yet — build it as shown above.")
+    w("")
+    w("</details>")
+    w("")
 
     # ---- capabilities -----------------------------------------------------------------
     w("## What OPA %s can do" % version)
@@ -453,12 +485,12 @@ def render(version, shots_rel, report, validation):
     w("## Build from source")
     w("")
     w("```bash")
-    w("git clone --branch %s %s.git && cd OPA-Studio" % (version, REPO_URL))
+    w("git clone --branch %s --single-branch %s.git opa-studio-%s && cd opa-studio-%s" % (version, REPO_URL, version, version))
     w("make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)")
     if bins:
         w("make opa               # downloads OPA %s to bin/opa (checksum verified when published)" % version)
         w("make run               # http://localhost:9080")
-    w("make docker            # container image %s:%s" % (IMAGE, version))
+    w("docker build %s-t opa-studio:%s .   # container image" % ("--platform linux/amd64 " if "linux/arm64" not in plats else "", version))
     w("```")
     w("")
     if opa_image:

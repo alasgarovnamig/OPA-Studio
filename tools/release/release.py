@@ -32,14 +32,15 @@ def sub(path, pattern, repl, count=1):
 
 COMPOSE_STUDIO_ONLY = """# OPA Studio for OPA {v}.
 #
-#   docker compose -f deploy/docker-compose.yml up
+#   OPA_STUDIO_BASIC_PASSWORD=change-me docker compose -f deploy/docker-compose.yml up --build
 #
 # OPA {v} has no `opa run --set` flag, so this release ships no agent example;
 # connect existing OPA servers with OPA_STUDIO_CONNECTIONS.
 services:
   studio:
-    image: ghcr.io/alasgarovnamig/opa-studio:{v}
-    ports:
+    build: ..
+    image: opa-studio:{v}
+{platform}    ports:
       - "9080:9080"
     environment:
       OPA_STUDIO_AUTH_MODE: basic
@@ -57,7 +58,8 @@ volumes:
 def stamp(version):
     entry = next(e for e in versions() if e["tag"] == version)
     m = manifest(version)
-    _, opa_image = linux_platforms(entry)
+    plats, opa_image = linux_platforms(entry)
+    platform = "" if "linux/arm64" in plats else "    platform: linux/amd64 # OPA %s ships no linux/arm64 binary\n" % version
     open(os.path.join(ROOT, "OPA_VERSION"), "w").write(version + "\n")
     sub("internal/buildinfo/buildinfo.go", r'^(\tOPAVersion = )"[^"]*"', r'\g<1>"%s"' % version)
     sub("Dockerfile", r"^ARG OPA_VERSION=\S+", "ARG OPA_VERSION=%s" % version)
@@ -66,14 +68,14 @@ def stamp(version):
     compose = os.path.join(ROOT, "deploy", "docker-compose.yml")
     if "set" in m["cli"]["commands"].get("run", {}).get("flags", {}):
         tmpl = open(os.path.join(ROOT, "tools", "release", "docker-compose.tmpl.yml")).read()
-        tmpl = tmpl.replace("@OPA_VERSION@", version).replace("@OPA_IMAGE_TAG@", version.lstrip("v"))
+        tmpl = tmpl.replace("@OPA_VERSION@", version).replace("@OPA_IMAGE_TAG@", version.lstrip("v")).replace("@PLATFORM@", platform)
         if semver_key(version) < semver_key("v0.13.0"):
             # Before v0.13.0 OPA downloads a single bundle configured under `bundle`.
             tmpl = tmpl.replace("      - --set=bundles.app.service=studio\n      - --set=bundles.app.resource=bundles/app\n",
                                 "      - --set=bundle.name=app\n      - --set=bundle.service=studio\n")
         open(compose, "w").write(tmpl)
     else:
-        open(compose, "w").write(COMPOSE_STUDIO_ONLY.format(v=version))
+        open(compose, "w").write(COMPOSE_STUDIO_ONLY.format(v=version, platform=platform))
 
 
 def screenshots(src):

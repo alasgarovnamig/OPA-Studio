@@ -1,11 +1,12 @@
 # OPA Studio with its managed local OPA server plus an external OPA agent
 # that pulls bundles from, and reports decisions/status to, Studio.
 #
-#   docker compose -f deploy/docker-compose.yml up
+#   OPA_STUDIO_BASIC_PASSWORD=change-me docker compose -f deploy/docker-compose.yml up --build
 services:
   studio:
-    image: ghcr.io/alasgarovnamig/opa-studio:@OPA_VERSION@
-    ports:
+    build: ..
+    image: opa-studio:@OPA_VERSION@
+@PLATFORM@    ports:
       - "9080:9080"
     environment:
       OPA_STUDIO_PUBLIC_URL: http://studio:9080
