@@ -4,7 +4,7 @@
 #   docker compose -f deploy/docker-compose.yml up
 services:
   studio:
-    image: ghcr.io/alasgarovnamig/opa-studio:v0.12.1
+    image: ghcr.io/alasgarovnamig/opa-studio:v0.12.2
     ports:
       - "9080:9080"
     environment:
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
   opa:
-    image: openpolicyagent/opa:0.12.1
+    image: openpolicyagent/opa:0.12.2
     command:
       - run
       - --server
