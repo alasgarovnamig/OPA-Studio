@@ -1,16 +1,16 @@
 <p align="center"><img src="docs/assets/logo.svg" width="84" alt="OPA Studio"></p>
 
-<h1 align="center">OPA Studio <code>v0.9.2</code></h1>
+<h1 align="center">OPA Studio <code>v0.10.0</code></h1>
 
-<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.9.2">OPA v0.9.2</a>.</b></p>
+<p align="center"><b>The web UI for every Open Policy Agent operation — built, tested and documented for <a href="https://github.com/open-policy-agent/opa/releases/tag/v0.10.0">OPA v0.10.0</a>.</b></p>
 
-<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.9.2-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2018--09--24-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Classic%20Rego-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
+<p align="center"><img alt="OPA" src="https://img.shields.io/badge/OPA-0.10.0-0d9488"> <img alt="released" src="https://img.shields.io/badge/OPA%20released-2018--10--25-64748b"> <img alt="dialect" src="https://img.shields.io/badge/Rego-Classic%20Rego-7c3aed"> <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-Apache--2.0-2563eb"></a></p>
 
-> **One Studio release per OPA release.** This is tag [`v0.9.2`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.2) of OPA Studio and it targets **OPA v0.9.2** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
+> **One Studio release per OPA release.** This is tag [`v0.10.0`](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.0) of OPA Studio and it targets **OPA v0.10.0** exactly: the image bundles that OPA binary, the UI only offers what that release can do, and the example workspace is written in its Rego dialect. Using another OPA version? Pick the matching tag in [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
-<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.1">← v0.9.1</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.0">v0.10.0 →</a></p>
+<p align="center"><a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.2">← v0.9.2</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md">All versions</a> · <a href="https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.1">v0.10.1 →</a></p>
 
-OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.9.2 is out of reach — see the [feature coverage](docs/feature-coverage.md).
+OPA Studio lets you do everything OPA can do from a browser: manage policies and data on any number of OPA servers, evaluate, test, format, benchmark, build and sign policies with the OPA CLI, use the REPL, and act as the control plane OPA agents download bundles from and report decisions and status to. Nothing you can do with OPA v0.10.0 is out of reach — see the [feature coverage](docs/feature-coverage.md).
 
 **Docs:** [Feature coverage](docs/feature-coverage.md) · [Compatibility](docs/compatibility.md) · [Configuration](docs/configuration.md) · [Security](docs/security.md) · [HTTP API](docs/api.md) · [Architecture](docs/architecture.md) · [Development](docs/development.md)
 
@@ -19,8 +19,8 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Contents
 
 - [Quick start](#quick-start)
-- [What OPA v0.9.2 can do](#what-opa-v092-can-do)
-- [What changed in OPA v0.9.2](#what-changed-in-opa-v092)
+- [What OPA v0.10.0 can do](#what-opa-v0100-can-do)
+- [What changed in OPA v0.10.0](#what-changed-in-opa-v0100)
 - [Guided tour](#guided-tour)
 - [Connect OPA agents to Studio](#connect-opa-agents-to-studio)
 - [Configuration](#configuration)
@@ -31,26 +31,26 @@ OPA Studio lets you do everything OPA can do from a browser: manage policies and
 ## Quick start
 
 ```bash
-docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.9.2
+docker run --rm -p 9080:9080 -v opa-studio:/var/lib/opa-studio ghcr.io/alasgarovnamig/opa-studio:v0.10.0
 ```
 
-Open <http://localhost:9080>. Studio starts a managed OPA v0.9.2 server, creates an example workspace and connects to it.
-Container platforms for this release: `linux/amd64` (determined by the binaries OPA v0.9.2 ships).
+Open <http://localhost:9080>. Studio starts a managed OPA v0.10.0 server, creates an example workspace and connects to it.
+Container platforms for this release: `linux/amd64` (determined by the binaries OPA v0.10.0 ships).
 
-Connect to your own OPA v0.9.2 server instead (or in addition):
+Connect to your own OPA v0.10.0 server instead (or in addition):
 
 ```bash
 docker run --rm -p 9080:9080 \
   -e OPA_STUDIO_CONNECTIONS='[{"id":"prod","name":"Production","url":"http://opa.internal:8181","token":"…"}]' \
   -e OPA_STUDIO_AUTH_MODE=basic -e OPA_STUDIO_BASIC_PASSWORD='change-me' \
-  ghcr.io/alasgarovnamig/opa-studio:v0.9.2
+  ghcr.io/alasgarovnamig/opa-studio:v0.10.0
 ```
 
-Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.9.2) for: `linux/amd64`, `darwin/amd64`, `windows/amd64`.
+Standalone binaries (Studio + matching OPA) are attached to the [GitHub release](https://github.com/alasgarovnamig/OPA-Studio/releases/tag/v0.10.0) for: `linux/amd64`, `darwin/amd64`, `windows/amd64`.
 
-## What OPA v0.9.2 can do
+## What OPA v0.10.0 can do
 
-Measured by running the official OPA v0.9.2 binary (`9fbff4c3`). Studio enables exactly these features.
+Measured by running the official OPA v0.10.0 binary (`dbf54cde`). Studio enables exactly these features.
 
 ### Rego dialect: Classic Rego
 
@@ -92,27 +92,38 @@ reasons[msg] {
 }
 ```
 
-### CLI commands (8)
+### CLI commands (9)
 
 | Command | Description | Flags | Studio page |
 |---|---|---|---|
+| `opa build` | Compile Rego policy queries | 6 | Bundles · Command Builder |
 | `opa check` | Check Rego source files | 5 | Check & Format · Command Builder |
 | `opa deps` | Analyze Rego query dependencies | 5 | Parse & Deps · Command Builder |
-| `opa eval` | Evaluate a Rego query | 18 | Evaluate · Command Builder |
+| `opa eval` | Evaluate a Rego query | 19 | Evaluate · Command Builder |
 | `opa fmt` | Format Rego source files | 5 | Check & Format · Command Builder |
 | `opa parse` | Parse Rego source file | 3 | Parse & Deps · Command Builder |
-| `opa run` | Start OPA in interative or server mode | 17 | Local OPA, REPL · Command Builder |
+| `opa run` | Start OPA in interative or server mode | 16 | Local OPA, REPL · Command Builder |
 | `opa test` | Execute Rego test cases | 8 | Test · Command Builder |
 | `opa version` | Print the version of OPA | 2 | About · Command Builder |
 
 <details><summary>All flags of every command</summary>
+
+**opa build**
+
+| Flag | Type | Description |
+|---|---|---|
+| `--data` `-d` | `string` | set data file(s) or directory path(s) |
+| `--debug` `-D` | `bool` | enable debug output |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
+| `--output` `-o` | `string` | set the filename of the compiled policy (default "policy.wasm") |
+| `--plugin-dir` | `string` | set directory path to load built-in and plugin shared object files from |
 
 **opa check**
 
 | Flag | Type | Description |
 |---|---|---|
 | `--format` `-f` | `{pretty,json}` | set output format (default pretty) |
-| `--ignore` | `stringSlice` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
 | `--max-errors` `-m` | `int` | set the number of errors to allow before compilation fails early (default 10) |
 | `--plugin-dir` | `string` | set directory path to load built-in and plugin shared object files from |
 
@@ -122,7 +133,7 @@ reasons[msg] {
 |---|---|---|
 | `--data` `-d` | `string` | set data file(s) or directory path(s) |
 | `--format` `-f` | `{pretty,json}` | set output format (default pretty) |
-| `--ignore` | `stringSlice` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
 | `--plugin-dir` | `string` | set directory path to load built-in and plugin shared object files from |
 
 **opa eval**
@@ -131,8 +142,9 @@ reasons[msg] {
 |---|---|---|
 | `--data` `-d` | `string` | set data file(s) or directory path(s) |
 | `--explain` | `{full}` | enable query explainations |
+| `--fail` | `bool` | exits with non-zero exit code on undefined result and errors |
 | `--format` `-f` | `{json,values,bindings,pretty}` | set output format (default json) |
-| `--ignore` | `stringSlice` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
 | `--import` | `string` | set query import(s) |
 | `--input` `-i` | `string` | set input file path |
 | `--metrics` | `bool` | report query performance metrics |
@@ -145,7 +157,7 @@ reasons[msg] {
 | `--profile-sort` | `string` | set sort order of expression profiler results |
 | `--stdin` | `bool` | read query from stdin |
 | `--stdin-input` `-I` | `bool` | read input document from stdin |
-| `--unknowns` `-u` | `stringSlice` | set paths to treat as unknown during partial evaluation (default [input]) |
+| `--unknowns` `-u` | `strings` | set paths to treat as unknown during partial evaluation (default [input]) |
 
 **opa fmt**
 
@@ -167,14 +179,13 @@ reasons[msg] {
 
 | Flag | Type | Description |
 |---|---|---|
-| `--addr` `-a` | `stringSlice` | set listening address of the server (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket) (default [:8181]) |
+| `--addr` `-a` | `strings` | set listening address of the server (e.g., [ip]:<port> for TCP, unix://<path> for UNIX domain socket) (default [:8181]) |
 | `--authentication` | `{token,off}` | set authentication scheme (default off) |
 | `--authorization` | `{basic,off}` | set authorization scheme (default off) |
 | `--config-file` `-c` | `string` | set path of configuration file |
 | `--format` `-f` | `string` | set shell output format, i.e, pretty, json (default "pretty") |
 | `--history` `-H` | `string` | set path of history file (default "/root/.opa_history") |
-| `--ignore` | `stringSlice` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
-| `--insecure-addr` | `string` | set insecure listening address of the server |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
 | `--log-format` | `{text,json}` | set log format (default text) |
 | `--log-level` `-l` | `{debug,info,error}` | set log level (default info) |
 | `--max-errors` `-m` | `int` | set the number of errors to allow before compilation fails early (default 10) |
@@ -188,9 +199,9 @@ reasons[msg] {
 
 | Flag | Type | Description |
 |---|---|---|
-| `--coverage` `-c` | `bool` | report coverage |
+| `--coverage` `-c` | `bool` | report coverage (overrides debug tracing) |
 | `--format` `-f` | `{pretty,json}` | set output format (default pretty) |
-| `--ignore` | `stringSlice` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
+| `--ignore` | `strings` | set file and directory names to ignore during loading (e.g., '.*' excludes hidden files) |
 | `--max-errors` `-m` | `int` | set the number of errors to allow before compilation fails early (default 10) |
 | `--plugin-dir` | `string` | set directory path to load built-in and plugin shared object files from |
 | `--timeout` `-t` | `duration` | set test timeout (default 5s) |
@@ -206,7 +217,7 @@ reasons[msg] {
 
 ### REST API
 
-| Capability | Endpoint | OPA v0.9.2 |
+| Capability | Endpoint | OPA v0.10.0 |
 |---|---|---|
 | Policy API — list | `GET /v1/policies` | ✅ |
 | Policy API — create/update | `PUT /v1/policies/{id}` | ✅ |
@@ -220,7 +231,7 @@ reasons[msg] {
 | Data API — v0 webhook | `POST /v0/data/{path}` | ✅ |
 | Explanations (explain=full) | `?explain=full` | ✅ |
 | Query API — GET | `GET /v1/query?q=` | ✅ |
-| Query API — POST with input | `POST /v1/query` | — |
+| Query API — POST with input | `POST /v1/query` | ✅ |
 | Compile API — partial evaluation | `POST /v1/compile` | ✅ |
 | Compile API — data filtering (UCAST/SQL) | `POST /v1/compile/{path}` | — |
 | Health API | `GET /health` | — |
@@ -232,48 +243,48 @@ reasons[msg] {
 
 Every endpoint — including ones without a dedicated page — can be called from the **API Console**.
 
-## What changed in OPA v0.9.2
+## What changed in OPA v0.10.0
 
-Measured difference between OPA **v0.9.1** and **v0.9.2**:
+Measured difference between OPA **v0.9.2** and **v0.10.0**:
 
 | Change | Details |
 |---|---|
-| ➕ CLI command | `opa deps` — Analyze Rego query dependencies |
-| ➕ flags of `opa check` | `--plugin-dir` |
-| ➕ flags of `opa eval` | `--partial`, `--plugin-dir`, `--unknowns` |
-| ➕ flags of `opa fmt` | `--plugin-dir` |
-| ➕ flags of `opa parse` | `--plugin-dir` |
-| ➕ flags of `opa test` | `--plugin-dir` |
-| ➕ flags of `opa version` | `--plugin-dir` |
+| ➕ CLI command | `opa build` — Compile Rego policy queries |
+| ➕ flags of `opa eval` | `--fail` |
+| ➖ flags of `opa run` | `--insecure-addr` |
+| ➕ REST API | Query API — POST with input (`POST /v1/query`) |
 
 <details><summary><b>Upstream release note highlights</b></summary>
 
 
-**Miscellaneous Fixes**
+**Major Features**
 
-- Add option to enable http redirects
-- Add copy propagation to support rules
-- Add support for inlining negated expressions in partial evaluation
-- Add deps subcommand to analyze base and virtual document dependencies
-- Add partial evaluation support to eval subcommand
-- Add `net.cidr_overlap` built-in function (thanks @aeneasr)
-- Add `regex.template_match` built-in function (thanks @aeneasr)
-- Add external security audit information (thanks @caniszczyk)
-- Add initial support for plugin loading (thanks @vrnmthr)
-- Fix copy propagator type assertion panic
-- Fix panic in parser error detail construction
-- Fix with value rewriting for call terms
+- **Wasm compiler**. This release adds initial/experimental support for compiling Rego policies into Wasm executables. Wasm executables can be loaded and executed in compatible Wasm runtimes like V8...
+- **Data mocking**. This release adds support for replacing/mocking the `data` document using the `with` keyword. In the past, `with` only supported the `input` document. This made it tricky to test...
+- **Negation Optimization**. This release includes an optimization in partial evaluation for dealing with negated statements (`not` keyword). In the past, OPA would generate a support rule for negate...
 
-**Security Audit Fixes**
+**Fixes**
+
+- Add builtin to verify and decode JWT
+- Add GoDoc sample for using rego.Tracer
+- Add built-in function to get runtime info
+- Add support for YAML encoded input values
+- Add support for client certificates
+- Add support for non-zero exit code in eval subcommand
+- Fix == rewriting on embedded terms
+- Fix copy propagation panic in comprehensions
+- Implement regex.find_n
+
+**Miscellaneous**
 
 
-Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.9.2
+Full notes: https://github.com/open-policy-agent/opa/releases/tag/v0.10.0
 
 </details>
 
 ## Guided tour
 
-Every screenshot below was captured automatically from OPA Studio `v0.9.2` running against OPA `v0.9.2`.
+Every screenshot below was captured automatically from OPA Studio `v0.10.0` running against OPA `v0.10.0`.
 
 ### 1. Dashboard
 
@@ -430,7 +441,7 @@ Measured capabilities of every OPA release and the changes introduced by this on
 
 - The measured capability matrix of all OPA releases; select a release to see its commands, endpoints and changes.
 
-> Pages not shown: Benchmark, Exec, Bundle build, Bundle signing, Built-ins — OPA v0.9.2 does not have the corresponding CLI command, so Studio marks them *n/a*. Everything that exists in this release is covered.
+> Pages not shown: Benchmark, Exec, Bundle signing, Built-ins — OPA v0.10.0 does not have the corresponding CLI command, so Studio marks them *n/a*. Everything that exists in this release is covered.
 
 ## Connect OPA agents to Studio
 
@@ -464,7 +475,7 @@ The **Control Plane → OPA config** tab generates this file for you.
 | `OPA_STUDIO_AUTH_TOKEN` | – | Token for token auth (≥ 16 characters) |
 | `OPA_STUDIO_READ_ONLY` | `false` | Reject every mutating operation |
 | `OPA_STUDIO_CONNECTIONS` | – | JSON array (or `@file.json`) of OPA servers |
-| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.9.2 server |
+| `OPA_STUDIO_LOCAL_OPA` | `true` | Run the managed OPA v0.10.0 server |
 | `OPA_STUDIO_CONTROL_PLANE_TOKEN` | – | Bearer token agents must send to `/cp` |
 | `OPA_STUDIO_CLI_SANDBOX` | `true` | Reject absolute paths / traversal in CLI arguments |
 | `OPA_STUDIO_TLS_CERT_FILE` / `_KEY_FILE` | – | Serve HTTPS |
@@ -473,7 +484,7 @@ All options: [docs/configuration.md](docs/configuration.md) · Security hardenin
 
 ## Verification
 
-Automated checks run against OPA v0.9.2 for this release:
+Automated checks run against OPA v0.10.0 for this release:
 
 | Check | Result |
 |---|---|
@@ -490,11 +501,11 @@ The Go unit tests, UI tests and the integration test (`OPA_BIN=… go test ./tes
 ## Build from source
 
 ```bash
-git clone --branch v0.9.2 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
+git clone --branch v0.10.0 https://github.com/alasgarovnamig/OPA-Studio.git && cd OPA-Studio
 make ui build          # web UI + bin/opa-studio (OPA version stamped from ./OPA_VERSION)
-make opa               # downloads OPA v0.9.2 to bin/opa (checksum verified when published)
+make opa               # downloads OPA v0.10.0 to bin/opa (checksum verified when published)
 make run               # http://localhost:9080
-make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.9.2
+make docker            # container image ghcr.io/alasgarovnamig/opa-studio:v0.10.0
 ```
 
 Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.md](docs/development.md).
@@ -503,13 +514,13 @@ Requirements: Go 1.23+, Node.js 20+, Docker (for images). See [docs/development.
 
 | OPA Studio tag = OPA version | OPA released | Rego dialect |
 |---|---|---|
-| [v0.8.2](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.8.2) | 2018-06-26 | Classic Rego |
 | [v0.9.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.0) | 2018-07-31 | Classic Rego |
 | [v0.9.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.1) | 2018-08-16 | Classic Rego |
-| **v0.9.2** | 2018-09-24 | Classic Rego |
-| [v0.10.0](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.0) | 2018-10-25 | Classic Rego |
+| [v0.9.2](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.9.2) | 2018-09-24 | Classic Rego |
+| **v0.10.0** | 2018-10-25 | Classic Rego |
 | [v0.10.1](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.1) | 2018-10-30 | Classic Rego |
 | [v0.10.2](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.2) | 2018-12-10 | Classic Rego |
+| [v0.10.3](https://github.com/alasgarovnamig/OPA-Studio/tree/v0.10.3) | 2019-01-22 | Classic Rego |
 
 All 216 supported OPA releases: [docs/VERSIONS.md](https://github.com/alasgarovnamig/OPA-Studio/blob/main/docs/VERSIONS.md).
 
