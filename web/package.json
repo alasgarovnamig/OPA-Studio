@@ -1,0 +1,35 @@
+{
+  "name": "opa-studio-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && node -e \"require('fs').writeFileSync('dist/.gitkeep', '')\"",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "6.18.3",
+    "@codemirror/commands": "6.7.1",
+    "@codemirror/lang-json": "6.0.1",
+    "@codemirror/lang-yaml": "6.1.1",
+    "@codemirror/language": "6.10.3",
+    "@codemirror/lint": "6.8.4",
+    "@codemirror/search": "6.5.7",
+    "@codemirror/state": "6.4.1",
+    "@codemirror/view": "6.34.3",
+    "@lezer/highlight": "1.2.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.7.0",
+    "typescript": "5.6.3",
+    "vite": "6.4.4",
+    "vitest": "4.1.11"
+  }
+}
