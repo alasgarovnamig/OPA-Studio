@@ -1,11 +1,11 @@
 {
- "version": "v0.6.0",
+ "version": "v0.7.0",
  "studio": {
   "commit": "release",
-  "date": "2026-10-11T12:32:17Z",
-  "startedAt": "2026-10-11T12:32:18.234581838Z",
-  "targetOpaVersion": "v0.6.0",
-  "version": "v0.6.0"
+  "date": "2026-10-11T12:32:19Z",
+  "startedAt": "2026-10-11T12:32:19.776493672Z",
+  "targetOpaVersion": "v0.7.0",
+  "version": "v0.7.0"
  },
  "screens": [
   {
@@ -42,6 +42,11 @@
    "file": "08-query.webp",
    "title": "Query API",
    "description": "Ad-hoc Rego queries through `/v1/query` (GET and POST with input) and the default decision endpoint."
+  },
+  {
+   "file": "12-metrics.webp",
+   "title": "Prometheus metrics",
+   "description": "Parsed `/metrics` exposition with metric families, types and samples."
   },
   {
    "file": "13-bundles.webp",
