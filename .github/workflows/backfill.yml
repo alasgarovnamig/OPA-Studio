@@ -22,7 +22,7 @@ jobs:
     outputs:
       tags: ${{ steps.l.outputs.tags }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: l
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"

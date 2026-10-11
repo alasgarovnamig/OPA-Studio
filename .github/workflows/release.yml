@@ -38,7 +38,7 @@ jobs:
       prerelease: ${{ steps.m.outputs.prerelease }}
       latest: ${{ steps.m.outputs.latest }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
       - id: m
@@ -55,7 +55,7 @@ jobs:
     needs: meta
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
       - uses: actions/setup-go@v5
@@ -79,7 +79,7 @@ jobs:
       matrix:
         target: ${{ fromJSON(needs.meta.outputs.binaries) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
       - uses: actions/setup-go@v5
@@ -118,7 +118,7 @@ jobs:
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
       - uses: docker/setup-qemu-action@v3
@@ -159,7 +159,7 @@ jobs:
     needs: [meta, binaries, image]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ env.TAG }}
       - uses: actions/download-artifact@v4
