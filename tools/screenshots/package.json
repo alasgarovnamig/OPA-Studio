@@ -1,0 +1,10 @@
+{
+  "name": "opa-studio-screenshots",
+  "private": true,
+  "type": "module",
+  "description": "Captures the per-version README screenshots and runs the end-to-end UI smoke test",
+  "dependencies": {
+    "playwright": "1.64.0",
+    "sharp": "0.35.5"
+  }
+}

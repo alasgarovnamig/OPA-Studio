@@ -1,0 +1,38 @@
+# OPA Studio with its managed local OPA server plus an external OPA agent
+# that pulls bundles from, and reports decisions/status to, Studio.
+#
+#   docker compose -f deploy/docker-compose.yml up
+services:
+  studio:
+    image: ghcr.io/alasgarovnamig/opa-studio:@OPA_VERSION@
+    ports:
+      - "9080:9080"
+    environment:
+      OPA_STUDIO_PUBLIC_URL: http://studio:9080
+      OPA_STUDIO_AUTH_MODE: basic
+      OPA_STUDIO_BASIC_USER: admin
+      OPA_STUDIO_BASIC_PASSWORD: ${OPA_STUDIO_BASIC_PASSWORD:?set OPA_STUDIO_BASIC_PASSWORD}
+      OPA_STUDIO_CONTROL_PLANE_TOKEN: ${OPA_STUDIO_CONTROL_PLANE_TOKEN:-change-me}
+      OPA_STUDIO_CONNECTIONS: '[{"id":"agent","name":"OPA agent","url":"http://opa:8181"}]'
+    volumes:
+      - studio-data:/var/lib/opa-studio
+    restart: unless-stopped
+
+  opa:
+    image: openpolicyagent/opa:@OPA_IMAGE_TAG@
+    command:
+      - run
+      - --server
+      - --addr=0.0.0.0:8181
+      - --set=services.studio.url=http://studio:9080/cp
+      - --set=services.studio.credentials.bearer.token=${OPA_STUDIO_CONTROL_PLANE_TOKEN:-change-me}
+      - --set=bundles.app.service=studio
+      - --set=bundles.app.resource=bundles/app
+      - --set=decision_logs.service=studio
+      - --set=status.service=studio
+    depends_on:
+      - studio
+    restart: unless-stopped
+
+volumes:
+  studio-data:
